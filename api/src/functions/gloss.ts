@@ -19,36 +19,22 @@ interface GlossResponse {
   sentenceTranslation: string;
 }
 
-const SYSTEM_PROMPT = `You are a Spanish language tutor helping an intermediate learner read a Spanish novel.
-When given a selected word or phrase and its surrounding sentence, return a JSON object with these exact fields:
-- selected: the exact text selected
-- dictionaryForm: the lemma/infinitive/base form
-- partOfSpeech: noun, verb, adjective, adverb, preposition, conjunction, pronoun, article, interjection, or phrase
-- grammar: relevant grammatical info (tense, mood, person, gender, number). For multi-word selections, describe the phrase structure.
-- ipa: IPA pronunciation of the selected text
-- translation: English translation of the word/phrase in isolation
-- contextualMeaning: what it means specifically in this sentence context (1-2 sentences, in English)
-- fullSentence: the full Spanish sentence for reference
-- sentenceTranslation: natural English translation of the full sentence
+const SYSTEM_PROMPT = `You are a friendly Spanish language tutor. A student reading a Spanish novel will ask you about words and phrases they encounter. Help them understand the meaning, grammar, and pronunciation.
 
-Return ONLY valid JSON, no markdown fences or extra text.`;
+When a student asks about a word or phrase, provide your answer as a JSON object with these fields: "selected" (the word they asked about), "dictionaryForm" (base/infinitive form), "partOfSpeech", "grammar" (tense, mood, etc.), "ipa" (IPA pronunciation), "translation" (English meaning), "contextualMeaning" (what it means in context, 1-2 sentences), "fullSentence" (the Spanish sentence), "sentenceTranslation" (English translation of that sentence).`;
 
 async function callAzureOpenAI(body: GlossRequest): Promise<GlossResponse> {
   const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
   const apiKey = process.env.AZURE_OPENAI_API_KEY;
-  const deployment = process.env.AZURE_OPENAI_DEPLOYMENT || "gpt-4o-mini";
+  const deployment = process.env.AZURE_OPENAI_DEPLOYMENT || "gpt-4.1-mini";
 
   if (!endpoint || !apiKey) {
     throw new Error("Azure OpenAI credentials not configured");
   }
 
-  const url = `${endpoint}/openai/deployments/${deployment}/chat/completions?api-version=2024-08-01-preview`;
+  const url = `${endpoint}/openai/deployments/${deployment}/chat/completions?api-version=2025-01-01-preview`;
 
-  const userPrompt = `The reader has selected: "${body.selectedText}"
-From this sentence: "${body.sentence}"
-From the book: "${body.bookTitle}" by ${body.author}
-
-Return the JSON gloss object.`;
+  const userPrompt = `I'm reading "${body.bookTitle}" by ${body.author} and I came across "${body.selectedText}" in this sentence: "${body.sentence}". Can you help me understand it?`;
 
   const response = await fetch(url, {
     method: "POST",
@@ -63,7 +49,6 @@ Return the JSON gloss object.`;
       ],
       temperature: 0.3,
       max_tokens: 500,
-      response_format: { type: "json_object" },
     }),
   });
 
@@ -73,10 +58,13 @@ Return the JSON gloss object.`;
   }
 
   const data = await response.json();
-  const content = data.choices?.[0]?.message?.content;
+  let content = data.choices?.[0]?.message?.content;
   if (!content) {
     throw new Error("No content in Azure OpenAI response");
   }
+
+  // Strip markdown fences if present
+  content = content.replace(/^```json\s*/i, '').replace(/\s*```$/i, '').trim();
 
   return JSON.parse(content) as GlossResponse;
 }
