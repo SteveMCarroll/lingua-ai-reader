@@ -8,31 +8,42 @@ function mockGlossPlugin(): Plugin {
     name: 'mock-gloss-api',
     configureServer(server) {
       server.middlewares.use('/api/gloss', async (req, res) => {
-        if (req.method !== 'POST') {
-          res.statusCode = 405;
-          res.end(JSON.stringify({ error: 'Method not allowed' }));
-          return;
+        try {
+          if (req.method !== 'POST') {
+            res.statusCode = 405;
+            res.end(JSON.stringify({ error: 'Method not allowed' }));
+            return;
+          }
+
+          const chunks: Buffer[] = [];
+          for await (const chunk of req) chunks.push(chunk as Buffer);
+          const raw = Buffer.concat(chunks).toString();
+          if (!raw) {
+            res.statusCode = 400;
+            res.end(JSON.stringify({ error: 'Empty body' }));
+            return;
+          }
+          const body = JSON.parse(raw);
+
+          // Return a realistic mock response
+          const mock = {
+            selected: body.selectedText || '',
+            dictionaryForm: body.selectedText || '',
+            partOfSpeech: 'word',
+            grammar: '(mock — connect Azure OpenAI for real glosses)',
+            ipa: '/…/',
+            translation: `[translation of "${body.selectedText}"]`,
+            contextualMeaning: `This is a mock response. To get real AI-powered contextual translations, configure AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_API_KEY and run the Azure Functions backend on port 7071.`,
+            fullSentence: body.sentence || '',
+            sentenceTranslation: '[sentence translation]',
+          };
+
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify(mock));
+        } catch (e) {
+          res.statusCode = 500;
+          res.end(JSON.stringify({ error: String(e) }));
         }
-
-        const chunks: Buffer[] = [];
-        for await (const chunk of req) chunks.push(chunk as Buffer);
-        const body = JSON.parse(Buffer.concat(chunks).toString());
-
-        // Return a realistic mock response
-        const mock = {
-          selected: body.selectedText || '',
-          dictionaryForm: body.selectedText || '',
-          partOfSpeech: 'word',
-          grammar: '(mock — connect Azure OpenAI for real glosses)',
-          ipa: '/…/',
-          translation: `[translation of "${body.selectedText}"]`,
-          contextualMeaning: `This is a mock response. To get real AI-powered contextual translations, configure AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_API_KEY and run the Azure Functions backend on port 7071.`,
-          fullSentence: body.sentence || '',
-          sentenceTranslation: '[sentence translation]',
-        };
-
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(mock));
       });
     },
   };

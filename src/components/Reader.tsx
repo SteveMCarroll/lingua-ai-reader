@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { BookMeta } from "../data/books";
 import { BookContent } from "./BookContent";
 import { ChapterNav } from "./ChapterNav";
@@ -44,16 +44,18 @@ export function Reader({ book, onBack }: Props) {
 
   // When selection changes, request gloss
   const prevSelRef = useRef<string>("");
-  if (selection && selection.text !== prevSelRef.current) {
-    prevSelRef.current = selection.text;
-    requestGloss({
-      selectedText: selection.text,
-      sentence: selection.sentence,
-      bookTitle: book.title,
-      author: book.author,
-      bookId: book.id,
-    });
-  }
+  useEffect(() => {
+    if (selection && selection.text && selection.text !== prevSelRef.current) {
+      prevSelRef.current = selection.text;
+      requestGloss({
+        selectedText: selection.text,
+        sentence: selection.sentence,
+        bookTitle: book.title,
+        author: book.author,
+        bookId: book.id,
+      });
+    }
+  }, [selection, book, requestGloss]);
 
   const handleCloseGloss = useCallback(() => {
     clearSelection();
