@@ -72,7 +72,7 @@ function glossApiPlugin(): Plugin {
               return;
             }
 
-            const data = await apiRes.json();
+            const data = await apiRes.json() as any;
             let content = data.choices?.[0]?.message?.content;
             if (!content) {
               res.statusCode = 500;

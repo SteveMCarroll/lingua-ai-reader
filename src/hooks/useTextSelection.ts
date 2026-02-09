@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export interface TextSelection {
   text: string;
@@ -14,8 +14,7 @@ export interface TextSelection {
  */
 export function useTextSelection(containerRef: React.RefObject<HTMLElement | null>) {
   const [selection, setSelection] = useState<TextSelection | null>(null);
-  const tapTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
-  const lastTapRef = useRef<{ x: number; y: number; time: number } | null>(null);
+
 
   // Clear selection
   const clearSelection = useCallback(() => {

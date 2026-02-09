@@ -44,7 +44,7 @@ export function Reader({ bookMeta, onBack }: Props) {
   const [chapterIndex, setChapterIndex] = useState(() => {
     return getLastChapter(bookMeta.id);
   });
-  const [showPreface, setShowPreface] = useState(false);
+  const [showPreface, _setShowPreface] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
