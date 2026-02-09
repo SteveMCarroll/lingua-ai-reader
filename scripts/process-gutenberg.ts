@@ -1,33 +1,46 @@
 /**
- * Downloads a Project Gutenberg book (plain text UTF-8) and splits it into
- * chapter JSON files for the Lingua AI Reader.
+ * Gutenberg book processing pipeline.
+ *
+ * Shared steps (download, strip boilerplate) are here.
+ * Per-book transforms live in scripts/pipelines/{book-id}.ts.
  *
  * Usage:
- *   npx tsx scripts/process-gutenberg.ts <gutenberg-id> <book-slug>
+ *   npx tsx scripts/process-gutenberg.ts [book-id]
  *
- * Example:
- *   npx tsx scripts/process-gutenberg.ts 29506 sombrero-tres-picos
+ * Omit book-id to process all books. Each pipeline script exports a
+ * transform(text: string) => BookData function.
  */
 
 import * as fs from "fs";
 import * as path from "path";
 
-const GUTENBERG_MIRROR = "https://www.gutenberg.org/cache/epub";
-
-interface Chapter {
-  index: number;
+export interface BookChapter {
   title: string;
+  isPreface?: boolean;
   paragraphs: string[];
 }
 
-interface BookData {
+export interface BookData {
   id: string;
-  gutenbergId: number;
-  chapters: Chapter[];
+  title: string;
+  author: string;
+  chapters: BookChapter[];
 }
 
-function stripGutenbergBoilerplate(text: string): string {
-  // Remove Project Gutenberg header
+export interface BookPipeline {
+  id: string;
+  title: string;
+  author: string;
+  description: string;
+  gutenbergId: number;
+  transform: (text: string) => BookData;
+}
+
+const GUTENBERG_MIRROR = "https://www.gutenberg.org/cache/epub";
+
+// ─── Shared utilities ──────────────────────────────────────────────
+
+export function stripGutenbergBoilerplate(text: string): string {
   const startMarkers = [
     "*** START OF THE PROJECT GUTENBERG EBOOK",
     "*** START OF THIS PROJECT GUTENBERG EBOOK",
@@ -62,104 +75,52 @@ function stripGutenbergBoilerplate(text: string): string {
   return text.slice(startIdx, endIdx).trim();
 }
 
-function splitIntoChapters(text: string): Chapter[] {
-  // Common Spanish chapter patterns
-  const chapterPatterns = [
-    /^(CAPÍTULO|CAPITULO|CAP\.)\s+([IVXLCDM\d]+)/im,
-    /^(PARTE|LIBRO)\s+([IVXLCDM\d]+)/im,
-  ];
+/** Split text into paragraphs (blank-line separated), joining wrapped lines. */
+export function textToParagraphs(text: string): string[] {
+  const paragraphs: string[] = [];
+  let current = "";
 
-  // Split on lines that match chapter headings
-  const lines = text.split("\n");
-  const chapters: Chapter[] = [];
-  let currentTitle = "Introducción";
-  let currentParagraphs: string[] = [];
-  let currentPara = "";
-
-  function flushParagraph() {
-    const trimmed = currentPara.trim();
-    if (trimmed) {
-      currentParagraphs.push(trimmed);
-    }
-    currentPara = "";
-  }
-
-  function flushChapter() {
-    flushParagraph();
-    if (currentParagraphs.length > 0) {
-      chapters.push({
-        index: chapters.length,
-        title: currentTitle,
-        paragraphs: currentParagraphs,
-      });
-      currentParagraphs = [];
-    }
-  }
-
-  for (const line of lines) {
-    const trimmedLine = line.trim();
-
-    // Check if this line is a chapter heading
-    let isChapterHeading = false;
-    for (const pattern of chapterPatterns) {
-      if (pattern.test(trimmedLine)) {
-        isChapterHeading = true;
-        break;
+  for (const line of text.split("\n")) {
+    const trimmed = line.trim();
+    if (trimmed === "") {
+      if (current) {
+        paragraphs.push(current);
+        current = "";
       }
-    }
-
-    // Also detect all-caps short lines as section breaks
-    if (
-      !isChapterHeading &&
-      trimmedLine.length > 2 &&
-      trimmedLine.length < 80 &&
-      trimmedLine === trimmedLine.toUpperCase() &&
-      /^[A-ZÁÉÍÓÚÜÑ\s\.\-,IVXLCDM\d]+$/.test(trimmedLine)
-    ) {
-      isChapterHeading = true;
-    }
-
-    if (isChapterHeading) {
-      flushChapter();
-      currentTitle = trimmedLine;
-    } else if (trimmedLine === "") {
-      flushParagraph();
     } else {
-      currentPara += (currentPara ? " " : "") + trimmedLine;
+      current += (current ? " " : "") + trimmed;
     }
   }
-
-  flushChapter();
-
-  // If no chapters were detected, make the whole text one chapter
-  if (chapters.length === 0) {
-    const paragraphs = text
-      .split(/\n\s*\n/)
-      .map((p) => p.trim().replace(/\n/g, " "))
-      .filter((p) => p.length > 0);
-    chapters.push({
-      index: 0,
-      title: "Texto completo",
-      paragraphs,
-    });
-  }
-
-  return chapters;
+  if (current) paragraphs.push(current);
+  return paragraphs;
 }
 
-async function downloadBook(gutenbergId: number): Promise<string> {
-  // Try UTF-8 plain text first
+// ─── Pipeline runner ───────────────────────────────────────────────
+
+async function downloadBook(gutenbergId: number, bookId: string): Promise<string> {
+  const rawDir = path.join(process.cwd(), "scripts", "raw");
+  const cachedFile = path.join(rawDir, `${bookId}.txt`);
+
+  // Use cached download if available
+  if (fs.existsSync(cachedFile)) {
+    console.log(`  Using cached ${cachedFile}`);
+    return fs.readFileSync(cachedFile, "utf-8");
+  }
+
   const urls = [
     `${GUTENBERG_MIRROR}/${gutenbergId}/pg${gutenbergId}.txt`,
     `${GUTENBERG_MIRROR}/${gutenbergId}/pg${gutenbergId}.txt.utf8`,
   ];
 
   for (const url of urls) {
-    console.log(`Trying ${url}...`);
+    console.log(`  Trying ${url}...`);
     const response = await fetch(url);
     if (response.ok) {
-      console.log(`Downloaded from ${url}`);
-      return await response.text();
+      const text = await response.text();
+      fs.mkdirSync(rawDir, { recursive: true });
+      fs.writeFileSync(cachedFile, text, "utf-8");
+      console.log(`  Downloaded and cached`);
+      return text;
     }
   }
 
@@ -167,54 +128,54 @@ async function downloadBook(gutenbergId: number): Promise<string> {
 }
 
 async function main() {
-  const gutenbergId = parseInt(process.argv[2], 10);
-  const slug = process.argv[3];
+  const specificBook = process.argv[2];
 
-  if (!gutenbergId || !slug) {
-    console.error("Usage: npx tsx scripts/process-gutenberg.ts <gutenberg-id> <book-slug>");
+  // Dynamically import all pipeline files
+  const pipelinesDir = path.join(process.cwd(), "scripts", "pipelines");
+  const pipelineFiles = fs.readdirSync(pipelinesDir).filter((f) => f.endsWith(".ts"));
+
+  const pipelines: BookPipeline[] = [];
+  for (const file of pipelineFiles) {
+    const mod = await import(`./pipelines/${file}`);
+    pipelines.push(mod.default as BookPipeline);
+  }
+
+  const toProcess = specificBook
+    ? pipelines.filter((p) => p.id === specificBook)
+    : pipelines;
+
+  if (toProcess.length === 0) {
+    console.error(`Unknown book: ${specificBook}`);
+    console.error(`Available: ${pipelines.map((p) => p.id).join(", ")}`);
     process.exit(1);
   }
 
-  console.log(`Processing Gutenberg #${gutenbergId} as "${slug}"...`);
-
-  const rawText = await downloadBook(gutenbergId);
-  const cleanText = stripGutenbergBoilerplate(rawText);
-  const chapters = splitIntoChapters(cleanText);
-
-  console.log(`Found ${chapters.length} chapters`);
-
-  const outDir = path.join(process.cwd(), "src", "data", "content", slug);
+  const outDir = path.join(process.cwd(), "src", "data", "content");
   fs.mkdirSync(outDir, { recursive: true });
 
-  // Write individual chapter files
-  for (const chapter of chapters) {
-    const filename = `chapter-${String(chapter.index).padStart(2, "0")}.json`;
-    fs.writeFileSync(
-      path.join(outDir, filename),
-      JSON.stringify(chapter, null, 2),
-      "utf-8"
-    );
-    console.log(`  ${filename}: "${chapter.title}" (${chapter.paragraphs.length} paragraphs)`);
+  for (const pipeline of toProcess) {
+    console.log(`\n📖 ${pipeline.title} (Gutenberg #${pipeline.gutenbergId})`);
+
+    const rawText = await downloadBook(pipeline.gutenbergId, pipeline.id);
+    const stripped = stripGutenbergBoilerplate(rawText);
+    const book = pipeline.transform(stripped);
+
+    const mainChapters = book.chapters.filter((c) => !c.isPreface);
+    const prefaceChapters = book.chapters.filter((c) => c.isPreface);
+    console.log(`  ${book.chapters.length} sections (${mainChapters.length} chapters, ${prefaceChapters.length} preface)`);
+
+    for (const ch of book.chapters.slice(0, 3)) {
+      const tag = ch.isPreface ? " [preface]" : "";
+      console.log(`    "${ch.title}" — ${ch.paragraphs.length} paragraphs${tag}`);
+    }
+    if (book.chapters.length > 3) console.log(`    ... and ${book.chapters.length - 3} more`);
+
+    const outFile = path.join(outDir, `${pipeline.id}.json`);
+    fs.writeFileSync(outFile, JSON.stringify(book, null, 2), "utf-8");
+    console.log(`  ✅ ${outFile}`);
   }
 
-  // Write book metadata
-  const bookData: BookData = {
-    id: slug,
-    gutenbergId,
-    chapters: chapters.map((c) => ({
-      index: c.index,
-      title: c.title,
-      paragraphs: [], // metadata only
-    })),
-  };
-
-  fs.writeFileSync(
-    path.join(outDir, "metadata.json"),
-    JSON.stringify(bookData, null, 2),
-    "utf-8"
-  );
-
-  console.log(`\nDone! Output in ${outDir}`);
+  console.log("\nDone!");
 }
 
 main().catch((err) => {

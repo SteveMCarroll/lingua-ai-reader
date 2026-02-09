@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import type { BookMeta } from "../data/books";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { BookMeta, BookData, BookChapter } from "../data/books";
+import { loadBook } from "../data/books";
 import { BookContent } from "./BookContent";
 import { ChapterNav } from "./ChapterNav";
 import { GlossPopup } from "./GlossPopup";
@@ -9,12 +10,24 @@ import { useGloss } from "../hooks/useGloss";
 import { useReadingPosition } from "../hooks/useReadingPosition";
 
 interface Props {
-  book: BookMeta;
+  bookMeta: BookMeta;
   onBack: () => void;
 }
 
-export function Reader({ book, onBack }: Props) {
+export function Reader({ bookMeta, onBack }: Props) {
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Book loading
+  const [bookData, setBookData] = useState<BookData | null>(null);
+  const [bookError, setBookError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setBookData(null);
+    setBookError(null);
+    loadBook(bookMeta.id)
+      .then(setBookData)
+      .catch(() => setBookError("Could not load book"));
+  }, [bookMeta.id]);
 
   // Settings
   const [fontSize, setFontSize] = useState(() => {
@@ -27,20 +40,41 @@ export function Reader({ book, onBack }: Props) {
   });
 
   // Chapter navigation
-  const { getLastChapter } = useReadingPosition(book.id, 0);
+  const { getLastChapter } = useReadingPosition(bookMeta.id, 0);
   const [chapterIndex, setChapterIndex] = useState(() => {
-    const last = getLastChapter(book.id);
-    return last || book.chapters[0]?.index || 0;
+    return getLastChapter(bookMeta.id);
   });
+  const [showPreface, setShowPreface] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+
+  // Filtered chapters (skip preface by default)
+  const displayChapters = useMemo(() => {
+    if (!bookData) return [];
+    return bookData.chapters
+      .map((ch, i) => ({ ...ch, originalIndex: i }))
+      .filter((ch) => showPreface || !ch.isPreface);
+  }, [bookData, showPreface]);
+
+  // Current position within displayChapters
+  const displayIdx = useMemo(
+    () => displayChapters.findIndex((ch) => ch.originalIndex === chapterIndex),
+    [displayChapters, chapterIndex]
+  );
+
+  // If current chapter is hidden (preface filtered out), jump to first visible
+  useEffect(() => {
+    if (displayChapters.length > 0 && displayIdx === -1) {
+      setChapterIndex(displayChapters[0].originalIndex);
+    }
+  }, [displayChapters, displayIdx]);
 
   // Text selection + glossing
   const { selection, clearSelection } = useTextSelection(contentRef);
   const { gloss, loading, error, requestGloss, clearGloss } = useGloss();
 
   // Reading position tracking
-  useReadingPosition(book.id, chapterIndex);
+  useReadingPosition(bookMeta.id, chapterIndex);
 
   // When selection changes, request gloss
   const prevSelRef = useRef<string>("");
@@ -50,12 +84,12 @@ export function Reader({ book, onBack }: Props) {
       requestGloss({
         selectedText: selection.text,
         sentence: selection.sentence,
-        bookTitle: book.title,
-        author: book.author,
-        bookId: book.id,
+        bookTitle: bookMeta.title,
+        author: bookMeta.author,
+        bookId: bookMeta.id,
       });
     }
-  }, [selection, book, requestGloss]);
+  }, [selection, bookMeta, requestGloss]);
 
   const handleCloseGloss = useCallback(() => {
     clearSelection();
@@ -77,10 +111,30 @@ export function Reader({ book, onBack }: Props) {
   }, []);
 
   // Chapter navigation helpers
-  const currentChapterIdx = book.chapters.findIndex((c) => c.index === chapterIndex);
-  const prevChapter = currentChapterIdx > 0 ? book.chapters[currentChapterIdx - 1] : null;
+  const prevChapter = displayIdx > 0 ? displayChapters[displayIdx - 1] : null;
   const nextChapter =
-    currentChapterIdx < book.chapters.length - 1 ? book.chapters[currentChapterIdx + 1] : null;
+    displayIdx >= 0 && displayIdx < displayChapters.length - 1
+      ? displayChapters[displayIdx + 1]
+      : null;
+
+  const currentChapter: BookChapter | undefined = bookData?.chapters[chapterIndex];
+
+  // Loading state
+  if (!bookData) {
+    return (
+      <div className={isDark ? "dark" : ""}>
+        <div className="min-h-dvh bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+          {bookError ? (
+            <div className="py-12 text-center text-sm text-red-500">{bookError}</div>
+          ) : (
+            <div className="flex justify-center py-12">
+              <div className="h-6 w-6 animate-spin rounded-full border-2 border-stone-300 border-t-blue-500" />
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={isDark ? "dark" : ""}>
@@ -106,7 +160,7 @@ export function Reader({ book, onBack }: Props) {
           </div>
 
           <h1 className="truncate px-2 text-sm font-medium text-stone-600 dark:text-stone-400">
-            {book.title}
+            {bookMeta.title}
           </h1>
 
           <button
@@ -127,7 +181,7 @@ export function Reader({ book, onBack }: Props) {
 
         {/* Chapter navigation drawer */}
         <ChapterNav
-          book={book}
+          chapters={bookData.chapters}
           currentChapter={chapterIndex}
           isOpen={navOpen}
           onClose={() => setNavOpen(false)}
@@ -146,14 +200,16 @@ export function Reader({ book, onBack }: Props) {
 
         {/* Book content */}
         <div ref={contentRef}>
-          <BookContent bookId={book.id} chapterIndex={chapterIndex} fontSize={fontSize} />
+          {currentChapter && (
+            <BookContent chapter={currentChapter} fontSize={fontSize} />
+          )}
         </div>
 
         {/* Prev / Next chapter buttons */}
         <div className="flex justify-between border-t border-stone-200 px-4 py-4 dark:border-stone-800">
           {prevChapter ? (
             <button
-              onClick={() => setChapterIndex(prevChapter.index)}
+              onClick={() => setChapterIndex(prevChapter.originalIndex)}
               className="rounded-lg bg-stone-100 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700"
             >
               ← Anterior
@@ -163,7 +219,7 @@ export function Reader({ book, onBack }: Props) {
           )}
           {nextChapter ? (
             <button
-              onClick={() => setChapterIndex(nextChapter.index)}
+              onClick={() => setChapterIndex(nextChapter.originalIndex)}
               className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600"
             >
               Siguiente →

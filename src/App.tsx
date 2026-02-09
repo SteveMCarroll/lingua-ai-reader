@@ -7,7 +7,7 @@ function App() {
   const [selectedBook, setSelectedBook] = useState<BookMeta | null>(null);
 
   if (selectedBook) {
-    return <Reader book={selectedBook} onBack={() => setSelectedBook(null)} />;
+    return <Reader bookMeta={selectedBook} onBack={() => setSelectedBook(null)} />;
   }
 
   return (

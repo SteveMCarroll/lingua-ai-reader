@@ -24,9 +24,7 @@ export function BookSelector({ onSelectBook }: Props) {
             <p className="mt-2 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
               {book.description}
             </p>
-            <p className="mt-2 text-xs text-stone-400">
-              {book.chapters.length} capítulos
-            </p>
+
           </button>
         ))}
       </div>

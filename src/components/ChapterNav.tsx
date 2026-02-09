@@ -1,14 +1,21 @@
-import type { BookMeta } from "../data/books";
+import { useState } from "react";
+import type { BookChapter } from "../data/books";
 
 interface Props {
-  book: BookMeta;
+  chapters: BookChapter[];
   currentChapter: number;
   isOpen: boolean;
   onClose: () => void;
   onSelectChapter: (chapterIndex: number) => void;
 }
 
-export function ChapterNav({ book, currentChapter, isOpen, onClose, onSelectChapter }: Props) {
+export function ChapterNav({ chapters, currentChapter, isOpen, onClose, onSelectChapter }: Props) {
+  const [showPreface, setShowPreface] = useState(false);
+
+  const visibleChapters = chapters
+    .map((ch, i) => ({ ...ch, originalIndex: i }))
+    .filter((ch) => showPreface || !ch.isPreface);
+
   return (
     <>
       {/* Backdrop */}
@@ -37,16 +44,28 @@ export function ChapterNav({ book, currentChapter, isOpen, onClose, onSelectChap
           </button>
         </div>
 
+        {chapters.some((ch) => ch.isPreface) && (
+          <label className="flex items-center gap-2 border-b border-stone-200 px-4 py-2 text-xs text-stone-500 dark:border-stone-700 dark:text-stone-400">
+            <input
+              type="checkbox"
+              checked={showPreface}
+              onChange={(e) => setShowPreface(e.target.checked)}
+              className="rounded"
+            />
+            Mostrar prefacio
+          </label>
+        )}
+
         <div className="flex-1 overflow-y-auto p-2">
-          {book.chapters.map((ch) => (
+          {visibleChapters.map((ch) => (
             <button
-              key={ch.index}
+              key={ch.originalIndex}
               onClick={() => {
-                onSelectChapter(ch.index);
+                onSelectChapter(ch.originalIndex);
                 onClose();
               }}
               className={`w-full rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                ch.index === currentChapter
+                ch.originalIndex === currentChapter
                   ? "bg-blue-50 font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-300"
                   : "text-stone-700 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800"
               }`}
