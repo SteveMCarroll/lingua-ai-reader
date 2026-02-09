@@ -14,7 +14,15 @@ export function BookContent({ chapter, fontSize }: Props) {
       <h2 className="mb-6 text-center text-xl font-bold">{chapter.title}</h2>
       {chapter.paragraphs.map((para, i) => (
         <p key={i} data-paragraph={i} className="mb-4 text-justify">
-          {para}
+          {para.split(/(\s+)/).map((segment, j) =>
+            /^\s+$/.test(segment) ? (
+              segment
+            ) : (
+              <span key={j} data-word="">
+                {segment}
+              </span>
+            )
+          )}
         </p>
       ))}
     </article>
