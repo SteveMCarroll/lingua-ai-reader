@@ -10,11 +10,10 @@ export interface TextSelection {
  * Hook for text selection on both mobile (touch) and desktop (mouse).
  * - Tap/click a word: selects that word
  * - Native selection (long-press + drag / click-drag): selects phrase
- * Extracts the surrounding sentence for context.
  *
- * Safari/iOS compatibility: uses caretRangeAtPoint (WebKit-native) as
- * primary, with caretPositionFromPoint fallback. Listens to both click
- * and touchend for reliable tap detection across all browsers.
+ * iOS Safari fix: caretRangeAtPoint is called at touchstart time (before
+ * Safari's gesture recognizer intercepts). The resolved word is stored
+ * and applied on touchend if the gesture was a quick tap.
  */
 export function useTextSelection(containerRef: React.RefObject<HTMLElement | null>) {
   const [selection, setSelection] = useState<TextSelection | null>(null);
@@ -24,7 +23,6 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
     window.getSelection()?.removeAllRanges();
   }, []);
 
-  // Extract the full sentence around a text node + offset
   function extractSentence(node: Node, offset: number): string {
     const textContent = node.textContent || "";
     let el = node.parentElement;
@@ -58,7 +56,6 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
 
     let start = offset;
     let end = offset;
-
     while (start > 0 && /\S/.test(text[start - 1])) start--;
     while (end < text.length && /\S/.test(text[end])) end++;
 
@@ -75,9 +72,6 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
     return { word, range };
   }
 
-  // Resolve text node + offset at a screen coordinate.
-  // Prefer caretRangeAtPoint (Safari/WebKit native, most reliable on iOS)
-  // then fall back to caretPositionFromPoint (Firefox/Chrome standard).
   function getCaretAt(x: number, y: number): { node: Text; offset: number } | null {
     if (typeof (document as any).caretRangeAtPoint === "function") {
       const range = (document as any).caretRangeAtPoint(x, y) as Range | null;
@@ -94,16 +88,14 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
     return null;
   }
 
-  // Core: given screen coords, select the word and fire state update
-  const selectWordAt = useCallback(
-    (x: number, y: number, container: HTMLElement) => {
-      const caret = getCaretAt(x, y);
-      if (!caret || !container.contains(caret.node)) return;
-
-      const result = getWordAtPoint(caret.node, caret.offset);
+  // Resolve word info from a caret position and apply selection
+  const applyWordSelection = useCallback(
+    (node: Text, offset: number, container: HTMLElement) => {
+      if (!container.contains(node)) return;
+      const result = getWordAtPoint(node, offset);
       if (!result) return;
 
-      const sentence = extractSentence(caret.node, caret.offset);
+      const sentence = extractSentence(node, offset);
       const rect = result.range.getBoundingClientRect();
 
       const sel = window.getSelection();
@@ -148,45 +140,62 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
     document.addEventListener("selectionchange", onSelectionChange);
 
     // --- Tap-to-select-word ---
-    // iOS Safari: touchstart coords are always reliable; touchend/click
-    // coords can be wrong or events delayed. Track touchstart position
-    // and use it on touchend if the gesture was a quick, small-movement tap.
-    let touchStart: { x: number; y: number; time: number } | null = null;
+    // iOS Safari: resolve the caret at touchstart (before Safari's gesture
+    // recognizer takes over), store the result, apply on touchend if quick tap.
+    let pendingTap: {
+      node: Text;
+      offset: number;
+      x: number;
+      y: number;
+      time: number;
+    } | null = null;
     let lastTapTime = 0;
 
-    function fireTap(x: number, y: number) {
+    function onTouchStart(e: TouchEvent) {
+      if (e.touches.length !== 1) { pendingTap = null; return; }
+      const t = e.touches[0];
+      // Resolve caret NOW, before iOS intercepts
+      const caret = getCaretAt(t.clientX, t.clientY);
+      if (caret) {
+        pendingTap = { ...caret, x: t.clientX, y: t.clientY, time: Date.now() };
+      } else {
+        pendingTap = null;
+      }
+    }
+
+    function onTouchEnd(e: TouchEvent) {
+      if (!pendingTap || e.changedTouches.length !== 1) { pendingTap = null; return; }
+      const t = e.changedTouches[0];
+      const dx = Math.abs(t.clientX - pendingTap.x);
+      const dy = Math.abs(t.clientY - pendingTap.y);
+      const dt = Date.now() - pendingTap.time;
+
+      if (dt < 500 && dx < 10 && dy < 10) {
+        const now = Date.now();
+        if (now - lastTapTime > 400) { // dedup
+          lastTapTime = now;
+          const sel = window.getSelection();
+          if (!sel || sel.isCollapsed || sel.toString().trim().length <= 1) {
+            applyWordSelection(pendingTap.node, pendingTap.offset, container!);
+          }
+        }
+      }
+      pendingTap = null;
+    }
+
+    // Click handler for mouse / non-touch desktop
+    function onClick(e: MouseEvent) {
       const now = Date.now();
-      if (now - lastTapTime < 400) return; // dedup touch+click
+      if (now - lastTapTime < 400) return;
       lastTapTime = now;
 
       const sel = window.getSelection();
       if (sel && !sel.isCollapsed && sel.toString().trim().length > 1) return;
 
-      selectWordAt(x, y, container!);
-    }
-
-    function onTouchStart(e: TouchEvent) {
-      if (e.touches.length !== 1) { touchStart = null; return; }
-      const t = e.touches[0];
-      touchStart = { x: t.clientX, y: t.clientY, time: Date.now() };
-    }
-
-    function onTouchEnd(e: TouchEvent) {
-      if (!touchStart || e.changedTouches.length !== 1) { touchStart = null; return; }
-      const t = e.changedTouches[0];
-      const dx = Math.abs(t.clientX - touchStart.x);
-      const dy = Math.abs(t.clientY - touchStart.y);
-      const dt = Date.now() - touchStart.time;
-      // Quick tap: < 500ms, < 10px movement
-      if (dt < 500 && dx < 10 && dy < 10) {
-        fireTap(touchStart.x, touchStart.y);
+      const caret = getCaretAt(e.clientX, e.clientY);
+      if (caret) {
+        applyWordSelection(caret.node, caret.offset, container!);
       }
-      touchStart = null;
-    }
-
-    // Click handler for mouse / non-touch devices
-    function onClick(e: MouseEvent) {
-      fireTap(e.clientX, e.clientY);
     }
 
     container.addEventListener("touchstart", onTouchStart, { passive: true });
@@ -200,7 +209,7 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
       container.removeEventListener("click", onClick);
       clearTimeout(selTimeout);
     };
-  }, [containerRef, selectWordAt]);
+  }, [containerRef, applyWordSelection]);
 
   return { selection, clearSelection };
 }
