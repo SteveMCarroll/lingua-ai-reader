@@ -119,22 +119,8 @@ export function Reader({ bookMeta, onBack }: Props) {
 
   const currentChapter: BookChapter | undefined = bookData?.chapters[chapterIndex];
 
-  // Loading state
-  if (!bookData) {
-    return (
-      <div className={isDark ? "dark" : ""}>
-        <div className="min-h-dvh bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
-          {bookError ? (
-            <div className="py-12 text-center text-sm text-red-500">{bookError}</div>
-          ) : (
-            <div className="flex justify-center py-12">
-              <div className="h-6 w-6 animate-spin rounded-full border-2 border-stone-300 border-t-blue-500" />
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
+  // Loading state — still render full layout so contentRef stays mounted
+  const isLoading = !bookData;
 
   return (
     <div className={isDark ? "dark" : ""}>
@@ -146,6 +132,7 @@ export function Reader({ bookMeta, onBack }: Props) {
               onClick={() => setNavOpen(true)}
               className="rounded-lg p-1.5 text-stone-600 hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-800"
               aria-label="Open chapters"
+              disabled={isLoading}
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -180,13 +167,15 @@ export function Reader({ bookMeta, onBack }: Props) {
         </header>
 
         {/* Chapter navigation drawer */}
-        <ChapterNav
-          chapters={bookData.chapters}
-          currentChapter={chapterIndex}
-          isOpen={navOpen}
-          onClose={() => setNavOpen(false)}
-          onSelectChapter={setChapterIndex}
-        />
+        {bookData && (
+          <ChapterNav
+            chapters={bookData.chapters}
+            currentChapter={chapterIndex}
+            isOpen={navOpen}
+            onClose={() => setNavOpen(false)}
+            onSelectChapter={setChapterIndex}
+          />
+        )}
 
         {/* Settings panel */}
         <SettingsPanel
@@ -200,12 +189,19 @@ export function Reader({ bookMeta, onBack }: Props) {
 
         {/* Book content */}
         <div ref={contentRef}>
-          {currentChapter && (
+          {bookError ? (
+            <div className="py-12 text-center text-sm text-red-500">{bookError}</div>
+          ) : isLoading ? (
+            <div className="flex justify-center py-12">
+              <div className="h-6 w-6 animate-spin rounded-full border-2 border-stone-300 border-t-blue-500" />
+            </div>
+          ) : currentChapter ? (
             <BookContent chapter={currentChapter} fontSize={fontSize} />
-          )}
+          ) : null}
         </div>
 
         {/* Prev / Next chapter buttons */}
+        {!isLoading && (
         <div className="flex justify-between border-t border-stone-200 px-4 py-4 dark:border-stone-800">
           {prevChapter ? (
             <button
@@ -228,6 +224,7 @@ export function Reader({ bookMeta, onBack }: Props) {
             <div />
           )}
         </div>
+        )}
 
         {/* Gloss popup */}
         <GlossPopup
