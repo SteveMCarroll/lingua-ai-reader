@@ -44,3 +44,16 @@ Set these environment variables for real gloss responses:
 - `AZURE_OPENAI_API_VERSION` (optional)
 
 If not configured in local dev, the app returns mock gloss data.
+
+## GitHub Actions deployment
+
+This repo now includes:
+
+- `.github/workflows/ci.yml` for lint + build checks on PRs/pushes
+- `.github/workflows/deploy.yml` for production deploy on push to `master`
+
+Required repository secret:
+
+- `AZURE_STATIC_WEB_APPS_API_TOKEN`
+
+Once that secret is set, merging an approved PR into `master` triggers automatic production deployment.
