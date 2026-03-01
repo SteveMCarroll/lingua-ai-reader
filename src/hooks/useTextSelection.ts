@@ -105,7 +105,7 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
       }
 
       const rawWord = target.textContent || "";
-      const word = rawWord.replace(/^[.,;:!?¿¡"'«»—\-]+|[.,;:!?¿¡"'«»—\-]+$/g, "");
+      const word = rawWord.replace(/^[.,;:!?¿¡"'«»—-]+|[.,;:!?¿¡"'«»—-]+$/g, "");
       if (!word) return;
 
       // Get sentence context from paragraph

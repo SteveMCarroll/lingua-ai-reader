@@ -1,53 +1,72 @@
-import { useEffect, useCallback } from "react";
+import { useCallback } from "react";
 
-const POSITION_PREFIX = "reading-pos:";
+const PROGRESS_PREFIX = "reading-progress:";
+const LEGACY_POSITION_PREFIX = "reading-pos:";
+const LEGACY_MAX_CHAPTER_SCAN = 200;
 
-function getKey(bookId: string, chapterIndex: number): string {
-  return `${POSITION_PREFIX}${bookId}:${chapterIndex}`;
+export interface ReadingPosition {
+  chapterIndex: number;
+  pageIndex: number;
 }
 
-export function useReadingPosition(bookId: string, chapterIndex: number) {
-  // Restore scroll position when chapter changes
-  useEffect(() => {
-    const key = getKey(bookId, chapterIndex);
-    const saved = localStorage.getItem(key);
-    if (saved) {
-      const y = parseInt(saved, 10);
-      requestAnimationFrame(() => window.scrollTo(0, y));
-    } else {
-      window.scrollTo(0, 0);
+function getProgressKey(bookId: string): string {
+  return `${PROGRESS_PREFIX}${bookId}`;
+}
+
+function getLegacyKey(bookId: string, chapterIndex: number): string {
+  return `${LEGACY_POSITION_PREFIX}${bookId}:${chapterIndex}`;
+}
+
+function parseStoredProgress(raw: string | null): ReadingPosition | null {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (
+      parsed &&
+      typeof parsed === "object" &&
+      "chapterIndex" in parsed &&
+      "pageIndex" in parsed &&
+      typeof parsed.chapterIndex === "number" &&
+      typeof parsed.pageIndex === "number"
+    ) {
+      return {
+        chapterIndex: Math.max(0, parsed.chapterIndex),
+        pageIndex: Math.max(0, parsed.pageIndex),
+      };
     }
-  }, [bookId, chapterIndex]);
+  } catch {
+    // ignore malformed state
+  }
+  return null;
+}
 
-  // Save scroll position periodically
-  useEffect(() => {
-    const key = getKey(bookId, chapterIndex);
-    let ticking = false;
-
-    function onScroll() {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(() => {
-          localStorage.setItem(key, String(window.scrollY));
-          ticking = false;
-        });
-      }
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [bookId, chapterIndex]);
-
-  const getLastChapter = useCallback(
-    (bookId: string): number => {
-      // Find the most recent chapter the user was reading
-      for (let i = 100; i >= 0; i--) {
-        if (localStorage.getItem(getKey(bookId, i))) return i;
-      }
-      return 0;
+export function useReadingPosition(bookId: string) {
+  const savePosition = useCallback(
+    (chapterIndex: number, pageIndex: number) => {
+      localStorage.setItem(
+        getProgressKey(bookId),
+        JSON.stringify({
+          chapterIndex: Math.max(0, chapterIndex),
+          pageIndex: Math.max(0, pageIndex),
+          updatedAt: Date.now(),
+        })
+      );
     },
-    []
+    [bookId]
   );
 
-  return { getLastChapter };
+  const getLastPosition = useCallback((): ReadingPosition => {
+    const stored = parseStoredProgress(localStorage.getItem(getProgressKey(bookId)));
+    if (stored) return stored;
+
+    for (let i = LEGACY_MAX_CHAPTER_SCAN; i >= 0; i--) {
+      if (localStorage.getItem(getLegacyKey(bookId, i))) {
+        return { chapterIndex: i, pageIndex: 0 };
+      }
+    }
+
+    return { chapterIndex: 0, pageIndex: 0 };
+  }, [bookId]);
+
+  return { getLastPosition, savePosition };
 }

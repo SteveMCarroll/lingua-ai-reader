@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type TouchEvent } from "react";
 import type { BookMeta, BookData, BookChapter } from "../data/books";
 import { loadBook } from "../data/books";
+import type { GlossRequest, GlossResponse } from "../lib/api";
 import { BookContent } from "./BookContent";
 import { ChapterNav } from "./ChapterNav";
 import { GlossPopup } from "./GlossPopup";
@@ -9,6 +10,109 @@ import { useTextSelection } from "../hooks/useTextSelection";
 import { useGloss } from "../hooks/useGloss";
 import { useReadingPosition } from "../hooks/useReadingPosition";
 
+const BASE_CHROME_HEIGHT = 220;
+const TRACKED_WORDS_PREFIX = "tracked-words:";
+const WORD_TRIM_REGEX = /^[.,;:!?¿¡"'«»—-]+|[.,;:!?¿¡"'«»—-]+$/g;
+
+function normalizeWord(value: string): string {
+  return value.replace(WORD_TRIM_REGEX, "").toLowerCase();
+}
+
+function getTrackedWordsKey(bookId: string): string {
+  return `${TRACKED_WORDS_PREFIX}${bookId}`;
+}
+
+function loadTrackedWords(bookId: string): Set<string> {
+  try {
+    const raw = localStorage.getItem(getTrackedWordsKey(bookId));
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return new Set();
+    return new Set(parsed.filter((word): word is string => typeof word === "string"));
+  } catch {
+    return new Set();
+  }
+}
+
+function saveTrackedWords(bookId: string, words: Set<string>) {
+  try {
+    localStorage.setItem(getTrackedWordsKey(bookId), JSON.stringify(Array.from(words)));
+  } catch {
+    // ignore storage errors
+  }
+}
+
+function paginateParagraphs(paragraphs: string[], pageCharBudget: number): number[][] {
+  if (paragraphs.length === 0) return [[]];
+
+  const pages: number[][] = [];
+  let currentPage: number[] = [];
+  let currentChars = 0;
+
+  paragraphs.forEach((paragraph, index) => {
+    const paragraphChars = paragraph.length + 1;
+    if (currentPage.length > 0 && currentChars + paragraphChars > pageCharBudget) {
+      pages.push(currentPage);
+      currentPage = [];
+      currentChars = 0;
+    }
+
+    currentPage.push(index);
+    currentChars += paragraphChars;
+  });
+
+  if (currentPage.length > 0) pages.push(currentPage);
+  return pages;
+}
+
+function splitParagraphForPagination(paragraph: string, chunkTarget: number): string[] {
+  if (paragraph.length <= chunkTarget * 1.2) return [paragraph];
+
+  const sentenceMatches = paragraph.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g);
+  if (!sentenceMatches || sentenceMatches.length < 2) return [paragraph];
+
+  const chunks: string[] = [];
+  let current = "";
+
+  for (const sentence of sentenceMatches) {
+    const trimmed = sentence.trim();
+    if (!trimmed) continue;
+
+    if (!current) {
+      current = trimmed;
+      continue;
+    }
+
+    if (`${current} ${trimmed}`.length <= chunkTarget) {
+      current = `${current} ${trimmed}`;
+    } else {
+      chunks.push(current);
+      current = trimmed;
+    }
+  }
+
+  if (current) chunks.push(current);
+  return chunks.length > 0 ? chunks : [paragraph];
+}
+
+function createPaginationParagraphs(paragraphs: string[], pageCharBudget: number): string[] {
+  const chunkTarget = Math.max(500, Math.floor(pageCharBudget * 0.62));
+  return paragraphs.flatMap((paragraph) => splitParagraphForPagination(paragraph, chunkTarget));
+}
+
+function getPageCharBudget(fontSize: number, viewportWidth: number, viewportHeight: number): number {
+  const isMobilePortrait = viewportWidth <= 430 && viewportHeight > viewportWidth;
+  const chromeHeight = isMobilePortrait ? 165 : BASE_CHROME_HEIGHT;
+  const usableHeight = Math.max(320, viewportHeight - chromeHeight);
+  const lineHeight = fontSize * 1.8;
+  const linesPerPage = usableHeight / lineHeight;
+  const charsPerLine = viewportWidth < 430 ? 40 : viewportWidth < 640 ? 34 : viewportWidth < 1024 ? 46 : 60;
+  const fillBoost = isMobilePortrait ? 1.45 : 1.12;
+  const mobileMinChars = Math.max(650, Math.min(1250, Math.floor(1050 * (18 / fontSize))));
+  const minChars = isMobilePortrait ? mobileMinChars : 700;
+  return Math.max(minChars, Math.floor(linesPerPage * charsPerLine * fillBoost));
+}
+
 interface Props {
   bookMeta: BookMeta;
   onBack: () => void;
@@ -16,18 +120,41 @@ interface Props {
 
 export function Reader({ bookMeta, onBack }: Props) {
   const contentRef = useRef<HTMLDivElement>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   // Book loading
   const [bookData, setBookData] = useState<BookData | null>(null);
   const [bookError, setBookError] = useState<string | null>(null);
 
   useEffect(() => {
-    setBookData(null);
-    setBookError(null);
+    let cancelled = false;
     loadBook(bookMeta.id)
-      .then(setBookData)
-      .catch(() => setBookError("Could not load book"));
+      .then((data) => {
+        if (cancelled) return;
+        setBookData(data);
+        setBookError(null);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setBookData(null);
+        setBookError("Could not load book");
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [bookMeta.id]);
+
+  const [viewport, setViewport] = useState(() => ({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  }));
+
+  useEffect(() => {
+    const onResize = () => setViewport({ width: window.innerWidth, height: window.innerHeight });
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   // Settings
   const [fontSize, setFontSize] = useState(() => {
@@ -39,14 +166,16 @@ export function Reader({ bookMeta, onBack }: Props) {
     return saved ? saved === "true" : window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
-  // Chapter navigation
-  const { getLastChapter } = useReadingPosition(bookMeta.id, 0);
-  const [chapterIndex, setChapterIndex] = useState(() => {
-    return getLastChapter(bookMeta.id);
-  });
-  const [showPreface, _setShowPreface] = useState(false);
+  // Chapter/page navigation
+  const { getLastPosition, savePosition } = useReadingPosition(bookMeta.id);
+  const initialPosition = useMemo(() => getLastPosition(), [getLastPosition]);
+  const [chapterIndex, setChapterIndex] = useState(() => initialPosition.chapterIndex);
+  const [pageIndex, setPageIndex] = useState(() => initialPosition.pageIndex);
   const [navOpen, setNavOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const showPreface = false;
+
+  const [trackedWords, setTrackedWords] = useState<Set<string>>(() => loadTrackedWords(bookMeta.id));
 
   // Filtered chapters (skip preface by default)
   const displayChapters = useMemo(() => {
@@ -62,19 +191,66 @@ export function Reader({ bookMeta, onBack }: Props) {
     [displayChapters, chapterIndex]
   );
 
-  // If current chapter is hidden (preface filtered out), jump to first visible
-  useEffect(() => {
-    if (displayChapters.length > 0 && displayIdx === -1) {
-      setChapterIndex(displayChapters[0].originalIndex);
-    }
-  }, [displayChapters, displayIdx]);
+  const effectiveDisplayIdx = displayIdx === -1 && displayChapters.length > 0 ? 0 : displayIdx;
+  const effectiveChapterIndex =
+    displayIdx === -1 && displayChapters.length > 0
+      ? displayChapters[0].originalIndex
+      : chapterIndex;
+
+  const currentChapter: BookChapter | undefined = bookData?.chapters[effectiveChapterIndex];
+  const pageCharBudget = useMemo(
+    () => getPageCharBudget(fontSize, viewport.width, viewport.height),
+    [fontSize, viewport.height, viewport.width]
+  );
+  const paginationParagraphs = useMemo(
+    () => (currentChapter ? createPaginationParagraphs(currentChapter.paragraphs, pageCharBudget) : []),
+    [currentChapter, pageCharBudget]
+  );
+  const paginatedChapter = useMemo(
+    () => (currentChapter ? { ...currentChapter, paragraphs: paginationParagraphs } : undefined),
+    [currentChapter, paginationParagraphs]
+  );
+  const chapterPages = useMemo(
+    () => (paginationParagraphs.length > 0 ? paginateParagraphs(paginationParagraphs, pageCharBudget) : [[]]),
+    [paginationParagraphs, pageCharBudget]
+  );
+  const maxPageIndex = Math.max(chapterPages.length - 1, 0);
+  const activePageIndex = Math.max(0, Math.min(pageIndex, maxPageIndex));
+  const totalPages = Math.max(chapterPages.length, 1);
+  const currentPageParagraphIndices = chapterPages[activePageIndex] ?? [];
 
   // Text selection + glossing
   const { selection, clearSelection } = useTextSelection(contentRef);
-  const { gloss, loading, error, requestGloss, clearGloss } = useGloss();
 
-  // Reading position tracking
-  useReadingPosition(bookMeta.id, chapterIndex);
+  const rememberTrackedWords = useCallback(
+    (result: GlossResponse, req: GlossRequest & { bookId: string }) => {
+      const selected = normalizeWord(req.selectedText);
+      const dictionary = normalizeWord(result.dictionaryForm);
+      if (!selected && !dictionary) return;
+
+      setTrackedWords((prev) => {
+        const next = new Set(prev);
+        if (selected) next.add(selected);
+        if (dictionary) next.add(dictionary);
+        saveTrackedWords(req.bookId, next);
+        return next;
+      });
+    },
+    []
+  );
+
+  const { gloss, loading, error, requestGloss, clearGloss } = useGloss(rememberTrackedWords);
+
+  // Persist reading position
+  useEffect(() => {
+    if (bookData) {
+      savePosition(effectiveChapterIndex, activePageIndex);
+    }
+  }, [activePageIndex, bookData, effectiveChapterIndex, savePosition]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activePageIndex, effectiveChapterIndex]);
 
   // When selection changes, request gloss
   const prevSelRef = useRef<string>("");
@@ -97,6 +273,15 @@ export function Reader({ bookMeta, onBack }: Props) {
     prevSelRef.current = "";
   }, [clearSelection, clearGloss]);
 
+  const openChapter = useCallback(
+    (nextChapterIndex: number, nextPageIndex = 0) => {
+      setChapterIndex(nextChapterIndex);
+      setPageIndex(nextPageIndex);
+      handleCloseGloss();
+    },
+    [handleCloseGloss]
+  );
+
   const handleFontSize = useCallback((size: number) => {
     setFontSize(size);
     localStorage.setItem("settings:fontSize", String(size));
@@ -111,16 +296,61 @@ export function Reader({ bookMeta, onBack }: Props) {
   }, []);
 
   // Chapter navigation helpers
-  const prevChapter = displayIdx > 0 ? displayChapters[displayIdx - 1] : null;
+  const prevChapter = effectiveDisplayIdx > 0 ? displayChapters[effectiveDisplayIdx - 1] : null;
   const nextChapter =
-    displayIdx >= 0 && displayIdx < displayChapters.length - 1
-      ? displayChapters[displayIdx + 1]
+    effectiveDisplayIdx >= 0 && effectiveDisplayIdx < displayChapters.length - 1
+      ? displayChapters[effectiveDisplayIdx + 1]
       : null;
 
-  const currentChapter: BookChapter | undefined = bookData?.chapters[chapterIndex];
+  const goToPrevPage = useCallback(() => {
+    if (activePageIndex > 0) {
+      setPageIndex(activePageIndex - 1);
+      handleCloseGloss();
+      return;
+    }
+    if (prevChapter) {
+      openChapter(prevChapter.originalIndex, 0);
+    }
+  }, [activePageIndex, handleCloseGloss, openChapter, prevChapter]);
+
+  const goToNextPage = useCallback(() => {
+    if (activePageIndex < maxPageIndex) {
+      setPageIndex(activePageIndex + 1);
+      handleCloseGloss();
+      return;
+    }
+    if (nextChapter) {
+      openChapter(nextChapter.originalIndex, 0);
+    }
+  }, [activePageIndex, handleCloseGloss, maxPageIndex, nextChapter, openChapter]);
+
+  const onTouchStart = useCallback((e: TouchEvent<HTMLDivElement>) => {
+    const touch = e.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  }, []);
+
+  const onTouchEnd = useCallback(
+    (e: TouchEvent<HTMLDivElement>) => {
+      if (!touchStartRef.current) return;
+      const touch = e.changedTouches[0];
+      const dx = touch.clientX - touchStartRef.current.x;
+      const dy = touch.clientY - touchStartRef.current.y;
+      touchStartRef.current = null;
+
+      if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+      if (dx < 0) goToNextPage();
+      else goToPrevPage();
+    },
+    [goToNextPage, goToPrevPage]
+  );
 
   // Loading state — still render full layout so contentRef stays mounted
   const isLoading = !bookData;
+  const chapterCount = displayChapters.length || (bookData?.chapters.length ?? 0);
+  const chapterNumber =
+    effectiveDisplayIdx >= 0 ? effectiveDisplayIdx + 1 : Math.max(1, effectiveChapterIndex + 1);
+  const canGoPrev = activePageIndex > 0 || Boolean(prevChapter);
+  const canGoNext = activePageIndex < maxPageIndex || Boolean(nextChapter);
 
   return (
     <div className={isDark ? "dark" : ""}>
@@ -146,9 +376,16 @@ export function Reader({ bookMeta, onBack }: Props) {
             </button>
           </div>
 
-          <h1 className="truncate px-2 text-sm font-medium text-stone-600 dark:text-stone-400">
-            {bookMeta.title}
-          </h1>
+          <div className="min-w-0 px-2 text-center">
+            <h1 className="truncate text-sm font-medium text-stone-600 dark:text-stone-400">
+              {bookMeta.title}
+            </h1>
+            {!isLoading && chapterCount > 0 && (
+              <p className="text-xs text-stone-500 dark:text-stone-500">
+                Cap. {chapterNumber}/{chapterCount} · Pág. {activePageIndex + 1}/{totalPages}
+              </p>
+            )}
+          </div>
 
           <button
             onClick={() => setSettingsOpen(!settingsOpen)}
@@ -170,10 +407,10 @@ export function Reader({ bookMeta, onBack }: Props) {
         {bookData && (
           <ChapterNav
             chapters={bookData.chapters}
-            currentChapter={chapterIndex}
+            currentChapter={effectiveChapterIndex}
             isOpen={navOpen}
             onClose={() => setNavOpen(false)}
-            onSelectChapter={setChapterIndex}
+            onSelectChapter={(selectedChapter) => openChapter(selectedChapter, 0)}
           />
         )}
 
@@ -188,42 +425,47 @@ export function Reader({ bookMeta, onBack }: Props) {
         />
 
         {/* Book content */}
-        <div ref={contentRef}>
+        <div ref={contentRef} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           {bookError ? (
             <div className="py-12 text-center text-sm text-red-500">{bookError}</div>
           ) : isLoading ? (
             <div className="flex justify-center py-12">
               <div className="h-6 w-6 animate-spin rounded-full border-2 border-stone-300 border-t-blue-500" />
             </div>
-          ) : currentChapter ? (
-            <BookContent chapter={currentChapter} fontSize={fontSize} />
+          ) : paginatedChapter ? (
+            <BookContent
+              chapter={paginatedChapter}
+              fontSize={fontSize}
+              paragraphIndices={currentPageParagraphIndices}
+              trackedWords={trackedWords}
+              showTitle={activePageIndex === 0}
+            />
           ) : null}
         </div>
 
-        {/* Prev / Next chapter buttons */}
+        {/* Page / chapter controls */}
         {!isLoading && (
-        <div className="flex justify-between border-t border-stone-200 px-4 py-4 dark:border-stone-800">
-          {prevChapter ? (
+          <div className="flex items-center justify-between border-t border-stone-200 px-4 py-4 dark:border-stone-800">
             <button
-              onClick={() => setChapterIndex(prevChapter.originalIndex)}
-              className="rounded-lg bg-stone-100 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700"
+              onClick={goToPrevPage}
+              disabled={!canGoPrev}
+              className="rounded-lg bg-stone-100 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-200 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700"
             >
-              ← Anterior
+              {activePageIndex > 0 ? "← Página anterior" : "← Capítulo anterior"}
             </button>
-          ) : (
-            <div />
-          )}
-          {nextChapter ? (
+
+            <span className="text-xs font-medium text-stone-500 dark:text-stone-400">
+              {activePageIndex + 1}/{totalPages}
+            </span>
+
             <button
-              onClick={() => setChapterIndex(nextChapter.originalIndex)}
-              className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600"
+              onClick={goToNextPage}
+              disabled={!canGoNext}
+              className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Siguiente →
+              {activePageIndex < maxPageIndex ? "Página siguiente →" : "Capítulo siguiente →"}
             </button>
-          ) : (
-            <div />
-          )}
-        </div>
+          </div>
         )}
 
         {/* Gloss popup */}

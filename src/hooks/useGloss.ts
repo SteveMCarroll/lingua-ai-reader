@@ -7,20 +7,25 @@ function getCacheKey(bookId: string, sentence: string, selectedText: string): st
   return `${CACHE_PREFIX}${bookId}:${sentence}:${selectedText}`;
 }
 
-export function useGloss() {
+type GlossRequestWithBook = GlossRequest & { bookId: string };
+type OnGlossResolved = (gloss: GlossResponse, request: GlossRequestWithBook) => void;
+
+export function useGloss(onGlossResolved?: OnGlossResolved) {
   const [gloss, setGloss] = useState<GlossResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const requestGloss = useCallback(
-    async (req: GlossRequest & { bookId: string }) => {
+    async (req: GlossRequestWithBook) => {
       const cacheKey = getCacheKey(req.bookId, req.sentence, req.selectedText);
 
       // Check localStorage cache
       try {
         const cached = localStorage.getItem(cacheKey);
         if (cached) {
-          setGloss(JSON.parse(cached));
+          const parsed = JSON.parse(cached) as GlossResponse;
+          setGloss(parsed);
+          onGlossResolved?.(parsed, req);
           setError(null);
           setLoading(false);
           return;
@@ -36,6 +41,7 @@ export function useGloss() {
       try {
         const result = await fetchGloss(req);
         setGloss(result);
+        onGlossResolved?.(result, req);
 
         // Cache in localStorage
         try {
@@ -49,7 +55,7 @@ export function useGloss() {
         setLoading(false);
       }
     },
-    []
+    [onGlossResolved]
   );
 
   const clearGloss = useCallback(() => {

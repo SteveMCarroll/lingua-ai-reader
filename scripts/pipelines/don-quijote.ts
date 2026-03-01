@@ -61,20 +61,11 @@ const pipeline: BookPipeline = {
     }
 
     // Track chapter numbering to detect Part 2 (resets to "Capítulo Primero")
-    let part = 1;
-    let lastChapterSeen = 0;
-
     for (const line of content) {
       const trimmed = line.trim();
 
       if (chapterRe.test(trimmed)) {
         flush();
-
-        // Detect Part 2: when numbering resets to "Primero" after chapter LII
-        if (/primero/i.test(trimmed) && lastChapterSeen > 10) {
-          part = 2;
-        }
-        lastChapterSeen++;
 
         // Build a clean title: "Capítulo II" + subtitle from next line(s)
         currentTitle = trimmed;

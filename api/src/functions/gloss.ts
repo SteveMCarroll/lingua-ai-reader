@@ -1,4 +1,4 @@
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import { app, HttpRequest, HttpResponseInit } from "@azure/functions";
 
 interface GlossRequest {
   selectedText: string;
@@ -17,11 +17,12 @@ interface GlossResponse {
   contextualMeaning: string;
   fullSentence: string;
   sentenceTranslation: string;
+  wikipediaSlug?: string;
 }
 
 const SYSTEM_PROMPT = `You are a friendly Spanish language tutor. A student reading a Spanish novel will ask you about words and phrases they encounter. Help them understand the meaning, grammar, and pronunciation.
 
-When a student asks about a word or phrase, provide your answer as a JSON object with these fields: "selected" (the word they asked about), "dictionaryForm" (base/infinitive form), "partOfSpeech", "grammar" (tense, mood, etc.), "ipa" (IPA pronunciation), "translation" (English meaning), "contextualMeaning" (what it means in context, 1-2 sentences), "fullSentence" (the Spanish sentence), "sentenceTranslation" (English translation of that sentence).`;
+When a student asks about a word or phrase, provide your answer as a JSON object with these fields: "selected" (the word they asked about), "dictionaryForm" (base/infinitive form), "partOfSpeech", "grammar" (tense, mood, etc.), "ipa" (IPA pronunciation), "translation" (English meaning), "contextualMeaning" (what it means in context, 1-2 sentences), "fullSentence" (the Spanish sentence), "sentenceTranslation" (English translation of that sentence), and optional "wikipediaSlug". Include "wikipediaSlug" only if the selected term clearly refers to a real person or place; use the English Wikipedia page slug with underscores (for example "Miguel_de_Cervantes"). Omit the field otherwise.`;
 
 async function callAzureOpenAI(body: GlossRequest): Promise<GlossResponse> {
   const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
@@ -69,7 +70,7 @@ async function callAzureOpenAI(body: GlossRequest): Promise<GlossResponse> {
   return JSON.parse(content) as GlossResponse;
 }
 
-async function glossHandler(request: HttpRequest, _context: InvocationContext): Promise<HttpResponseInit> {
+async function glossHandler(request: HttpRequest): Promise<HttpResponseInit> {
   try {
     const body = (await request.json()) as GlossRequest;
 

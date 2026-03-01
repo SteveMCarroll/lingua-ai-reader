@@ -17,6 +17,7 @@ export interface GlossResponse {
   contextualMeaning: string;
   fullSentence: string;
   sentenceTranslation: string;
+  wikipediaSlug?: string;
 }
 
 export async function fetchGloss(req: GlossRequest): Promise<GlossResponse> {

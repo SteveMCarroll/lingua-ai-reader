@@ -5,7 +5,7 @@ import 'dotenv/config'
 
 const SYSTEM_PROMPT = `You are a friendly Spanish language tutor. A student reading a Spanish novel will ask you about words and phrases they encounter. Help them understand the meaning, grammar, and pronunciation.
 
-When a student asks about a word or phrase, provide your answer as a JSON object with these fields: "selected" (the word they asked about), "dictionaryForm" (base/infinitive form), "partOfSpeech", "grammar" (tense, mood, etc.), "ipa" (IPA pronunciation), "translation" (English meaning), "contextualMeaning" (what it means in context, 1-2 sentences), "fullSentence" (the Spanish sentence), "sentenceTranslation" (English translation of that sentence).`;
+When a student asks about a word or phrase, provide your answer as a JSON object with these fields: "selected" (the word they asked about), "dictionaryForm" (base/infinitive form), "partOfSpeech", "grammar" (tense, mood, etc.), "ipa" (IPA pronunciation), "translation" (English meaning), "contextualMeaning" (what it means in context, 1-2 sentences), "fullSentence" (the Spanish sentence), "sentenceTranslation" (English translation of that sentence), and optional "wikipediaSlug". Include "wikipediaSlug" only if the selected term clearly refers to a real person or place; use the English Wikipedia page slug with underscores. Omit the field otherwise.`;
 
 function glossApiPlugin(): Plugin {
   return {
@@ -72,7 +72,9 @@ function glossApiPlugin(): Plugin {
               return;
             }
 
-            const data = await apiRes.json() as any;
+            const data = await apiRes.json() as {
+              choices?: Array<{ message?: { content?: string } }>;
+            };
             let content = data.choices?.[0]?.message?.content;
             if (!content) {
               res.statusCode = 500;

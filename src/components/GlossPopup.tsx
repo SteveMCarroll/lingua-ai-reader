@@ -83,6 +83,19 @@ export function GlossPopup({ gloss, loading, error, rect, onClose }: Props) {
               </span>
             </div>
 
+            {gloss.wikipediaSlug && (
+              <div className="text-sm">
+                <a
+                  href={`https://en.wikipedia.org/wiki/${encodeURIComponent(gloss.wikipediaSlug)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline dark:text-blue-400"
+                >
+                  Wikipedia ↗
+                </a>
+              </div>
+            )}
+
             {/* Contextual meaning */}
             <div className="rounded-lg bg-blue-50 p-2.5 text-sm leading-relaxed text-blue-900 dark:bg-blue-950/50 dark:text-blue-200">
               {gloss.contextualMeaning}

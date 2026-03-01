@@ -48,7 +48,7 @@ const pipeline: BookPipeline = {
     const isChapterHeading = (line: string) => {
       const t = line.trim();
       if (t.length < 5) return false;
-      if (!/^[A-ZÁÉÍÓÚÜÑ\s,¿¡!?\.…]+$/.test(t)) return false;
+      if (!/^[A-ZÁÉÍÓÚÜÑ\s,¿¡!?.…]+$/.test(t)) return false;
       const alphaCount = (t.match(/[A-ZÁÉÍÓÚÜÑ]/g) || []).length;
       return alphaCount >= 5;
     };
