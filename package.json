@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@rollup/rollup-win32-x64-msvc": "^4.57.1",
-    "@tailwindcss/oxide-win32-x64-msvc": "^4.1.18",
-    "lightningcss-win32-x64-msvc": "^1.31.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.59.0",
+    "@tailwindcss/oxide-win32-x64-msvc": "^4.2.1",
+    "lightningcss-win32-x64-msvc": "^1.31.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
