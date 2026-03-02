@@ -101,7 +101,6 @@ function VocabList({
 }) {
   const displayItems = useMemo(() => formatDisplayVocab(items), [items]);
   const studyItems = displayItems.filter((item) => !item.isTic);
-  const ticItems = displayItems.filter((item) => item.isTic);
 
   return (
     <div className="space-y-4">
@@ -125,39 +124,6 @@ function VocabList({
         ))}
       </ul>
 
-      {ticItems.length > 0 && (
-        <section>
-          <h5 className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
-            Author style / narration verbs
-          </h5>
-          <ul className="space-y-2">
-            {ticItems.map((item) => (
-              <li
-                key={item.headword}
-                className="flex items-center justify-between gap-3 rounded-lg border border-stone-200 px-3 py-2 dark:border-stone-700"
-              >
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-stone-900 dark:text-stone-100">{item.headword}</p>
-                  <p className="truncate text-xs text-stone-500 dark:text-stone-400">
-                    {item.translation || "No precomputed translation"}
-                  </p>
-                  <p className="text-xs text-stone-500 dark:text-stone-400">count: {item.count}</p>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="rounded px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300">
-                    narration tic
-                  </span>
-                  <span
-                    className={`rounded px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide ${badgeClass(item.rarityTag)}`}
-                  >
-                    {item.rarityTag}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
     </div>
   );
 }
