@@ -18,7 +18,9 @@
         "rarity_tag": "rare",
         "is_tic": true,
         "dictionary_form": "exclamar",
-        "translation_en": "he/she/it exclaimed"
+        "translation_en": "he/she/it exclaimed",
+        "dictionary_zipf": 2.42,
+        "dictionary_rarity_tag": "very-rare"
       },
       {
         "token": "dijo",
@@ -30,7 +32,9 @@
         "rarity_tag": "common",
         "is_tic": true,
         "dictionary_form": "decir",
-        "translation_en": "he/she said"
+        "translation_en": "he/she said",
+        "dictionary_zipf": 5.78,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "ciego",
@@ -42,7 +46,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "ciego",
-        "translation_en": "blind"
+        "translation_en": "blind",
+        "dictionary_zipf": 4.22,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "aquel",
@@ -54,7 +60,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "aquel",
-        "translation_en": "that (masculine singular)"
+        "translation_en": "that (masculine singular)",
+        "dictionary_zipf": 4.87,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "replicó",
@@ -66,7 +74,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "replicar",
-        "translation_en": "he/she/it replied"
+        "translation_en": "he/she/it replied",
+        "dictionary_zipf": 3.3,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "alma",
@@ -78,7 +88,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "alma",
-        "translation_en": "soul"
+        "translation_en": "soul",
+        "dictionary_zipf": 4.94,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "has",
@@ -90,7 +102,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "haber",
-        "translation_en": "you have (auxiliary)"
+        "translation_en": "you have (auxiliary)",
+        "dictionary_zipf": 5.58,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "señorita",
@@ -102,7 +116,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "señorita",
-        "translation_en": "miss, young lady"
+        "translation_en": "miss, young lady",
+        "dictionary_zipf": 4.16,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "hermosura",
@@ -114,7 +130,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "hermosura",
-        "translation_en": "beauty"
+        "translation_en": "beauty",
+        "dictionary_zipf": 3.43,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "ojos",
@@ -126,7 +144,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "ojo",
-        "translation_en": "eyes"
+        "translation_en": "eyes",
+        "dictionary_zipf": 4.79,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "modo",
@@ -138,7 +158,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "modo",
-        "translation_en": "way, manner"
+        "translation_en": "way, manner",
+        "dictionary_zipf": 5.19,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "casa",
@@ -150,7 +172,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "casa",
-        "translation_en": "house"
+        "translation_en": "house",
+        "dictionary_zipf": 5.77,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "hermano",
@@ -162,7 +186,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "hermano",
-        "translation_en": "brother"
+        "translation_en": "brother",
+        "dictionary_zipf": 5.11,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "cielo",
@@ -174,7 +200,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "cielo",
-        "translation_en": "sky; heaven"
+        "translation_en": "sky; heaven",
+        "dictionary_zipf": 4.96,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "señor",
@@ -186,7 +214,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "señor",
-        "translation_en": "mister, sir, lord"
+        "translation_en": "mister, sir, lord",
+        "dictionary_zipf": 5.45,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "decía",
@@ -198,7 +228,9 @@
         "rarity_tag": "uncommon",
         "is_tic": true,
         "dictionary_form": "decir",
-        "translation_en": "to say"
+        "translation_en": "to say",
+        "dictionary_zipf": 5.78,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "pobre",
@@ -210,7 +242,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "pobre",
-        "translation_en": "poor"
+        "translation_en": "poor",
+        "dictionary_zipf": 4.95,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "murmuró",
@@ -222,7 +256,9 @@
         "rarity_tag": "archaic",
         "is_tic": true,
         "dictionary_form": "murmurar",
-        "translation_en": "he/she/it murmured"
+        "translation_en": "he/she/it murmured",
+        "dictionary_zipf": 2.53,
+        "dictionary_rarity_tag": "very-rare"
       },
       {
         "token": "dónde",
@@ -234,7 +270,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "dónde",
-        "translation_en": "where"
+        "translation_en": "where",
+        "dictionary_zipf": 5.16,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "todas",
@@ -246,7 +284,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "todo",
-        "translation_en": "all, every (feminine plural)"
+        "translation_en": "all, every (feminine plural)",
+        "dictionary_zipf": 6.35,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "usted",
@@ -258,7 +298,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "usted",
-        "translation_en": "you (formal)"
+        "translation_en": "you (formal)",
+        "dictionary_zipf": 5.31,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "parece",
@@ -270,7 +312,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "parecer",
-        "translation_en": "seems"
+        "translation_en": "seems",
+        "dictionary_zipf": 4.82,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "añadió",
@@ -282,7 +326,9 @@
         "rarity_tag": "uncommon",
         "is_tic": true,
         "dictionary_form": "añadir",
-        "translation_en": "he/she/it added"
+        "translation_en": "he/she/it added",
+        "dictionary_zipf": 4.21,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "aquella",
@@ -294,7 +340,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "aquel",
-        "translation_en": "that (feminine singular)"
+        "translation_en": "that (feminine singular)",
+        "dictionary_zipf": 4.87,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "pronto",
@@ -306,7 +354,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "pronto",
-        "translation_en": "soon, quickly"
+        "translation_en": "soon, quickly",
+        "dictionary_zipf": 5.12,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "doctor",
@@ -318,7 +368,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "doctor",
-        "translation_en": "doctor"
+        "translation_en": "doctor",
+        "dictionary_zipf": 4.91,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "bondad",
@@ -330,7 +382,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "bondad",
-        "translation_en": "goodness"
+        "translation_en": "goodness",
+        "dictionary_zipf": 3.85,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "cosa",
@@ -342,7 +396,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "cosa",
-        "translation_en": "thing"
+        "translation_en": "thing",
+        "dictionary_zipf": 5.53,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "minas",
@@ -354,7 +410,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "mina",
-        "translation_en": "mines"
+        "translation_en": "mines",
+        "dictionary_zipf": 4.53,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "boca",
@@ -366,7 +424,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "boca",
-        "translation_en": "mouth"
+        "translation_en": "mouth",
+        "dictionary_zipf": 5.03,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "padre",
@@ -378,7 +438,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "padre",
-        "translation_en": "father"
+        "translation_en": "father",
+        "dictionary_zipf": 5.36,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "suelo",
@@ -390,7 +452,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "suelo",
-        "translation_en": "ground, floor"
+        "translation_en": "ground, floor",
+        "dictionary_zipf": 4.93,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "adelante",
@@ -402,7 +466,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "adelante",
-        "translation_en": "forward, ahead"
+        "translation_en": "forward, ahead",
+        "dictionary_zipf": 5.07,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "pues",
@@ -414,7 +480,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "pues",
-        "translation_en": "then, since, because"
+        "translation_en": "then, since, because",
+        "dictionary_zipf": 5.68,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "joven",
@@ -426,7 +494,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "joven",
-        "translation_en": "young person"
+        "translation_en": "young person",
+        "dictionary_zipf": 5.18,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "gritó",
@@ -438,7 +508,9 @@
         "rarity_tag": "rare",
         "is_tic": true,
         "dictionary_form": "gritar",
-        "translation_en": "he/she/it shouted"
+        "translation_en": "he/she/it shouted",
+        "dictionary_zipf": 4.21,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "muchacha",
@@ -450,7 +522,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "muchacha",
-        "translation_en": "girl"
+        "translation_en": "girl",
+        "dictionary_zipf": 4.11,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "ven",
@@ -462,7 +536,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "venir",
-        "translation_en": "come (imperative)"
+        "translation_en": "come (imperative)",
+        "dictionary_zipf": 4.82,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "mano",
@@ -474,7 +550,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "mano",
-        "translation_en": "hand"
+        "translation_en": "hand",
+        "dictionary_zipf": 5.38,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "sola",
@@ -486,7 +564,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "solo",
-        "translation_en": "alone (feminine)"
+        "translation_en": "alone (feminine)",
+        "dictionary_zipf": 6.0,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "repuso",
@@ -498,7 +578,9 @@
         "rarity_tag": "archaic",
         "is_tic": true,
         "dictionary_form": "reponer",
-        "translation_en": "he/she/it replaced, restored"
+        "translation_en": "he/she/it replaced, restored",
+        "dictionary_zipf": 3.31,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "había",
@@ -510,7 +592,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "haber",
-        "translation_en": "there was / he/she/it had (auxiliary)"
+        "translation_en": "there was / he/she/it had (auxiliary)",
+        "dictionary_zipf": 5.58,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "hija",
@@ -522,7 +606,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "hijo",
-        "translation_en": "daughter"
+        "translation_en": "daughter",
+        "dictionary_zipf": 5.4,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "tierra",
@@ -534,7 +620,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "tierra",
-        "translation_en": "earth, land"
+        "translation_en": "earth, land",
+        "dictionary_zipf": 5.36,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "parecía",
@@ -546,7 +634,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "parecer",
-        "translation_en": "he/she/it seemed"
+        "translation_en": "he/she/it seemed",
+        "dictionary_zipf": 4.82,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "señora",
@@ -558,7 +648,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "señora",
-        "translation_en": "lady, madam, Mrs."
+        "translation_en": "lady, madam, Mrs.",
+        "dictionary_zipf": 4.92,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "allá",
@@ -570,7 +662,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "allá",
-        "translation_en": "there, over there"
+        "translation_en": "there, over there",
+        "dictionary_zipf": 5.2,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "vagabunda",
@@ -582,7 +676,9 @@
         "rarity_tag": "archaic",
         "is_tic": false,
         "dictionary_form": "vagabundo",
-        "translation_en": "wanderer, vagabond (feminine)"
+        "translation_en": "wanderer, vagabond (feminine)",
+        "dictionary_zipf": 3.3,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "podía",
@@ -594,7 +690,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "poder",
-        "translation_en": "could, was able to"
+        "translation_en": "could, was able to",
+        "dictionary_zipf": 5.68,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "hombre",
@@ -606,7 +704,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "hombre",
-        "translation_en": "man"
+        "translation_en": "man",
+        "dictionary_zipf": 5.58,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "toda",
@@ -618,7 +718,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "todo",
-        "translation_en": "all, whole (feminine singular)"
+        "translation_en": "all, whole (feminine singular)",
+        "dictionary_zipf": 6.35,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "noche",
@@ -630,7 +732,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "noche",
-        "translation_en": "night"
+        "translation_en": "night",
+        "dictionary_zipf": 5.55,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "madre",
@@ -642,7 +746,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "madre",
-        "translation_en": "mother"
+        "translation_en": "mother",
+        "dictionary_zipf": 5.45,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "después",
@@ -654,7 +760,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "después",
-        "translation_en": "afterwards"
+        "translation_en": "afterwards",
+        "dictionary_zipf": 5.9,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "habían",
@@ -666,7 +774,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "haber",
-        "translation_en": "they had (auxiliary)"
+        "translation_en": "they had (auxiliary)",
+        "dictionary_zipf": 5.58,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "piedra",
@@ -678,7 +788,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "piedra",
-        "translation_en": "stone"
+        "translation_en": "stone",
+        "dictionary_zipf": 4.76,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "mira",
@@ -690,7 +802,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "mirar",
-        "translation_en": "he/she/it looks"
+        "translation_en": "he/she/it looks",
+        "dictionary_zipf": 4.74,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "cómo",
@@ -702,7 +816,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "cómo",
-        "translation_en": "how"
+        "translation_en": "how",
+        "dictionary_zipf": 5.79,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "riendo",
@@ -714,7 +830,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "reír",
-        "translation_en": "laughing"
+        "translation_en": "laughing",
+        "dictionary_zipf": 4.12,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "ideas",
@@ -726,7 +844,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "idea",
-        "translation_en": "ideas"
+        "translation_en": "ideas",
+        "dictionary_zipf": 5.43,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "preciso",
@@ -738,7 +858,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "preciso",
-        "translation_en": "necessary, precise"
+        "translation_en": "necessary, precise",
+        "dictionary_zipf": 4.17,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "mía",
@@ -750,7 +872,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "mío",
-        "translation_en": "mine (feminine)"
+        "translation_en": "mine (feminine)",
+        "dictionary_zipf": 4.71,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "flores",
@@ -762,7 +886,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "flor",
-        "translation_en": "flowers"
+        "translation_en": "flowers",
+        "dictionary_zipf": 4.47,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "vista",
@@ -774,7 +900,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "vista",
-        "translation_en": "view; sight"
+        "translation_en": "view; sight",
+        "dictionary_zipf": 5.2,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "repitió",
@@ -786,7 +914,9 @@
         "rarity_tag": "rare",
         "is_tic": true,
         "dictionary_form": "repetir",
-        "translation_en": "he/she/it repeated"
+        "translation_en": "he/she/it repeated",
+        "dictionary_zipf": 4.3,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "observó",
@@ -798,7 +928,9 @@
         "rarity_tag": "rare",
         "is_tic": true,
         "dictionary_form": "observar",
-        "translation_en": "he/she/it observed"
+        "translation_en": "he/she/it observed",
+        "dictionary_zipf": 4.39,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "dicho",
@@ -810,7 +942,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "decir",
-        "translation_en": "said"
+        "translation_en": "said",
+        "dictionary_zipf": 5.78,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "misma",
@@ -822,7 +956,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "mismo",
-        "translation_en": "same (feminine singular)"
+        "translation_en": "same (feminine singular)",
+        "dictionary_zipf": 5.93,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "verás",
@@ -834,7 +970,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "ver",
-        "translation_en": "you will see"
+        "translation_en": "you will see",
+        "dictionary_zipf": 5.95,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "dentro",
@@ -846,7 +984,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "dentro",
-        "translation_en": "inside"
+        "translation_en": "inside",
+        "dictionary_zipf": 5.53,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "decir",
@@ -858,7 +998,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "decir",
-        "translation_en": "to say, to tell"
+        "translation_en": "to say, to tell",
+        "dictionary_zipf": 5.78,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "señorito",
@@ -870,7 +1012,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "señorito",
-        "translation_en": "young gentleman, squire"
+        "translation_en": "young gentleman, squire",
+        "dictionary_zipf": 3.19,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "lejos",
@@ -882,7 +1026,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "lejos",
-        "translation_en": "far, far away"
+        "translation_en": "far, far away",
+        "dictionary_zipf": 5.07,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "don",
@@ -894,7 +1040,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "don",
-        "translation_en": "title of respect, gift"
+        "translation_en": "title of respect, gift",
+        "dictionary_zipf": 4.93,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "allí",
@@ -906,7 +1054,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "allí",
-        "translation_en": "there"
+        "translation_en": "there",
+        "dictionary_zipf": 5.26,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "voz",
@@ -918,7 +1068,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "voz",
-        "translation_en": "voice"
+        "translation_en": "voice",
+        "dictionary_zipf": 5.2,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "sirvo",
@@ -930,7 +1082,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "servir",
-        "translation_en": "to serve (present, I)"
+        "translation_en": "to serve (present, I)",
+        "dictionary_zipf": 4.54,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "tienes",
@@ -942,7 +1096,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "tener",
-        "translation_en": "you have"
+        "translation_en": "you have",
+        "dictionary_zipf": 5.81,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "idea",
@@ -954,7 +1110,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "idea",
-        "translation_en": "idea"
+        "translation_en": "idea",
+        "dictionary_zipf": 5.43,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "tan",
@@ -966,7 +1124,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "tan",
-        "translation_en": "so, such"
+        "translation_en": "so, such",
+        "dictionary_zipf": 5.95,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "sino",
@@ -978,7 +1138,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "sino",
-        "translation_en": "but rather, destiny"
+        "translation_en": "but rather, destiny",
+        "dictionary_zipf": 5.59,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "asombro",
@@ -990,7 +1152,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "asombro",
-        "translation_en": "astonishment, amazement"
+        "translation_en": "astonishment, amazement",
+        "dictionary_zipf": 3.62,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "criatura",
@@ -1002,7 +1166,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "criatura",
-        "translation_en": "creature"
+        "translation_en": "creature",
+        "dictionary_zipf": 3.99,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "nada",
@@ -1014,7 +1180,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "nada",
-        "translation_en": "nothing"
+        "translation_en": "nothing",
+        "dictionary_zipf": 6.02,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "cestas",
@@ -1026,7 +1194,9 @@
         "rarity_tag": "archaic",
         "is_tic": false,
         "dictionary_form": "cesta",
-        "translation_en": "basket"
+        "translation_en": "basket",
+        "dictionary_zipf": 3.5,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "cabeza",
@@ -1038,7 +1208,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "cabeza",
-        "translation_en": "head"
+        "translation_en": "head",
+        "dictionary_zipf": 5.34,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "vio",
@@ -1050,7 +1222,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "ver",
-        "translation_en": "he/she/it saw"
+        "translation_en": "he/she/it saw",
+        "dictionary_zipf": 5.95,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "luz",
@@ -1062,7 +1236,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "luz",
-        "translation_en": "light"
+        "translation_en": "light",
+        "dictionary_zipf": 5.25,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "visto",
@@ -1074,7 +1250,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "ver",
-        "translation_en": "seen; past participle of ver"
+        "translation_en": "seen; past participle of ver",
+        "dictionary_zipf": 5.95,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "grande",
@@ -1086,7 +1264,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "grande",
-        "translation_en": "big, large"
+        "translation_en": "big, large",
+        "dictionary_zipf": 5.37,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "manos",
@@ -1098,7 +1278,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "mano",
-        "translation_en": "hands"
+        "translation_en": "hands",
+        "dictionary_zipf": 5.38,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "verdad",
@@ -1110,7 +1292,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "verdad",
-        "translation_en": "truth"
+        "translation_en": "truth",
+        "dictionary_zipf": 5.68,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "abajo",
@@ -1122,7 +1306,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "abajo",
-        "translation_en": "down, below"
+        "translation_en": "down, below",
+        "dictionary_zipf": 4.98,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "sol",
@@ -1134,7 +1320,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "sol",
-        "translation_en": "sun"
+        "translation_en": "sun",
+        "dictionary_zipf": 5.09,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "quiero",
@@ -1146,7 +1334,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "querer",
-        "translation_en": "to want"
+        "translation_en": "to want",
+        "dictionary_zipf": 4.75,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "ser",
@@ -1158,7 +1348,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "ser",
-        "translation_en": "to be"
+        "translation_en": "to be",
+        "dictionary_zipf": 6.27,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "fin",
@@ -1170,7 +1362,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "fin",
-        "translation_en": "end, purpose"
+        "translation_en": "end, purpose",
+        "dictionary_zipf": 5.55,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "imaginación",
@@ -1182,7 +1376,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "imaginación",
-        "translation_en": "imagination"
+        "translation_en": "imagination",
+        "dictionary_zipf": 4.3,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "lazarillo",
@@ -1194,7 +1390,9 @@
         "rarity_tag": "archaic",
         "is_tic": false,
         "dictionary_form": "lazarillo",
-        "translation_en": "guide (usually for the blind)"
+        "translation_en": "guide (usually for the blind)",
+        "dictionary_zipf": 2.77,
+        "dictionary_rarity_tag": "very-rare"
       },
       {
         "token": "rostro",
@@ -1206,7 +1404,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "rostro",
-        "translation_en": "face"
+        "translation_en": "face",
+        "dictionary_zipf": 4.57,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "pie",
@@ -1218,7 +1418,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "pie",
-        "translation_en": "foot"
+        "translation_en": "foot",
+        "dictionary_zipf": 4.94,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "quizás",
@@ -1230,7 +1432,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "quizás",
-        "translation_en": "perhaps, maybe"
+        "translation_en": "perhaps, maybe",
+        "dictionary_zipf": 4.97,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "tenía",
@@ -1242,7 +1446,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "tener",
-        "translation_en": "he/she/it had"
+        "translation_en": "he/she/it had",
+        "dictionary_zipf": 5.81,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "instante",
@@ -1254,7 +1460,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "instante",
-        "translation_en": "instant, moment"
+        "translation_en": "instant, moment",
+        "dictionary_zipf": 4.37,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "amo",
@@ -1266,7 +1474,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "amo",
-        "translation_en": "master, owner"
+        "translation_en": "master, owner",
+        "dictionary_zipf": 4.85,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "admirable",
@@ -1278,7 +1488,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "admirable",
-        "translation_en": "admirable"
+        "translation_en": "admirable",
+        "dictionary_zipf": 3.65,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "miserable",
@@ -1290,7 +1502,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "miserable",
-        "translation_en": "miserable"
+        "translation_en": "miserable",
+        "dictionary_zipf": 4.01,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "belleza",
@@ -1302,7 +1516,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "belleza",
-        "translation_en": "beauty"
+        "translation_en": "beauty",
+        "dictionary_zipf": 4.73,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "bien",
@@ -1314,7 +1530,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "bien",
-        "translation_en": "well"
+        "translation_en": "well",
+        "dictionary_zipf": 6.11,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "zarzas",
@@ -1326,7 +1544,9 @@
         "rarity_tag": "archaic",
         "is_tic": false,
         "dictionary_form": "zarza",
-        "translation_en": "brambles"
+        "translation_en": "brambles",
+        "dictionary_zipf": 2.81,
+        "dictionary_rarity_tag": "very-rare"
       },
       {
         "token": "está",
@@ -1338,7 +1558,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "estar",
-        "translation_en": "he/she/it is"
+        "translation_en": "he/she/it is",
+        "dictionary_zipf": 5.74,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "sintió",
@@ -1350,7 +1572,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "sentir",
-        "translation_en": "to feel (preterite, he/she/it)"
+        "translation_en": "to feel (preterite, he/she/it)",
+        "dictionary_zipf": 4.89,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "bellezas",
@@ -1362,7 +1586,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "belleza",
-        "translation_en": "beauties"
+        "translation_en": "beauties",
+        "dictionary_zipf": 4.73,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "admiración",
@@ -1374,7 +1600,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "admiración",
-        "translation_en": "admiration"
+        "translation_en": "admiration",
+        "dictionary_zipf": 3.98,
+        "dictionary_rarity_tag": "rare"
       },
       {
         "token": "mucho",
@@ -1386,7 +1614,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "mucho",
-        "translation_en": "much, a lot"
+        "translation_en": "much, a lot",
+        "dictionary_zipf": 5.95,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "corría",
@@ -1398,7 +1628,9 @@
         "rarity_tag": "rare",
         "is_tic": false,
         "dictionary_form": "correr",
-        "translation_en": "to run"
+        "translation_en": "to run",
+        "dictionary_zipf": 4.6,
+        "dictionary_rarity_tag": "less-common"
       },
       {
         "token": "mujer",
@@ -1410,7 +1642,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "mujer",
-        "translation_en": "woman, wife"
+        "translation_en": "woman, wife",
+        "dictionary_zipf": 5.57,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "triste",
@@ -1422,7 +1656,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "triste",
-        "translation_en": "sad"
+        "translation_en": "sad",
+        "dictionary_zipf": 4.85,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "efecto",
@@ -1434,7 +1670,9 @@
         "rarity_tag": "uncommon",
         "is_tic": false,
         "dictionary_form": "efecto",
-        "translation_en": "effect"
+        "translation_en": "effect",
+        "dictionary_zipf": 4.97,
+        "dictionary_rarity_tag": "common"
       },
       {
         "token": "soy",
@@ -1446,7 +1684,9 @@
         "rarity_tag": "common",
         "is_tic": false,
         "dictionary_form": "ser",
-        "translation_en": "I am"
+        "translation_en": "I am",
+        "dictionary_zipf": 6.27,
+        "dictionary_rarity_tag": "common"
       }
     ]
   },
@@ -1465,7 +1705,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "socartes",
-          "translation_en": "unknown or proper noun"
+          "translation_en": "unknown or proper noun",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "adelante",
@@ -1476,7 +1718,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "adelante",
-          "translation_en": "forward, ahead"
+          "translation_en": "forward, ahead",
+          "dictionary_zipf": 5.07,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "golfín",
@@ -1487,7 +1731,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "golfín",
-          "translation_en": "golfín (a type of dolphin or fish)"
+          "translation_en": "golfín (a type of dolphin or fish)",
+          "dictionary_zipf": 1.49,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "vereda",
@@ -1498,7 +1744,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "vereda",
-          "translation_en": "sidewalk, path"
+          "translation_en": "sidewalk, path",
+          "dictionary_zipf": 3.74,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "viajero",
@@ -1509,7 +1757,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "viajero",
-          "translation_en": "traveler"
+          "translation_en": "traveler",
+          "dictionary_zipf": 3.85,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "choto",
@@ -1520,7 +1770,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "choto",
-          "translation_en": "young goat"
+          "translation_en": "young goat",
+          "dictionary_zipf": 3.36,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "talud",
@@ -1531,7 +1783,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "talud",
-          "translation_en": "slope, embankment"
+          "translation_en": "slope, embankment",
+          "dictionary_zipf": 2.69,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "minas",
@@ -1542,7 +1796,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "mina",
-          "translation_en": "mines"
+          "translation_en": "mines",
+          "dictionary_zipf": 4.53,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "chimeneas",
@@ -1553,7 +1809,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "chimenea",
-          "translation_en": "chimney"
+          "translation_en": "chimney",
+          "dictionary_zipf": 3.69,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "descender",
@@ -1564,7 +1822,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "descender",
-          "translation_en": "to descend"
+          "translation_en": "to descend",
+          "dictionary_zipf": 3.59,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "duda",
@@ -1575,7 +1835,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "duda",
-          "translation_en": "doubt"
+          "translation_en": "doubt",
+          "dictionary_zipf": 5.12,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "inmóvil",
@@ -1586,7 +1848,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "inmóvil",
-          "translation_en": "motionless"
+          "translation_en": "motionless",
+          "dictionary_zipf": 3.28,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "pasadera",
@@ -1597,7 +1861,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "pasadera",
-          "translation_en": "passage; crossing place"
+          "translation_en": "passage; crossing place",
+          "dictionary_zipf": 1.05,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "amiguito",
@@ -1608,7 +1874,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "amiguito",
-          "translation_en": "little friend"
+          "translation_en": "little friend",
+          "dictionary_zipf": 3.38,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "murmuró",
@@ -1619,7 +1887,9 @@
           "rarity_tag": "archaic",
           "is_tic": true,
           "dictionary_form": "murmurar",
-          "translation_en": "he/she/it murmured"
+          "translation_en": "he/she/it murmured",
+          "dictionary_zipf": 2.53,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "veredas",
@@ -1630,7 +1900,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "vereda",
-          "translation_en": "sidewalks, paths"
+          "translation_en": "sidewalks, paths",
+          "dictionary_zipf": 3.74,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "establecimiento",
@@ -1641,7 +1913,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "establecimiento",
-          "translation_en": "establishment"
+          "translation_en": "establishment",
+          "dictionary_zipf": 4.37,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "cigarro",
@@ -1652,7 +1926,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cigarro",
-          "translation_en": "cigarette"
+          "translation_en": "cigarette",
+          "dictionary_zipf": 3.66,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "perro",
@@ -1663,7 +1939,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "perro",
-          "translation_en": "dog"
+          "translation_en": "dog",
+          "dictionary_zipf": 4.9,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "famosas",
@@ -1674,7 +1952,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "famoso",
-          "translation_en": "famous (feminine plural)"
+          "translation_en": "famous (feminine plural)",
+          "dictionary_zipf": 4.62,
+          "dictionary_rarity_tag": "less-common"
         }
       ]
     },
@@ -1692,7 +1972,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ciego",
-          "translation_en": "blind"
+          "translation_en": "blind",
+          "dictionary_zipf": 4.22,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "golfín",
@@ -1703,7 +1985,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "golfín",
-          "translation_en": "golfín (a type of dolphin or fish)"
+          "translation_en": "golfín (a type of dolphin or fish)",
+          "dictionary_zipf": 1.49,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "nela",
@@ -1714,7 +1998,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "resoplido",
@@ -1725,7 +2011,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "resoplido",
-          "translation_en": "snort, puff"
+          "translation_en": "snort, puff",
+          "dictionary_zipf": 1.94,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "usted",
@@ -1736,7 +2024,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "usted",
-          "translation_en": "you (formal)"
+          "translation_en": "you (formal)",
+          "dictionary_zipf": 5.31,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "herrería",
@@ -1747,7 +2037,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "herrería",
-          "translation_en": "blacksmith's shop"
+          "translation_en": "blacksmith's shop",
+          "dictionary_zipf": 2.87,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "vigas",
@@ -1758,7 +2050,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "viga",
-          "translation_en": "beams"
+          "translation_en": "beams",
+          "dictionary_zipf": 3.29,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "tacto",
@@ -1769,7 +2063,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "tacto",
-          "translation_en": "touch, tact"
+          "translation_en": "touch, tact",
+          "dictionary_zipf": 3.72,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "galerías",
@@ -1780,7 +2076,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "galería",
-          "translation_en": "galleries"
+          "translation_en": "galleries",
+          "dictionary_zipf": 4.33,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "choto",
@@ -1791,7 +2089,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "choto",
-          "translation_en": "young goat"
+          "translation_en": "young goat",
+          "dictionary_zipf": 3.36,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "bóveda",
@@ -1802,7 +2102,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "bóveda",
-          "translation_en": "vault or dome"
+          "translation_en": "vault or dome",
+          "dictionary_zipf": 3.68,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "doctor",
@@ -1813,7 +2115,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "doctor",
-          "translation_en": "doctor"
+          "translation_en": "doctor",
+          "dictionary_zipf": 4.91,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "gárgaras",
@@ -1824,7 +2128,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "gárgara",
-          "translation_en": "gargles"
+          "translation_en": "gargles",
+          "dictionary_zipf": 1.09,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "figuro",
@@ -1835,7 +2141,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "figurar",
-          "translation_en": "I appear"
+          "translation_en": "I appear",
+          "dictionary_zipf": 3.42,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "concavidad",
@@ -1846,7 +2154,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "concavidad",
-          "translation_en": "concavity, hollow"
+          "translation_en": "concavity, hollow",
+          "dictionary_zipf": 2.2,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "hendidura",
@@ -1857,7 +2167,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "hendidura",
-          "translation_en": "crack, split"
+          "translation_en": "crack, split",
+          "dictionary_zipf": 2.74,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "magníficamente",
@@ -1868,7 +2180,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "magníficamente",
-          "translation_en": "magnificently"
+          "translation_en": "magnificently",
+          "dictionary_zipf": 2.78,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "náufrago",
@@ -1879,7 +2193,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "náufrago",
-          "translation_en": "castaway"
+          "translation_en": "castaway",
+          "dictionary_zipf": 2.76,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "canta",
@@ -1890,7 +2206,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "cantar",
-          "translation_en": "he/she/it sings"
+          "translation_en": "he/she/it sings",
+          "dictionary_zipf": 4.43,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "momias",
@@ -1901,7 +2219,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "momia",
-          "translation_en": "mummies"
+          "translation_en": "mummies",
+          "dictionary_zipf": 3.3,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -1919,7 +2239,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "golfín",
@@ -1930,7 +2252,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "golfín",
-          "translation_en": "golfín (a type of dolphin or fish)"
+          "translation_en": "golfín (a type of dolphin or fish)",
+          "dictionary_zipf": 1.49,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "sirvo",
@@ -1941,7 +2265,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "servir",
-          "translation_en": "to serve (present, I)"
+          "translation_en": "to serve (present, I)",
+          "dictionary_zipf": 4.54,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "amito",
@@ -1952,7 +2278,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "amito",
-          "translation_en": "uncle (archaic)"
+          "translation_en": "uncle (archaic)",
+          "dictionary_zipf": 1.81,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "cigarro",
@@ -1963,7 +2291,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cigarro",
-          "translation_en": "cigarette"
+          "translation_en": "cigarette",
+          "dictionary_zipf": 3.66,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "revelaba",
@@ -1974,7 +2304,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "revelar",
-          "translation_en": "he/she/it revealed"
+          "translation_en": "he/she/it revealed",
+          "dictionary_zipf": 3.87,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "dicen",
@@ -1985,7 +2317,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "decir",
-          "translation_en": "they say"
+          "translation_en": "they say",
+          "dictionary_zipf": 5.78,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "forastero",
@@ -1996,7 +2330,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "forastero",
-          "translation_en": "stranger, outsider"
+          "translation_en": "stranger, outsider",
+          "dictionary_zipf": 3.11,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "vives",
@@ -2007,7 +2343,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "vivir",
-          "translation_en": "to live"
+          "translation_en": "to live",
+          "dictionary_zipf": 5.26,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "ascua",
@@ -2018,7 +2356,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "ascua",
-          "translation_en": "ember, hot coal"
+          "translation_en": "ember, hot coal",
+          "dictionary_zipf": 2.16,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "humo",
@@ -2029,7 +2369,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "humo",
-          "translation_en": "smoke"
+          "translation_en": "smoke",
+          "dictionary_zipf": 4.4,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "menudas",
@@ -2040,7 +2382,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "menudo",
-          "translation_en": "small, trivial (feminine plural)"
+          "translation_en": "small, trivial (feminine plural)",
+          "dictionary_zipf": 4.78,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "replicó",
@@ -2051,7 +2395,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "replicar",
-          "translation_en": "he/she/it replied"
+          "translation_en": "he/she/it replied",
+          "dictionary_zipf": 3.3,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "cesto",
@@ -2062,7 +2408,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cesto",
-          "translation_en": "basket"
+          "translation_en": "basket",
+          "dictionary_zipf": 3.04,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "fumador",
@@ -2073,7 +2421,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "fumador",
-          "translation_en": "smoker"
+          "translation_en": "smoker",
+          "dictionary_zipf": 3.16,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "deteniéndose",
@@ -2084,7 +2434,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "detenerse",
-          "translation_en": "stopping"
+          "translation_en": "stopping",
+          "dictionary_zipf": 3.59,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "dime",
@@ -2095,7 +2447,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "decir",
-          "translation_en": "tell me (imperative)"
+          "translation_en": "tell me (imperative)",
+          "dictionary_zipf": 5.78,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "doctor",
@@ -2106,7 +2460,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "doctor",
-          "translation_en": "doctor"
+          "translation_en": "doctor",
+          "dictionary_zipf": 4.91,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "pobrecita",
@@ -2117,7 +2473,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "pobrecita",
-          "translation_en": "poor little (affectionate)"
+          "translation_en": "poor little (affectionate)",
+          "dictionary_zipf": 3.21,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "fósforo",
@@ -2128,7 +2486,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "fósforo",
-          "translation_en": "match (for lighting fire)"
+          "translation_en": "match (for lighting fire)",
+          "dictionary_zipf": 3.53,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -2146,7 +2506,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "centeno",
-          "translation_en": "rye"
+          "translation_en": "rye",
+          "dictionary_zipf": 3.34,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "señana",
@@ -2157,7 +2519,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "señana",
-          "translation_en": "unknown or misspelled word"
+          "translation_en": "unknown or misspelled word",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "tanasio",
@@ -2168,7 +2532,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "tanasio",
-          "translation_en": "Tanasio (proper name)"
+          "translation_en": "Tanasio (proper name)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "nela",
@@ -2179,7 +2545,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "mariuca",
@@ -2190,7 +2558,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "mariuca",
-          "translation_en": "diminutive or affectionate form of María"
+          "translation_en": "diminutive or affectionate form of María",
+          "dictionary_zipf": 1.09,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "jornal",
@@ -2201,7 +2571,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "jornal",
-          "translation_en": "daily wage"
+          "translation_en": "daily wage",
+          "dictionary_zipf": 3.07,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "córcholis",
@@ -2212,7 +2584,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "córcholis",
-          "translation_en": "darn, gosh (exclamation)"
+          "translation_en": "darn, gosh (exclamation)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "pepina",
@@ -2223,7 +2597,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "pepina",
-          "translation_en": "female cucumber or a type of vegetable"
+          "translation_en": "female cucumber or a type of vegetable",
+          "dictionary_zipf": 1.21,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "cestas",
@@ -2234,7 +2610,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "cesta",
-          "translation_en": "basket"
+          "translation_en": "basket",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "aldeano",
@@ -2245,7 +2623,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "aldeano",
-          "translation_en": "villager (masculine)"
+          "translation_en": "villager (masculine)",
+          "dictionary_zipf": 2.63,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "mulas",
@@ -2256,7 +2636,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "mula",
-          "translation_en": "mules"
+          "translation_en": "mules",
+          "dictionary_zipf": 3.53,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "pienses",
@@ -2267,7 +2649,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "pensar",
-          "translation_en": "you think"
+          "translation_en": "you think",
+          "dictionary_zipf": 5.27,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "esposos",
@@ -2278,7 +2662,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "esposo",
-          "translation_en": "husbands; spouses"
+          "translation_en": "husbands; spouses",
+          "dictionary_zipf": 4.5,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "cesta",
@@ -2289,7 +2675,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cesta",
-          "translation_en": "basket"
+          "translation_en": "basket",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "vicios",
@@ -2300,7 +2688,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "vicio",
-          "translation_en": "vices, bad habits"
+          "translation_en": "vices, bad habits",
+          "dictionary_zipf": 3.95,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "oíase",
@@ -2311,7 +2701,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "oír",
-          "translation_en": "he/she/it was heard (imperfect subjunctive)"
+          "translation_en": "he/she/it was heard (imperfect subjunctive)",
+          "dictionary_zipf": 4.32,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "comida",
@@ -2322,7 +2714,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "comida",
-          "translation_en": "food, meal"
+          "translation_en": "food, meal",
+          "dictionary_zipf": 5.15,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "celipín",
@@ -2333,7 +2727,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "celipín",
-          "translation_en": "celipín (proper noun or rare term)"
+          "translation_en": "celipín (proper noun or rare term)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "conchas",
@@ -2344,7 +2740,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "concha",
-          "translation_en": "shells"
+          "translation_en": "shells",
+          "dictionary_zipf": 4.34,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "lozanas",
@@ -2355,7 +2753,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "lozano",
-          "translation_en": "lush, fresh (feminine plural)"
+          "translation_en": "lush, fresh (feminine plural)",
+          "dictionary_zipf": 3.73,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -2373,7 +2773,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "talud",
-          "translation_en": "slopes, embankments"
+          "translation_en": "slopes, embankments",
+          "dictionary_zipf": 2.69,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "rojo",
@@ -2384,7 +2786,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "rojo",
-          "translation_en": "red"
+          "translation_en": "red",
+          "dictionary_zipf": 4.84,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "martillo",
@@ -2395,7 +2799,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "martillo",
-          "translation_en": "hammer"
+          "translation_en": "hammer",
+          "dictionary_zipf": 3.79,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "fijeza",
@@ -2406,7 +2812,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "fijeza",
-          "translation_en": "steadiness"
+          "translation_en": "steadiness",
+          "dictionary_zipf": 1.96,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "cincel",
@@ -2417,7 +2825,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "cincel",
-          "translation_en": "chisel"
+          "translation_en": "chisel",
+          "dictionary_zipf": 2.56,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "admirables",
@@ -2428,7 +2838,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "admirable",
-          "translation_en": "admirable (plural)"
+          "translation_en": "admirable (plural)",
+          "dictionary_zipf": 3.65,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "salían",
@@ -2439,7 +2851,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "salir",
-          "translation_en": "they were leaving"
+          "translation_en": "they were leaving",
+          "dictionary_zipf": 5.36,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "huerta",
@@ -2450,7 +2864,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "huerta",
-          "translation_en": "orchard, garden"
+          "translation_en": "orchard, garden",
+          "dictionary_zipf": 3.84,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "infernal",
@@ -2461,7 +2877,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "infernal",
-          "translation_en": "infernal"
+          "translation_en": "infernal",
+          "dictionary_zipf": 3.48,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "escudo",
@@ -2472,7 +2890,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "escudo",
-          "translation_en": "shield / escudo (currency)"
+          "translation_en": "shield / escudo (currency)",
+          "dictionary_zipf": 4.2,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "circundado",
@@ -2483,7 +2903,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "circundar",
-          "translation_en": "to surround"
+          "translation_en": "to surround",
+          "dictionary_zipf": 1.26,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "incorrección",
@@ -2494,7 +2916,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "incorrección",
-          "translation_en": "incorrectness"
+          "translation_en": "incorrectness",
+          "dictionary_zipf": 2.32,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "trabajaban",
@@ -2505,7 +2929,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "trabajar",
-          "translation_en": "they worked"
+          "translation_en": "they worked",
+          "dictionary_zipf": 5.22,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "lavado",
@@ -2516,7 +2942,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "lavar",
-          "translation_en": "washed"
+          "translation_en": "washed",
+          "dictionary_zipf": 4.05,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "afable",
@@ -2527,7 +2955,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "afable",
-          "translation_en": "affable, friendly"
+          "translation_en": "affable, friendly",
+          "dictionary_zipf": 2.92,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "geológicas",
@@ -2538,7 +2968,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "geológico",
-          "translation_en": "geological (feminine plural)"
+          "translation_en": "geological (feminine plural)",
+          "dictionary_zipf": 3.28,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "tirantes",
@@ -2549,7 +2981,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "tirante",
-          "translation_en": "tight, straps"
+          "translation_en": "tight, straps",
+          "dictionary_zipf": 2.79,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "creeríase",
@@ -2560,7 +2994,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "creer",
-          "translation_en": "to believe"
+          "translation_en": "to believe",
+          "dictionary_zipf": 5.01,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "correas",
@@ -2571,7 +3007,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "correa",
-          "translation_en": "straps"
+          "translation_en": "straps",
+          "dictionary_zipf": 4.26,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "voltear",
@@ -2582,7 +3020,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "voltear",
-          "translation_en": "to turn"
+          "translation_en": "to turn",
+          "dictionary_zipf": 3.29,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -2600,7 +3040,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "gastamos",
@@ -2611,7 +3053,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "gastar",
-          "translation_en": "we spend"
+          "translation_en": "we spend",
+          "dictionary_zipf": 4.17,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "sol",
@@ -2622,7 +3066,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "sol",
-          "translation_en": "sun"
+          "translation_en": "sun",
+          "dictionary_zipf": 5.09,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "iremos",
@@ -2633,7 +3079,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "ir",
-          "translation_en": "we will go"
+          "translation_en": "we will go",
+          "dictionary_zipf": 5.65,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "estrellas",
@@ -2644,7 +3092,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "estrella",
-          "translation_en": "stars"
+          "translation_en": "stars",
+          "dictionary_zipf": 4.66,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "sentémonos",
@@ -2655,7 +3105,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "sentar",
-          "translation_en": "let's sit down (imperative)"
+          "translation_en": "let's sit down (imperative)",
+          "dictionary_zipf": 3.78,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "exclamó",
@@ -2666,7 +3118,9 @@
           "rarity_tag": "rare",
           "is_tic": true,
           "dictionary_form": "exclamar",
-          "translation_en": "he/she/it exclaimed"
+          "translation_en": "he/she/it exclaimed",
+          "dictionary_zipf": 2.42,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "lazarillo",
@@ -2677,7 +3131,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "lazarillo",
-          "translation_en": "guide (usually for the blind)"
+          "translation_en": "guide (usually for the blind)",
+          "dictionary_zipf": 2.77,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "disparates",
@@ -2688,7 +3144,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "disparate",
-          "translation_en": "nonsense, absurdities"
+          "translation_en": "nonsense, absurdities",
+          "dictionary_zipf": 3.33,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "frescura",
@@ -2699,7 +3157,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "frescura",
-          "translation_en": "freshness"
+          "translation_en": "freshness",
+          "dictionary_zipf": 3.36,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "brilla",
@@ -2710,7 +3170,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "brillar",
-          "translation_en": "he/she shines"
+          "translation_en": "he/she shines",
+          "dictionary_zipf": 3.52,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "flores",
@@ -2721,7 +3183,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "flor",
-          "translation_en": "flowers"
+          "translation_en": "flowers",
+          "dictionary_zipf": 4.47,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "batiendo",
@@ -2732,7 +3196,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "batir",
-          "translation_en": "beating, hitting"
+          "translation_en": "beating, hitting",
+          "dictionary_zipf": 3.43,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "convicción",
@@ -2743,7 +3209,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "convicción",
-          "translation_en": "conviction"
+          "translation_en": "conviction",
+          "dictionary_zipf": 3.88,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "miradas",
@@ -2754,7 +3222,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "mirada",
-          "translation_en": "looks, glances"
+          "translation_en": "looks, glances",
+          "dictionary_zipf": 4.72,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "tonto",
@@ -2765,7 +3235,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "tonto",
-          "translation_en": "foolish, silly"
+          "translation_en": "foolish, silly",
+          "dictionary_zipf": 4.39,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "corre",
@@ -2776,7 +3248,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "correr",
-          "translation_en": "to run"
+          "translation_en": "to run",
+          "dictionary_zipf": 4.6,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "bajan",
@@ -2787,7 +3261,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "bajar",
-          "translation_en": "they go down"
+          "translation_en": "they go down",
+          "dictionary_zipf": 4.63,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "flor",
@@ -2798,7 +3274,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "flor",
-          "translation_en": "flower"
+          "translation_en": "flower",
+          "dictionary_zipf": 4.47,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "cielo",
@@ -2809,7 +3287,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "cielo",
-          "translation_en": "sky; heaven"
+          "translation_en": "sky; heaven",
+          "dictionary_zipf": 4.96,
+          "dictionary_rarity_tag": "common"
         }
       ]
     },
@@ -2827,7 +3307,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "mariquilla",
@@ -2838,7 +3320,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "mariquilla",
-          "translation_en": "little Mary, diminutive form"
+          "translation_en": "little Mary, diminutive form",
+          "dictionary_zipf": 1.64,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "estanque",
@@ -2849,7 +3333,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "estanque",
-          "translation_en": "pond; tank"
+          "translation_en": "pond; tank",
+          "dictionary_zipf": 3.52,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "pájaro",
@@ -2860,7 +3346,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "pájaro",
-          "translation_en": "bird"
+          "translation_en": "bird",
+          "dictionary_zipf": 3.95,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "mar",
@@ -2871,7 +3359,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "mar",
-          "translation_en": "sea"
+          "translation_en": "sea",
+          "dictionary_zipf": 5.11,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "respondes",
@@ -2882,7 +3372,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "responder",
-          "translation_en": "you answer"
+          "translation_en": "you answer",
+          "dictionary_zipf": 4.66,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "sutiles",
@@ -2893,7 +3385,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "sutil",
-          "translation_en": "subtle"
+          "translation_en": "subtle",
+          "dictionary_zipf": 3.84,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "ficóbriga",
@@ -2904,7 +3398,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "ficóbriga",
-          "translation_en": "a place name"
+          "translation_en": "a place name",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "añadió",
@@ -2915,7 +3411,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "añadir",
-          "translation_en": "he/she/it added"
+          "translation_en": "he/she/it added",
+          "dictionary_zipf": 4.21,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "comprenderla",
@@ -2926,7 +3424,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "comprender",
-          "translation_en": "to understand her/it"
+          "translation_en": "to understand her/it",
+          "dictionary_zipf": 4.43,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "tonterías",
@@ -2937,7 +3437,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "tontería",
-          "translation_en": "nonsense, foolish things"
+          "translation_en": "nonsense, foolish things",
+          "dictionary_zipf": 3.9,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "nogal",
@@ -2948,7 +3450,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "nogal",
-          "translation_en": "walnut tree"
+          "translation_en": "walnut tree",
+          "dictionary_zipf": 3.01,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "alas",
@@ -2959,7 +3463,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ala",
-          "translation_en": "wings"
+          "translation_en": "wings",
+          "dictionary_zipf": 4.31,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "sostengo",
@@ -2970,7 +3476,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "sostener",
-          "translation_en": "I hold, I maintain"
+          "translation_en": "I hold, I maintain",
+          "dictionary_zipf": 4.05,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "exclamó",
@@ -2981,7 +3489,9 @@
           "rarity_tag": "rare",
           "is_tic": true,
           "dictionary_form": "exclamar",
-          "translation_en": "he/she/it exclaimed"
+          "translation_en": "he/she/it exclaimed",
+          "dictionary_zipf": 2.42,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "ciego",
@@ -2992,7 +3502,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ciego",
-          "translation_en": "blind"
+          "translation_en": "blind",
+          "dictionary_zipf": 4.22,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "cerros",
@@ -3003,7 +3515,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cerro",
-          "translation_en": "hill"
+          "translation_en": "hill",
+          "dictionary_zipf": 4.34,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "alargó",
@@ -3014,7 +3528,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "alargar",
-          "translation_en": "he/she lengthened, extended"
+          "translation_en": "he/she lengthened, extended",
+          "dictionary_zipf": 3.3,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "cogido",
@@ -3025,7 +3541,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "coger",
-          "translation_en": "taken, caught"
+          "translation_en": "taken, caught",
+          "dictionary_zipf": 4.34,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "temblar",
@@ -3036,7 +3554,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "temblar",
-          "translation_en": "to tremble, to shake"
+          "translation_en": "to tremble, to shake",
+          "dictionary_zipf": 3.57,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -3054,7 +3574,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "trascava",
@@ -3065,7 +3587,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "trascavar",
-          "translation_en": "he/she/it dug through"
+          "translation_en": "he/she/it dug through",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "chiquilla",
@@ -3076,7 +3600,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "chiquilla",
-          "translation_en": "girl"
+          "translation_en": "girl",
+          "dictionary_zipf": 3.0,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "gruta",
@@ -3087,7 +3613,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "gruta",
-          "translation_en": "cave"
+          "translation_en": "cave",
+          "dictionary_zipf": 3.16,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "lazo",
@@ -3098,7 +3626,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "lazo",
-          "translation_en": "bow, tie, bond"
+          "translation_en": "bow, tie, bond",
+          "dictionary_zipf": 3.84,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "diciéndome",
@@ -3109,7 +3639,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "decir",
-          "translation_en": "telling me"
+          "translation_en": "telling me",
+          "dictionary_zipf": 5.78,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "apartémonos",
@@ -3120,7 +3652,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "apartarse",
-          "translation_en": "let's separate ourselves"
+          "translation_en": "let's separate ourselves",
+          "dictionary_zipf": 3.09,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "recrearme",
@@ -3131,7 +3665,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "recrear",
-          "translation_en": "to amuse myself"
+          "translation_en": "to amuse myself",
+          "dictionary_zipf": 3.35,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "proclamo",
@@ -3142,7 +3678,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "proclamar",
-          "translation_en": "to proclaim"
+          "translation_en": "to proclaim",
+          "dictionary_zipf": 3.27,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "amoroso",
@@ -3153,7 +3691,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "amoroso",
-          "translation_en": "loving, affectionate"
+          "translation_en": "loving, affectionate",
+          "dictionary_zipf": 3.63,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "estratificación",
@@ -3164,7 +3704,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "estratificación",
-          "translation_en": "stratification"
+          "translation_en": "stratification",
+          "dictionary_zipf": 2.83,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "improviso",
@@ -3175,7 +3717,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "improviso",
-          "translation_en": "improvisation"
+          "translation_en": "improvisation",
+          "dictionary_zipf": 2.84,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "césped",
@@ -3186,7 +3730,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "césped",
-          "translation_en": "grass, lawn"
+          "translation_en": "grass, lawn",
+          "dictionary_zipf": 3.79,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "bajito",
@@ -3197,7 +3743,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "bajito",
-          "translation_en": "short, low"
+          "translation_en": "short, low",
+          "dictionary_zipf": 3.29,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "zanja",
@@ -3208,7 +3756,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "zanja",
-          "translation_en": "ditch"
+          "translation_en": "ditch",
+          "dictionary_zipf": 3.31,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "presentimiento",
@@ -3219,7 +3769,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "presentimiento",
-          "translation_en": "premonition, feeling"
+          "translation_en": "premonition, feeling",
+          "dictionary_zipf": 3.33,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "tendré",
@@ -3230,7 +3782,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "tener",
-          "translation_en": "I will have"
+          "translation_en": "I will have",
+          "dictionary_zipf": 5.81,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "abría",
@@ -3241,7 +3795,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "abrir",
-          "translation_en": "he/she/it was opening, used to open"
+          "translation_en": "he/she/it was opening, used to open",
+          "dictionary_zipf": 4.77,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "pegada",
@@ -3252,7 +3808,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "pegada",
-          "translation_en": "hit; strike"
+          "translation_en": "hit; strike",
+          "dictionary_zipf": 3.57,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "ciego",
@@ -3263,7 +3821,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ciego",
-          "translation_en": "blind"
+          "translation_en": "blind",
+          "dictionary_zipf": 4.22,
+          "dictionary_rarity_tag": "less-common"
         }
       ]
     },
@@ -3281,7 +3841,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "lili",
-          "translation_en": "female proper name"
+          "translation_en": "female proper name",
+          "dictionary_zipf": 3.16,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "sofía",
@@ -3292,7 +3854,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "sofía",
-          "translation_en": "Sofia (proper name)"
+          "translation_en": "Sofia (proper name)",
+          "dictionary_zipf": 4.01,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "nela",
@@ -3303,7 +3867,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "teodoro",
@@ -3314,7 +3880,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "teodoro",
-          "translation_en": "Theodore (proper name)"
+          "translation_en": "Theodore (proper name)",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "huérfano",
@@ -3325,7 +3893,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "huérfano",
-          "translation_en": "orphan (masculine)"
+          "translation_en": "orphan (masculine)",
+          "dictionary_zipf": 3.38,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "golfines",
@@ -3336,7 +3906,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "golfín",
-          "translation_en": "golfines (plural, possibly a type of dolphin or fish)"
+          "translation_en": "golfines (plural, possibly a type of dolphin or fish)",
+          "dictionary_zipf": 1.49,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "estadística",
@@ -3347,7 +3919,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "estadística",
-          "translation_en": "statistics"
+          "translation_en": "statistics",
+          "dictionary_zipf": 4.23,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "carlos",
@@ -3358,7 +3932,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "carlos",
-          "translation_en": "Charles (proper noun)"
+          "translation_en": "Charles (proper noun)",
+          "dictionary_zipf": 5.09,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "doscientos",
@@ -3369,7 +3945,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "doscientos",
-          "translation_en": "two hundred"
+          "translation_en": "two hundred",
+          "dictionary_zipf": 3.72,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "consistía",
@@ -3380,7 +3958,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "consistir",
-          "translation_en": "to consist"
+          "translation_en": "to consist",
+          "dictionary_zipf": 2.91,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "rusticidad",
@@ -3391,7 +3971,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "rusticidad",
-          "translation_en": "rusticity, roughness"
+          "translation_en": "rusticity, roughness",
+          "dictionary_zipf": 2.12,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "asilos",
@@ -3402,7 +3984,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "asilo",
-          "translation_en": "asylums, shelters"
+          "translation_en": "asylums, shelters",
+          "dictionary_zipf": 4.01,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "estáis",
@@ -3413,7 +3997,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "estar",
-          "translation_en": "you (plural) are"
+          "translation_en": "you (plural) are",
+          "dictionary_zipf": 5.74,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "animal",
@@ -3424,7 +4010,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "animal",
-          "translation_en": "animal"
+          "translation_en": "animal",
+          "dictionary_zipf": 4.67,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "pie",
@@ -3435,7 +4023,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "pie",
-          "translation_en": "foot"
+          "translation_en": "foot",
+          "dictionary_zipf": 4.94,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "caridad",
@@ -3446,7 +4036,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "caridad",
-          "translation_en": "charity"
+          "translation_en": "charity",
+          "dictionary_zipf": 4.17,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "cantaban",
@@ -3457,7 +4049,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cantar",
-          "translation_en": "they were singing"
+          "translation_en": "they were singing",
+          "dictionary_zipf": 4.43,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "arreglarían",
@@ -3468,7 +4062,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "arreglar",
-          "translation_en": "would fix, would arrange"
+          "translation_en": "would fix, would arrange",
+          "dictionary_zipf": 4.34,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "zarzas",
@@ -3479,7 +4075,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "zarza",
-          "translation_en": "brambles"
+          "translation_en": "brambles",
+          "dictionary_zipf": 2.81,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "mantita",
@@ -3490,7 +4088,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "manta",
-          "translation_en": "little blanket (diminutive)"
+          "translation_en": "little blanket (diminutive)",
+          "dictionary_zipf": 3.77,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -3508,7 +4108,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "hermano",
-          "translation_en": "brother"
+          "translation_en": "brother",
+          "dictionary_zipf": 5.11,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "carlos",
@@ -3519,7 +4121,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "carlos",
-          "translation_en": "Charles (proper noun)"
+          "translation_en": "Charles (proper noun)",
+          "dictionary_zipf": 5.09,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "diome",
@@ -3530,7 +4134,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "dar",
-          "translation_en": "gave me (archaic form)"
+          "translation_en": "gave me (archaic form)",
+          "dictionary_zipf": 5.48,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "barbería",
@@ -3541,7 +4147,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "barbería",
-          "translation_en": "barber shop"
+          "translation_en": "barber shop",
+          "dictionary_zipf": 2.8,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "entré",
@@ -3552,7 +4160,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "entrar",
-          "translation_en": "I entered"
+          "translation_en": "I entered",
+          "dictionary_zipf": 5.07,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "ropa",
@@ -3563,7 +4173,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ropa",
-          "translation_en": "clothes"
+          "translation_en": "clothes",
+          "dictionary_zipf": 4.97,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "limpiando",
@@ -3574,7 +4186,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "limpiar",
-          "translation_en": "cleaning"
+          "translation_en": "cleaning",
+          "dictionary_zipf": 4.36,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "acuerdas",
@@ -3585,7 +4199,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "acordar",
-          "translation_en": "you remember, you agree"
+          "translation_en": "you remember, you agree",
+          "dictionary_zipf": 4.03,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "amos",
@@ -3596,7 +4212,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "amo",
-          "translation_en": "masters, owners"
+          "translation_en": "masters, owners",
+          "dictionary_zipf": 4.85,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "cuéntalos",
@@ -3607,7 +4225,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "contar",
-          "translation_en": "count them"
+          "translation_en": "count them",
+          "dictionary_zipf": 4.87,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "curarle",
@@ -3618,7 +4238,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "curar",
-          "translation_en": "to cure him/her"
+          "translation_en": "to cure him/her",
+          "dictionary_zipf": 3.98,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "escolapios",
@@ -3629,7 +4251,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "escolapio",
-          "translation_en": "Piarist (member of a religious teaching order)"
+          "translation_en": "Piarist (member of a religious teaching order)",
+          "dictionary_zipf": 1.95,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "enseñé",
@@ -3640,7 +4264,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "enseñar",
-          "translation_en": "I taught"
+          "translation_en": "I taught",
+          "dictionary_zipf": 4.36,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "milagro",
@@ -3651,7 +4277,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "milagro",
-          "translation_en": "miracle"
+          "translation_en": "miracle",
+          "dictionary_zipf": 4.27,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "sofía",
@@ -3662,7 +4290,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "sofía",
-          "translation_en": "Sofia (proper name)"
+          "translation_en": "Sofia (proper name)",
+          "dictionary_zipf": 4.01,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "empecé",
@@ -3673,7 +4303,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "empezar",
-          "translation_en": "I started"
+          "translation_en": "I started",
+          "dictionary_zipf": 5.02,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "hermanito",
@@ -3684,7 +4316,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "hermanito",
-          "translation_en": "little brother"
+          "translation_en": "little brother",
+          "dictionary_zipf": 3.52,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "tuve",
@@ -3695,7 +4329,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "tener",
-          "translation_en": "I had"
+          "translation_en": "I had",
+          "dictionary_zipf": 5.81,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "viejo",
@@ -3706,7 +4342,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "viejo",
-          "translation_en": "old"
+          "translation_en": "old",
+          "dictionary_zipf": 5.03,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "pan",
@@ -3717,7 +4355,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "pan",
-          "translation_en": "bread"
+          "translation_en": "bread",
+          "dictionary_zipf": 4.82,
+          "dictionary_rarity_tag": "common"
         }
       ]
     },
@@ -3735,7 +4375,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "teodoro",
-          "translation_en": "Theodore (proper name)"
+          "translation_en": "Theodore (proper name)",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "patriarca",
@@ -3746,7 +4388,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "patriarca",
-          "translation_en": "patriarch"
+          "translation_en": "patriarch",
+          "dictionary_zipf": 3.55,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "francisco",
@@ -3757,7 +4401,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "francisco",
-          "translation_en": "a male given name"
+          "translation_en": "a male given name",
+          "dictionary_zipf": 4.99,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "retina",
@@ -3768,7 +4414,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "retina",
-          "translation_en": "retina (eye part)"
+          "translation_en": "retina (eye part)",
+          "dictionary_zipf": 3.29,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "nela",
@@ -3779,7 +4427,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "valor",
@@ -3790,7 +4440,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "valor",
-          "translation_en": "value, courage"
+          "translation_en": "value, courage",
+          "dictionary_zipf": 5.13,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "operación",
@@ -3801,7 +4453,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "operación",
-          "translation_en": "operation"
+          "translation_en": "operation",
+          "dictionary_zipf": 4.81,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "sofía",
@@ -3812,7 +4466,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "sofía",
-          "translation_en": "Sofia (proper name)"
+          "translation_en": "Sofia (proper name)",
+          "dictionary_zipf": 4.01,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "penáguilas",
@@ -3823,7 +4479,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "penáguilas",
-          "translation_en": "a place name in Spain"
+          "translation_en": "a place name in Spain",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "cristalino",
@@ -3834,7 +4492,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cristalino",
-          "translation_en": "crystalline"
+          "translation_en": "crystalline",
+          "dictionary_zipf": 3.09,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "catarata",
@@ -3845,7 +4505,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "catarata",
-          "translation_en": "waterfall, cataract"
+          "translation_en": "waterfall, cataract",
+          "dictionary_zipf": 3.12,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "delicias",
@@ -3856,7 +4518,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "delicia",
-          "translation_en": "delights"
+          "translation_en": "delights",
+          "dictionary_zipf": 3.58,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "halla",
@@ -3867,7 +4531,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "hallar",
-          "translation_en": "he/she/it finds"
+          "translation_en": "he/she/it finds",
+          "dictionary_zipf": 3.92,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "tendrá",
@@ -3878,7 +4544,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "tener",
-          "translation_en": "he/she/it will have"
+          "translation_en": "he/she/it will have",
+          "dictionary_zipf": 5.81,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "opaco",
@@ -3889,7 +4557,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "opaco",
-          "translation_en": "opaque or dull"
+          "translation_en": "opaque or dull",
+          "dictionary_zipf": 3.07,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "idealismo",
@@ -3900,7 +4570,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "idealismo",
-          "translation_en": "idealism"
+          "translation_en": "idealism",
+          "dictionary_zipf": 3.16,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "fisura",
@@ -3911,7 +4583,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "fisura",
-          "translation_en": "fissure, crack"
+          "translation_en": "fissure, crack",
+          "dictionary_zipf": 3.16,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "bigote",
@@ -3922,7 +4596,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "bigote",
-          "translation_en": "mustache"
+          "translation_en": "mustache",
+          "dictionary_zipf": 3.75,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "establo",
@@ -3933,7 +4609,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "establo",
-          "translation_en": "stable"
+          "translation_en": "stable",
+          "dictionary_zipf": 3.18,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "faustino",
@@ -3944,7 +4622,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "faustino",
-          "translation_en": "a male given name"
+          "translation_en": "a male given name",
+          "dictionary_zipf": 3.19,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -3962,7 +4642,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "celipín",
-          "translation_en": "celipín (proper noun or rare term)"
+          "translation_en": "celipín (proper noun or rare term)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "córcholis",
@@ -3973,7 +4655,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "córcholis",
-          "translation_en": "darn, gosh (exclamation)"
+          "translation_en": "darn, gosh (exclamation)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "verás",
@@ -3984,7 +4668,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ver",
-          "translation_en": "you will see"
+          "translation_en": "you will see",
+          "dictionary_zipf": 5.95,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "miá",
@@ -3995,7 +4681,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "miá",
-          "translation_en": "unknown or misspelled term"
+          "translation_en": "unknown or misspelled term",
+          "dictionary_zipf": 1.24,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "teodoro",
@@ -4006,7 +4694,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "teodoro",
-          "translation_en": "Theodore (proper name)"
+          "translation_en": "Theodore (proper name)",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "aprender",
@@ -4017,7 +4707,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "aprender",
-          "translation_en": "to learn"
+          "translation_en": "to learn",
+          "dictionary_zipf": 4.93,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "nela",
@@ -4028,7 +4720,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "leía",
@@ -4039,7 +4733,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "leer",
-          "translation_en": "he/she was reading"
+          "translation_en": "he/she was reading",
+          "dictionary_zipf": 5.15,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "oyose",
@@ -4050,7 +4746,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "oír",
-          "translation_en": "he/she/it heard (archaic)"
+          "translation_en": "he/she/it heard (archaic)",
+          "dictionary_zipf": 4.32,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "burumbum",
@@ -4061,7 +4759,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "burumbum",
-          "translation_en": "burumbum (onomatopoeia)"
+          "translation_en": "burumbum (onomatopoeia)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "guisados",
@@ -4072,7 +4772,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "guisado",
-          "translation_en": "stews"
+          "translation_en": "stews",
+          "dictionary_zipf": 2.86,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "cogidos",
@@ -4083,7 +4785,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "coger",
-          "translation_en": "taken, caught (plural)"
+          "translation_en": "taken, caught (plural)",
+          "dictionary_zipf": 4.34,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "mimbre",
@@ -4094,7 +4798,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "mimbre",
-          "translation_en": "wicker, willow"
+          "translation_en": "wicker, willow",
+          "dictionary_zipf": 2.86,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "trapo",
@@ -4105,7 +4811,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "trapo",
-          "translation_en": "rag, cloth"
+          "translation_en": "rag, cloth",
+          "dictionary_zipf": 3.62,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "talento",
@@ -4116,7 +4824,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "talento",
-          "translation_en": "talent"
+          "translation_en": "talent",
+          "dictionary_zipf": 4.52,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "duros",
@@ -4127,7 +4837,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "duro",
-          "translation_en": "hard, tough; also a coin"
+          "translation_en": "hard, tough; also a coin",
+          "dictionary_zipf": 4.81,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "doncella",
@@ -4138,7 +4850,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "doncella",
-          "translation_en": "maiden, young woman"
+          "translation_en": "maiden, young woman",
+          "dictionary_zipf": 3.46,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "mosquitos",
@@ -4149,7 +4863,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "mosquito",
-          "translation_en": "mosquitoes"
+          "translation_en": "mosquitoes",
+          "dictionary_zipf": 3.42,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "pulso",
@@ -4160,7 +4876,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "pulso",
-          "translation_en": "pulse, grip"
+          "translation_en": "pulse, grip",
+          "dictionary_zipf": 3.92,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "dormía",
@@ -4171,7 +4889,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "dormir",
-          "translation_en": "he/she was sleeping"
+          "translation_en": "he/she was sleeping",
+          "dictionary_zipf": 4.86,
+          "dictionary_rarity_tag": "common"
         }
       ]
     },
@@ -4189,7 +4909,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "bellezas",
@@ -4200,7 +4922,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "belleza",
-          "translation_en": "beauties"
+          "translation_en": "beauties",
+          "dictionary_zipf": 4.73,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "poseía",
@@ -4211,7 +4935,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "poseer",
-          "translation_en": "he/she/it possessed"
+          "translation_en": "he/she/it possessed",
+          "dictionary_zipf": 3.91,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "nociones",
@@ -4222,7 +4948,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "noción",
-          "translation_en": "notions, ideas"
+          "translation_en": "notions, ideas",
+          "dictionary_zipf": 3.93,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "habíase",
@@ -4233,7 +4961,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "haber",
-          "translation_en": "he/she/it had (reflexive form)"
+          "translation_en": "he/she/it had (reflexive form)",
+          "dictionary_zipf": 5.58,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "carecido",
@@ -4244,7 +4974,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "carecido",
-          "translation_en": "lacking"
+          "translation_en": "lacking",
+          "dictionary_zipf": 2.24,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "quiéreme",
@@ -4255,7 +4987,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "querer",
-          "translation_en": "love me (imperative)"
+          "translation_en": "love me (imperative)",
+          "dictionary_zipf": 4.75,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "pedirse",
@@ -4266,7 +5000,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "pedir",
-          "translation_en": "to ask oneself; to request"
+          "translation_en": "to ask oneself; to request",
+          "dictionary_zipf": 4.9,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "paganismo",
@@ -4277,7 +5013,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "paganismo",
-          "translation_en": "paganism"
+          "translation_en": "paganism",
+          "dictionary_zipf": 2.76,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "sentimentalismo",
@@ -4288,7 +5026,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "sentimentalismo",
-          "translation_en": "sentimentalism"
+          "translation_en": "sentimentalism",
+          "dictionary_zipf": 2.86,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "quererme",
@@ -4299,7 +5039,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "querer",
-          "translation_en": "to want me"
+          "translation_en": "to want me",
+          "dictionary_zipf": 4.75,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "daré",
@@ -4310,7 +5052,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "dar",
-          "translation_en": "I will give"
+          "translation_en": "I will give",
+          "dictionary_zipf": 5.48,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "conchas",
@@ -4321,7 +5065,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "concha",
-          "translation_en": "shells"
+          "translation_en": "shells",
+          "dictionary_zipf": 4.34,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "evangelio",
@@ -4332,7 +5078,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "evangelio",
-          "translation_en": "gospel"
+          "translation_en": "gospel",
+          "dictionary_zipf": 3.97,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "marianela",
@@ -4343,7 +5091,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "marianela",
-          "translation_en": "Marianela (proper name)"
+          "translation_en": "Marianela (proper name)",
+          "dictionary_zipf": 2.47,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "arroyos",
@@ -4354,7 +5104,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "arroyo",
-          "translation_en": "streams, brooks"
+          "translation_en": "streams, brooks",
+          "dictionary_zipf": 4.08,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "sabía",
@@ -4365,7 +5117,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "saber",
-          "translation_en": "he/she/it knew, used to know"
+          "translation_en": "he/she/it knew, used to know",
+          "dictionary_zipf": 5.49,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "vea",
@@ -4376,7 +5130,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ver",
-          "translation_en": "see (subjunctive or imperative)"
+          "translation_en": "see (subjunctive or imperative)",
+          "dictionary_zipf": 5.95,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "maría",
@@ -4387,7 +5143,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "maría",
-          "translation_en": "Mary (proper name)"
+          "translation_en": "Mary (proper name)",
+          "dictionary_zipf": 5.07,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "habría",
@@ -4398,7 +5156,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "haber",
-          "translation_en": "there would be"
+          "translation_en": "there would be",
+          "dictionary_zipf": 5.58,
+          "dictionary_rarity_tag": "common"
         }
       ]
     },
@@ -4416,7 +5176,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "moras",
@@ -4427,7 +5189,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "mora",
-          "translation_en": "blackberries; also feminine plural of 'Moor'"
+          "translation_en": "blackberries; also feminine plural of 'Moor'",
+          "dictionary_zipf": 4.07,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "silvestres",
@@ -4438,7 +5202,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "silvestre",
-          "translation_en": "wild, untamed"
+          "translation_en": "wild, untamed",
+          "dictionary_zipf": 3.82,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "florentina",
@@ -4449,7 +5215,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "florentino",
-          "translation_en": "Florentine (feminine)"
+          "translation_en": "Florentine (feminine)",
+          "dictionary_zipf": 3.54,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "retahíla",
@@ -4460,7 +5228,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "retahíla",
-          "translation_en": "string, series"
+          "translation_en": "string, series",
+          "dictionary_zipf": 2.3,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "chocolate",
@@ -4471,7 +5241,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "chocolate",
-          "translation_en": "chocolate"
+          "translation_en": "chocolate",
+          "dictionary_zipf": 4.41,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "helechos",
@@ -4482,7 +5254,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "helecho",
-          "translation_en": "ferns"
+          "translation_en": "ferns",
+          "dictionary_zipf": 2.5,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "apartar",
@@ -4493,7 +5267,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "apartar",
-          "translation_en": "to separate"
+          "translation_en": "to separate",
+          "dictionary_zipf": 3.38,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "perfección",
@@ -4504,7 +5280,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "perfección",
-          "translation_en": "perfection"
+          "translation_en": "perfection",
+          "dictionary_zipf": 4.15,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "cabritillos",
@@ -4515,7 +5293,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "cabritillo",
-          "translation_en": "little kids (young goats)"
+          "translation_en": "little kids (young goats)",
+          "dictionary_zipf": 1.16,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "madreselvas",
@@ -4526,7 +5306,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "madreselva",
-          "translation_en": "honeysuckles"
+          "translation_en": "honeysuckles",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "agitaban",
@@ -4537,7 +5319,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "agitar",
-          "translation_en": "they were shaking, agitating"
+          "translation_en": "they were shaking, agitating",
+          "dictionary_zipf": 3.23,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "humillarse",
@@ -4548,7 +5332,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "humillarse",
-          "translation_en": "to humble oneself"
+          "translation_en": "to humble oneself",
+          "dictionary_zipf": 2.51,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "primito",
@@ -4559,7 +5345,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "primito",
-          "translation_en": "little male cousin (affectionate)"
+          "translation_en": "little male cousin (affectionate)",
+          "dictionary_zipf": 2.32,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "escogida",
@@ -4570,7 +5358,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "escoger",
-          "translation_en": "chosen (feminine)"
+          "translation_en": "chosen (feminine)",
+          "dictionary_zipf": 4.13,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "mata",
@@ -4581,7 +5371,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "matar",
-          "translation_en": "he/she/it kills"
+          "translation_en": "he/she/it kills",
+          "dictionary_zipf": 4.8,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "modo",
@@ -4592,7 +5384,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "modo",
-          "translation_en": "way, manner"
+          "translation_en": "way, manner",
+          "dictionary_zipf": 5.19,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "sensaciones",
@@ -4603,7 +5397,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "sensación",
-          "translation_en": "sensations, feelings"
+          "translation_en": "sensations, feelings",
+          "dictionary_zipf": 4.64,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "campó",
@@ -4614,7 +5410,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "campar",
-          "translation_en": "he/she/it roamed, lived freely"
+          "translation_en": "he/she/it roamed, lived freely",
+          "dictionary_zipf": 1.99,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "anchas",
@@ -4625,7 +5423,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "ancho",
-          "translation_en": "wide, broad (feminine plural)"
+          "translation_en": "wide, broad (feminine plural)",
+          "dictionary_zipf": 4.36,
+          "dictionary_rarity_tag": "less-common"
         }
       ]
     },
@@ -4643,7 +5443,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "florentina",
@@ -4654,7 +5456,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "florentino",
-          "translation_en": "Florentine (feminine)"
+          "translation_en": "Florentine (feminine)",
+          "dictionary_zipf": 3.54,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "antoja",
@@ -4665,7 +5469,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "antojar",
-          "translation_en": "to feel like"
+          "translation_en": "to feel like",
+          "dictionary_zipf": 1.48,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "comprendo",
@@ -4676,7 +5482,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "comprender",
-          "translation_en": "I understand"
+          "translation_en": "I understand",
+          "dictionary_zipf": 4.43,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "primita",
@@ -4687,7 +5495,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "primita",
-          "translation_en": "little female cousin (affectionate)"
+          "translation_en": "little female cousin (affectionate)",
+          "dictionary_zipf": 2.17,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "boca",
@@ -4698,7 +5508,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "boca",
-          "translation_en": "mouth"
+          "translation_en": "mouth",
+          "dictionary_zipf": 5.03,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "cretáceas",
@@ -4709,7 +5521,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "cretáceo",
-          "translation_en": "Cretaceous"
+          "translation_en": "Cretaceous",
+          "dictionary_zipf": 2.38,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "comparolo",
@@ -4720,7 +5534,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "comparar",
-          "translation_en": "to compare it (likely a typo or contraction)"
+          "translation_en": "to compare it (likely a typo or contraction)",
+          "dictionary_zipf": 4.1,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "bajemos",
@@ -4731,7 +5547,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "bajar",
-          "translation_en": "let's go down"
+          "translation_en": "let's go down",
+          "dictionary_zipf": 4.63,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "cogía",
@@ -4742,7 +5560,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "coger",
-          "translation_en": "he/she/it was taking, used to take"
+          "translation_en": "he/she/it was taking, used to take",
+          "dictionary_zipf": 4.34,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "aprenderá",
@@ -4753,7 +5573,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "aprender",
-          "translation_en": "he/she/it will learn"
+          "translation_en": "he/she/it will learn",
+          "dictionary_zipf": 4.93,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "marianela",
@@ -4764,7 +5586,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "marianela",
-          "translation_en": "Marianela (proper name)"
+          "translation_en": "Marianela (proper name)",
+          "dictionary_zipf": 2.47,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "lágrimas",
@@ -4775,7 +5599,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "lágrima",
-          "translation_en": "tears"
+          "translation_en": "tears",
+          "dictionary_zipf": 3.46,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "replicó",
@@ -4786,7 +5612,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "replicar",
-          "translation_en": "he/she/it replied"
+          "translation_en": "he/she/it replied",
+          "dictionary_zipf": 3.3,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "tocaba",
@@ -4797,7 +5625,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "tocar",
-          "translation_en": "he/she/it was touching, used to touch"
+          "translation_en": "he/she/it was touching, used to touch",
+          "dictionary_zipf": 4.61,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "dices",
@@ -4808,7 +5638,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "decir",
-          "translation_en": "you say"
+          "translation_en": "you say",
+          "dictionary_zipf": 5.78,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "señorita",
@@ -4819,7 +5651,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "señorita",
-          "translation_en": "miss, young lady"
+          "translation_en": "miss, young lady",
+          "dictionary_zipf": 4.16,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "cabellos",
@@ -4830,7 +5664,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cabello",
-          "translation_en": "hairs"
+          "translation_en": "hairs",
+          "dictionary_zipf": 4.54,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "quizás",
@@ -4841,7 +5677,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "quizás",
-          "translation_en": "perhaps, maybe"
+          "translation_en": "perhaps, maybe",
+          "dictionary_zipf": 4.97,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "rocas",
@@ -4852,7 +5690,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "roca",
-          "translation_en": "rocks"
+          "translation_en": "rocks",
+          "dictionary_zipf": 4.38,
+          "dictionary_rarity_tag": "less-common"
         }
       ]
     },
@@ -4870,7 +5710,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "pupila",
-          "translation_en": "pupil (eye)"
+          "translation_en": "pupil (eye)",
+          "dictionary_zipf": 3.09,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "nela",
@@ -4881,7 +5723,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "huérfana",
@@ -4892,7 +5736,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "huérfano",
-          "translation_en": "orphan (feminine)"
+          "translation_en": "orphan (feminine)",
+          "dictionary_zipf": 3.38,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "culminante",
@@ -4903,7 +5749,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "culminante",
-          "translation_en": "culminating, final"
+          "translation_en": "culminating, final",
+          "dictionary_zipf": 3.13,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "aversión",
@@ -4914,7 +5762,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "aversión",
-          "translation_en": "aversion, dislike"
+          "translation_en": "aversion, dislike",
+          "dictionary_zipf": 3.29,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "centeno",
@@ -4925,7 +5775,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "centeno",
-          "translation_en": "rye"
+          "translation_en": "rye",
+          "dictionary_zipf": 3.34,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "promesa",
@@ -4936,7 +5788,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "promesa",
-          "translation_en": "promise"
+          "translation_en": "promise",
+          "dictionary_zipf": 4.31,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "triunfo",
@@ -4947,7 +5801,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "triunfo",
-          "translation_en": "triumph, victory"
+          "translation_en": "triumph, victory",
+          "dictionary_zipf": 4.54,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "florentina",
@@ -4958,7 +5814,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "florentino",
-          "translation_en": "Florentine (feminine)"
+          "translation_en": "Florentine (feminine)",
+          "dictionary_zipf": 3.54,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "sublime",
@@ -4969,7 +5827,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "sublime",
-          "translation_en": "sublime, exalted"
+          "translation_en": "sublime, exalted",
+          "dictionary_zipf": 3.55,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "pobre",
@@ -4980,7 +5840,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "pobre",
-          "translation_en": "poor"
+          "translation_en": "poor",
+          "dictionary_zipf": 4.95,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "serás",
@@ -4991,7 +5853,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ser",
-          "translation_en": "to be (future, you)"
+          "translation_en": "to be (future, you)",
+          "dictionary_zipf": 6.27,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "delicada",
@@ -5002,7 +5866,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "delicado",
-          "translation_en": "delicate (feminine)"
+          "translation_en": "delicate (feminine)",
+          "dictionary_zipf": 3.93,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "teodoro",
@@ -5013,7 +5879,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "teodoro",
-          "translation_en": "Theodore (proper name)"
+          "translation_en": "Theodore (proper name)",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "horror",
@@ -5024,7 +5892,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "horror",
-          "translation_en": "horror"
+          "translation_en": "horror",
+          "dictionary_zipf": 4.17,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "consideración",
@@ -5035,7 +5905,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "consideración",
-          "translation_en": "consideration"
+          "translation_en": "consideration",
+          "dictionary_zipf": 4.15,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "hermana",
@@ -5046,7 +5918,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "hermano",
-          "translation_en": "sister"
+          "translation_en": "sister",
+          "dictionary_zipf": 5.11,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "interior",
@@ -5057,7 +5931,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "interior",
-          "translation_en": "interior, inside"
+          "translation_en": "interior, inside",
+          "dictionary_zipf": 5.09,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "santísima",
@@ -5068,7 +5944,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "santísimo",
-          "translation_en": "most holy (feminine)"
+          "translation_en": "most holy (feminine)",
+          "dictionary_zipf": 3.38,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "presencia",
@@ -5079,7 +5957,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "presencia",
-          "translation_en": "presence"
+          "translation_en": "presence",
+          "dictionary_zipf": 4.97,
+          "dictionary_rarity_tag": "common"
         }
       ]
     },
@@ -5097,7 +5977,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "aldeacorba",
-          "translation_en": "proper noun, place name"
+          "translation_en": "proper noun, place name",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "nela",
@@ -5108,7 +5990,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "señorita",
@@ -5119,7 +6003,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "señorita",
-          "translation_en": "miss, young lady"
+          "translation_en": "miss, young lady",
+          "dictionary_zipf": 4.16,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "florentina",
@@ -5130,7 +6016,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "florentino",
-          "translation_en": "Florentine (feminine)"
+          "translation_en": "Florentine (feminine)",
+          "dictionary_zipf": 3.54,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "vagando",
@@ -5141,7 +6029,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "vagar",
-          "translation_en": "wandering"
+          "translation_en": "wandering",
+          "dictionary_zipf": 3.07,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "celipín",
@@ -5152,7 +6042,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "celipín",
-          "translation_en": "celipín (proper noun or rare term)"
+          "translation_en": "celipín (proper noun or rare term)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "santísima",
@@ -5163,7 +6055,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "santísimo",
-          "translation_en": "most holy (feminine)"
+          "translation_en": "most holy (feminine)",
+          "dictionary_zipf": 3.38,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "gozo",
@@ -5174,7 +6068,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "gozo",
-          "translation_en": "joy"
+          "translation_en": "joy",
+          "dictionary_zipf": 3.52,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "aborrezco",
@@ -5185,7 +6081,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "aborrecer",
-          "translation_en": "I hate, detest"
+          "translation_en": "I hate, detest",
+          "dictionary_zipf": 2.29,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "penáguilas",
@@ -5196,7 +6094,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "penáguilas",
-          "translation_en": "a place name in Spain"
+          "translation_en": "a place name in Spain",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "hinojales",
@@ -5207,7 +6107,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "hinojal",
-          "translation_en": "fennel patches"
+          "translation_en": "fennel patches",
+          "dictionary_zipf": 1.26,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "rudeza",
@@ -5218,7 +6120,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "rudeza",
-          "translation_en": "roughness, rudeness"
+          "translation_en": "roughness, rudeness",
+          "dictionary_zipf": 2.67,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "fugitiva",
@@ -5229,7 +6133,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "fugitivo",
-          "translation_en": "fugitive (feminine)"
+          "translation_en": "fugitive (feminine)",
+          "dictionary_zipf": 3.3,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "gratitud",
@@ -5240,7 +6146,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "gratitud",
-          "translation_en": "gratitude"
+          "translation_en": "gratitude",
+          "dictionary_zipf": 3.8,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "levántate",
@@ -5251,7 +6159,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "levantarse",
-          "translation_en": "stand up (imperative, tú)"
+          "translation_en": "stand up (imperative, tú)",
+          "dictionary_zipf": 3.94,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "besó",
@@ -5262,7 +6172,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "besar",
-          "translation_en": "he/she kissed"
+          "translation_en": "he/she kissed",
+          "dictionary_zipf": 3.78,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "delicadeza",
@@ -5273,7 +6185,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "delicadeza",
-          "translation_en": "delicacy"
+          "translation_en": "delicacy",
+          "dictionary_zipf": 3.45,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "adoro",
@@ -5284,7 +6198,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "adorar",
-          "translation_en": "I adore"
+          "translation_en": "I adore",
+          "dictionary_zipf": 3.28,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "teodoro",
@@ -5295,7 +6211,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "teodoro",
-          "translation_en": "Theodore (proper name)"
+          "translation_en": "Theodore (proper name)",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "exclamó",
@@ -5306,7 +6224,9 @@
           "rarity_tag": "rare",
           "is_tic": true,
           "dictionary_form": "exclamar",
-          "translation_en": "he/she/it exclaimed"
+          "translation_en": "he/she/it exclaimed",
+          "dictionary_zipf": 2.42,
+          "dictionary_rarity_tag": "very-rare"
         }
       ]
     },
@@ -5324,7 +6244,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "choto",
-          "translation_en": "young goat"
+          "translation_en": "young goat",
+          "dictionary_zipf": 3.36,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "nela",
@@ -5335,7 +6257,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "celipín",
@@ -5346,7 +6270,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "celipín",
-          "translation_en": "celipín (proper noun or rare term)"
+          "translation_en": "celipín (proper noun or rare term)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "madriles",
@@ -5357,7 +6283,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "madrileño",
-          "translation_en": "people from Madrid"
+          "translation_en": "people from Madrid",
+          "dictionary_zipf": 3.57,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "aldeacorba",
@@ -5368,7 +6296,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "aldeacorba",
-          "translation_en": "proper noun, place name"
+          "translation_en": "proper noun, place name",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "ventanillo",
@@ -5379,7 +6309,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "ventanillo",
-          "translation_en": "small window, ticket window"
+          "translation_en": "small window, ticket window",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "espirales",
@@ -5390,7 +6322,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "espiral",
-          "translation_en": "spirals"
+          "translation_en": "spirals",
+          "dictionary_zipf": 3.71,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "sintió",
@@ -5401,7 +6335,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "sentir",
-          "translation_en": "to feel (preterite, he/she/it)"
+          "translation_en": "to feel (preterite, he/she/it)",
+          "dictionary_zipf": 4.89,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "detúvose",
@@ -5412,7 +6348,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "detenerse",
-          "translation_en": "he/she stopped"
+          "translation_en": "he/she stopped",
+          "dictionary_zipf": 3.59,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "lío",
@@ -5423,7 +6361,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "lío",
-          "translation_en": "mess, trouble"
+          "translation_en": "mess, trouble",
+          "dictionary_zipf": 3.79,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "marcha",
@@ -5434,7 +6374,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "marcha",
-          "translation_en": "march, movement"
+          "translation_en": "march, movement",
+          "dictionary_zipf": 4.94,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "trascava",
@@ -5445,7 +6387,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "trascavar",
-          "translation_en": "he/she/it dug through"
+          "translation_en": "he/she/it dug through",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "corría",
@@ -5456,7 +6400,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "correr",
-          "translation_en": "to run"
+          "translation_en": "to run",
+          "dictionary_zipf": 4.6,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "apartándose",
@@ -5467,7 +6413,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "apartarse",
-          "translation_en": "separating oneself"
+          "translation_en": "separating oneself",
+          "dictionary_zipf": 3.09,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "recórcholis",
@@ -5478,7 +6426,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "recórcholis",
-          "translation_en": "expression of surprise"
+          "translation_en": "expression of surprise",
+          "dictionary_zipf": 1.6,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "describiendo",
@@ -5489,7 +6439,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "describir",
-          "translation_en": "describing"
+          "translation_en": "describing",
+          "dictionary_zipf": 4.16,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "poquillo",
@@ -5500,7 +6452,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "poquillo",
-          "translation_en": "little bit"
+          "translation_en": "little bit",
+          "dictionary_zipf": 2.31,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "gruñidos",
@@ -5511,7 +6465,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "gruñido",
-          "translation_en": "growls"
+          "translation_en": "growls",
+          "dictionary_zipf": 2.69,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "generoso",
@@ -5522,7 +6478,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "generoso",
-          "translation_en": "generous"
+          "translation_en": "generous",
+          "dictionary_zipf": 3.88,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "mismas",
@@ -5533,7 +6491,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "mismo",
-          "translation_en": "same (feminine plural)"
+          "translation_en": "same (feminine plural)",
+          "dictionary_zipf": 5.93,
+          "dictionary_rarity_tag": "common"
         }
       ]
     },
@@ -5551,7 +6511,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "golfín",
@@ -5562,7 +6524,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "golfín",
-          "translation_en": "golfín (a type of dolphin or fish)"
+          "translation_en": "golfín (a type of dolphin or fish)",
+          "dictionary_zipf": 1.49,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "ingrata",
@@ -5573,7 +6537,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "ingrato",
-          "translation_en": "ungrateful (feminine)"
+          "translation_en": "ungrateful (feminine)",
+          "dictionary_zipf": 2.95,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "has",
@@ -5584,7 +6550,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "haber",
-          "translation_en": "you have (auxiliary)"
+          "translation_en": "you have (auxiliary)",
+          "dictionary_zipf": 5.58,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "sirves",
@@ -5595,7 +6563,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "servir",
-          "translation_en": "to serve (present, you)"
+          "translation_en": "to serve (present, you)",
+          "dictionary_zipf": 4.54,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "florentina",
@@ -5606,7 +6576,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "florentino",
-          "translation_en": "Florentine (feminine)"
+          "translation_en": "Florentine (feminine)",
+          "dictionary_zipf": 3.54,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "vagabunda",
@@ -5617,7 +6589,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "vagabundo",
-          "translation_en": "wanderer, vagabond (feminine)"
+          "translation_en": "wanderer, vagabond (feminine)",
+          "dictionary_zipf": 3.3,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "pensabas",
@@ -5628,7 +6602,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "pensar",
-          "translation_en": "you thought"
+          "translation_en": "you thought",
+          "dictionary_zipf": 5.27,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "abandono",
@@ -5639,7 +6615,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "abandono",
-          "translation_en": "abandonment"
+          "translation_en": "abandonment",
+          "dictionary_zipf": 4.15,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "casarán",
@@ -5650,7 +6628,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "casar",
-          "translation_en": "they will marry"
+          "translation_en": "they will marry",
+          "dictionary_zipf": 3.88,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "señorita",
@@ -5661,7 +6641,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "señorita",
-          "translation_en": "miss, young lady"
+          "translation_en": "miss, young lady",
+          "dictionary_zipf": 4.16,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "dones",
@@ -5672,7 +6654,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "don",
-          "translation_en": "gifts, talents"
+          "translation_en": "gifts, talents",
+          "dictionary_zipf": 4.93,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "pequeñitos",
@@ -5683,7 +6667,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "pequeñito",
-          "translation_en": "very small, tiny"
+          "translation_en": "very small, tiny",
+          "dictionary_zipf": 3.12,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "rezaría",
@@ -5694,7 +6680,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "rezar",
-          "translation_en": "he/she/it would pray"
+          "translation_en": "he/she/it would pray",
+          "dictionary_zipf": 3.85,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "ibas",
@@ -5705,7 +6693,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "ir",
-          "translation_en": "you were going"
+          "translation_en": "you were going",
+          "dictionary_zipf": 5.65,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "gozamos",
@@ -5716,7 +6706,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "gozar",
-          "translation_en": "we enjoy"
+          "translation_en": "we enjoy",
+          "dictionary_zipf": 3.62,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "elevaba",
@@ -5727,7 +6719,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "elevar",
-          "translation_en": "he/she/it raised"
+          "translation_en": "he/she/it raised",
+          "dictionary_zipf": 3.9,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "posees",
@@ -5738,7 +6732,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "poseer",
-          "translation_en": "you possess"
+          "translation_en": "you possess",
+          "dictionary_zipf": 3.91,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "discreto",
@@ -5749,7 +6745,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "discreto",
-          "translation_en": "discreet (masculine singular)"
+          "translation_en": "discreet (masculine singular)",
+          "dictionary_zipf": 3.61,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "cazo",
@@ -5760,7 +6758,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "cazar",
-          "translation_en": "I hunt"
+          "translation_en": "I hunt",
+          "dictionary_zipf": 3.74,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -5778,7 +6778,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "florentino",
-          "translation_en": "Florentine (feminine)"
+          "translation_en": "Florentine (feminine)",
+          "dictionary_zipf": 3.54,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "hermosura",
@@ -5789,7 +6791,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "hermosura",
-          "translation_en": "beauty"
+          "translation_en": "beauty",
+          "dictionary_zipf": 3.43,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "golfín",
@@ -5800,7 +6804,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "golfín",
-          "translation_en": "golfín (a type of dolphin or fish)"
+          "translation_en": "golfín (a type of dolphin or fish)",
+          "dictionary_zipf": 1.49,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "nela",
@@ -5811,7 +6817,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "prima",
@@ -5822,7 +6830,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "prima",
-          "translation_en": "female cousin"
+          "translation_en": "female cousin",
+          "dictionary_zipf": 4.4,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "teodoro",
@@ -5833,7 +6843,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "teodoro",
-          "translation_en": "Theodore (proper name)"
+          "translation_en": "Theodore (proper name)",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "pablo",
@@ -5844,7 +6856,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "pablo",
-          "translation_en": "proper noun (name)"
+          "translation_en": "proper noun (name)",
+          "dictionary_zipf": 4.93,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "buscarla",
@@ -5855,7 +6869,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "buscar",
-          "translation_en": "to look for her/it"
+          "translation_en": "to look for her/it",
+          "dictionary_zipf": 5.08,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "observaba",
@@ -5866,7 +6882,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "observar",
-          "translation_en": "he/she/it was observing"
+          "translation_en": "he/she/it was observing",
+          "dictionary_zipf": 4.39,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "ardientemente",
@@ -5877,7 +6895,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "ardientemente",
-          "translation_en": "ardently / passionately"
+          "translation_en": "ardently / passionately",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "curiosidad",
@@ -5888,7 +6908,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "curiosidad",
-          "translation_en": "curiosity"
+          "translation_en": "curiosity",
+          "dictionary_zipf": 4.38,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "quieta",
@@ -5899,7 +6921,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "quieto",
-          "translation_en": "still, quiet"
+          "translation_en": "still, quiet",
+          "dictionary_zipf": 3.6,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "visible",
@@ -5910,7 +6934,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "visible",
-          "translation_en": "visible"
+          "translation_en": "visible",
+          "dictionary_zipf": 4.2,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "pasmaba",
@@ -5921,7 +6947,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "pasmar",
-          "translation_en": "he/she/it amazed; stunned"
+          "translation_en": "he/she/it amazed; stunned",
+          "dictionary_zipf": 1.07,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "principió",
@@ -5932,7 +6960,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "principiar",
-          "translation_en": "he/she/it began"
+          "translation_en": "he/she/it began",
+          "dictionary_zipf": 1.41,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "palmada",
@@ -5943,7 +6973,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "palmada",
-          "translation_en": "clap; slap on the palm"
+          "translation_en": "clap; slap on the palm",
+          "dictionary_zipf": 2.85,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "bendito",
@@ -5954,7 +6986,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "bendito",
-          "translation_en": "blessed (masculine)"
+          "translation_en": "blessed (masculine)",
+          "dictionary_zipf": 3.73,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "excitado",
@@ -5965,7 +6999,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "excitar",
-          "translation_en": "excited; aroused"
+          "translation_en": "excited; aroused",
+          "dictionary_zipf": 2.72,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "navegante",
@@ -5976,7 +7012,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "navegante",
-          "translation_en": "navigator, sailor"
+          "translation_en": "navigator, sailor",
+          "dictionary_zipf": 3.13,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "gozo",
@@ -5987,7 +7025,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "gozo",
-          "translation_en": "joy"
+          "translation_en": "joy",
+          "dictionary_zipf": 3.52,
+          "dictionary_rarity_tag": "rare"
         }
       ]
     },
@@ -6005,7 +7045,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "florentino",
-          "translation_en": "Florentine (feminine)"
+          "translation_en": "Florentine (feminine)",
+          "dictionary_zipf": 3.54,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "nela",
@@ -6016,7 +7058,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "golfín",
@@ -6027,7 +7071,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "golfín",
-          "translation_en": "golfín (a type of dolphin or fish)"
+          "translation_en": "golfín (a type of dolphin or fish)",
+          "dictionary_zipf": 1.49,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "teodoro",
@@ -6038,7 +7084,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "teodoro",
-          "translation_en": "Theodore (proper name)"
+          "translation_en": "Theodore (proper name)",
+          "dictionary_zipf": 3.5,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "sofá",
@@ -6049,7 +7097,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "sofá",
-          "translation_en": "sofa"
+          "translation_en": "sofa",
+          "dictionary_zipf": 3.96,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "exclamó",
@@ -6060,7 +7110,9 @@
           "rarity_tag": "rare",
           "is_tic": true,
           "dictionary_form": "exclamar",
-          "translation_en": "he/she/it exclaimed"
+          "translation_en": "he/she/it exclaimed",
+          "dictionary_zipf": 2.42,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "mantas",
@@ -6071,7 +7123,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "manta",
-          "translation_en": "blankets (plural)"
+          "translation_en": "blankets (plural)",
+          "dictionary_zipf": 3.77,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "venda",
@@ -6082,7 +7136,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "venda",
-          "translation_en": "bandage"
+          "translation_en": "bandage",
+          "dictionary_zipf": 3.72,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "iris",
@@ -6093,7 +7149,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "íris",
-          "translation_en": "iris (flower or eye part)"
+          "translation_en": "iris (flower or eye part)",
+          "dictionary_zipf": 1.38,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "arco",
@@ -6104,7 +7162,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "arco",
-          "translation_en": "bow / arch"
+          "translation_en": "bow / arch",
+          "dictionary_zipf": 4.35,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "pablo",
@@ -6115,7 +7175,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "pablo",
-          "translation_en": "proper noun (name)"
+          "translation_en": "proper noun (name)",
+          "dictionary_zipf": 4.93,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "sabemos",
@@ -6126,7 +7188,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "saber",
-          "translation_en": "we know"
+          "translation_en": "we know",
+          "dictionary_zipf": 5.49,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "pasiones",
@@ -6137,7 +7201,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "pasión",
-          "translation_en": "passions"
+          "translation_en": "passions",
+          "dictionary_zipf": 4.55,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "modistas",
@@ -6148,7 +7214,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "modista",
-          "translation_en": "dressmakers"
+          "translation_en": "dressmakers",
+          "dictionary_zipf": 2.84,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "explicaré",
@@ -6159,7 +7227,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "explicar",
-          "translation_en": "I will explain"
+          "translation_en": "I will explain",
+          "dictionary_zipf": 4.67,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "infeliz",
@@ -6170,7 +7240,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "infeliz",
-          "translation_en": "unhappy"
+          "translation_en": "unhappy",
+          "dictionary_zipf": 3.8,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "alfileres",
@@ -6181,7 +7253,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "alfiler",
-          "translation_en": "pins"
+          "translation_en": "pins",
+          "dictionary_zipf": 2.97,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "penáguilas",
@@ -6192,7 +7266,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "penáguilas",
-          "translation_en": "a place name in Spain"
+          "translation_en": "a place name in Spain",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "enferma",
@@ -6203,7 +7279,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "enfermo",
-          "translation_en": "sick (feminine)"
+          "translation_en": "sick (feminine)",
+          "dictionary_zipf": 4.42,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "dolor",
@@ -6214,7 +7292,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "dolor",
-          "translation_en": "pain"
+          "translation_en": "pain",
+          "dictionary_zipf": 4.97,
+          "dictionary_rarity_tag": "common"
         }
       ]
     },
@@ -6232,7 +7312,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "sepulcro",
-          "translation_en": "tomb, sepulcher"
+          "translation_en": "tomb, sepulcher",
+          "dictionary_zipf": 3.48,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "villamojada",
@@ -6243,7 +7325,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "villamojada",
-          "translation_en": "proper name (place)"
+          "translation_en": "proper name (place)",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "dígase",
@@ -6254,7 +7338,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "decir",
-          "translation_en": "say (imperative/reflexive)"
+          "translation_en": "say (imperative/reflexive)",
+          "dictionary_zipf": 5.78,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "téllez",
@@ -6265,7 +7351,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "téllez",
-          "translation_en": "Téllez (proper name)"
+          "translation_en": "Téllez (proper name)",
+          "dictionary_zipf": 3.02,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "mármol",
@@ -6276,7 +7364,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "mármol",
-          "translation_en": "marble"
+          "translation_en": "marble",
+          "dictionary_zipf": 3.8,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "aldeacorba",
@@ -6287,7 +7377,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "aldeacorba",
-          "translation_en": "proper noun, place name"
+          "translation_en": "proper noun, place name",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "cementerio",
@@ -6298,7 +7390,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "cementerio",
-          "translation_en": "cemetery"
+          "translation_en": "cemetery",
+          "dictionary_zipf": 4.18,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "manuela",
@@ -6309,7 +7403,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "manuela",
-          "translation_en": "Manuela (proper name)"
+          "translation_en": "Manuela (proper name)",
+          "dictionary_zipf": 3.75,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "cantabria",
@@ -6320,7 +7416,9 @@
           "rarity_tag": "rare",
           "is_tic": false,
           "dictionary_form": "cantabria",
-          "translation_en": "Cantabria (region in Spain)"
+          "translation_en": "Cantabria (region in Spain)",
+          "dictionary_zipf": 3.81,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "nela",
@@ -6331,7 +7429,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "nela",
-          "translation_en": "Nela (proper name)"
+          "translation_en": "Nela (proper name)",
+          "dictionary_zipf": 2.33,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "señana",
@@ -6342,7 +7442,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "señana",
-          "translation_en": "unknown or misspelled word"
+          "translation_en": "unknown or misspelled word",
+          "dictionary_zipf": 0.0,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "marianela",
@@ -6353,7 +7455,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "marianela",
-          "translation_en": "Marianela (proper name)"
+          "translation_en": "Marianela (proper name)",
+          "dictionary_zipf": 2.47,
+          "dictionary_rarity_tag": "very-rare"
         },
         {
           "token": "vemos",
@@ -6364,7 +7468,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ver",
-          "translation_en": "we see"
+          "translation_en": "we see",
+          "dictionary_zipf": 5.95,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "tumba",
@@ -6375,7 +7481,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "tumba",
-          "translation_en": "tomb, grave"
+          "translation_en": "tomb, grave",
+          "dictionary_zipf": 4.24,
+          "dictionary_rarity_tag": "less-common"
         },
         {
           "token": "prueba",
@@ -6386,7 +7494,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "prueba",
-          "translation_en": "test, proof"
+          "translation_en": "test, proof",
+          "dictionary_zipf": 5.09,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "aquellas",
@@ -6397,7 +7507,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "aquel",
-          "translation_en": "those (feminine plural)"
+          "translation_en": "those (feminine plural)",
+          "dictionary_zipf": 4.87,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "pequeño",
@@ -6408,7 +7520,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "pequeño",
-          "translation_en": "small, little"
+          "translation_en": "small, little",
+          "dictionary_zipf": 5.09,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "florentina",
@@ -6419,7 +7533,9 @@
           "rarity_tag": "archaic",
           "is_tic": false,
           "dictionary_form": "florentino",
-          "translation_en": "Florentine (feminine)"
+          "translation_en": "Florentine (feminine)",
+          "dictionary_zipf": 3.54,
+          "dictionary_rarity_tag": "rare"
         },
         {
           "token": "vieron",
@@ -6430,7 +7546,9 @@
           "rarity_tag": "uncommon",
           "is_tic": false,
           "dictionary_form": "ver",
-          "translation_en": "they saw"
+          "translation_en": "they saw",
+          "dictionary_zipf": 5.95,
+          "dictionary_rarity_tag": "common"
         },
         {
           "token": "habían",
@@ -6441,7 +7559,9 @@
           "rarity_tag": "common",
           "is_tic": false,
           "dictionary_form": "haber",
-          "translation_en": "they had (auxiliary)"
+          "translation_en": "they had (auxiliary)",
+          "dictionary_zipf": 5.58,
+          "dictionary_rarity_tag": "common"
         }
       ]
     }

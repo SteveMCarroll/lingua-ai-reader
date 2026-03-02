@@ -117,7 +117,7 @@ function getPageCharBudget(fontSize: number, viewportWidth: number, viewportHeig
 
 function getPanelVocab(items: VocabItem[], maxItems: number): VocabItem[] {
   return items
-    .filter((item) => item.modern_zipf <= 4.5)
+    .filter((item) => (item.dictionary_zipf ?? item.modern_zipf) <= 3.7)
     .sort((a, b) => b.count - a.count || b.score - a.score)
     .slice(0, maxItems);
 }

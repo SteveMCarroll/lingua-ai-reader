@@ -23,18 +23,22 @@ interface DisplayVocabItem {
 }
 
 const RARITY_RANK: Record<string, number> = {
+  "very-rare": 0,
   archaic: 0,
   rare: 1,
+  "less-common": 2,
   uncommon: 2,
   common: 3,
 };
 
 function badgeClass(tag: string): string {
   switch (tag) {
+    case "very-rare":
     case "archaic":
       return "bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-200";
     case "rare":
       return "bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-200";
+    case "less-common":
     case "uncommon":
       return "bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200";
     default:
@@ -46,19 +50,27 @@ function normalizeHeadword(value: string): string {
   return value.trim().toLowerCase();
 }
 
+function normalizeRarity(tag: string | undefined): string {
+  if (!tag) return "common";
+  if (tag === "archaic") return "very-rare";
+  if (tag === "uncommon") return "less-common";
+  return tag;
+}
+
 function formatDisplayVocab(items: VocabItem[]): DisplayVocabItem[] {
   const grouped = new Map<string, DisplayVocabItem>();
 
   for (const item of items) {
     const headword = normalizeHeadword(item.dictionary_form || item.token);
     const translation = item.translation_en || null;
+    const rarityTag = normalizeRarity(item.dictionary_rarity_tag || item.rarity_tag);
     const current = grouped.get(headword);
 
     if (current) {
       current.count += item.count;
       current.isTic = current.isTic || item.is_tic;
-      if ((RARITY_RANK[item.rarity_tag] ?? 99) < (RARITY_RANK[current.rarityTag] ?? 99)) {
-        current.rarityTag = item.rarity_tag;
+      if ((RARITY_RANK[rarityTag] ?? 99) < (RARITY_RANK[current.rarityTag] ?? 99)) {
+        current.rarityTag = rarityTag;
       }
       if (!current.translation && translation) {
         current.translation = translation;
@@ -72,7 +84,7 @@ function formatDisplayVocab(items: VocabItem[]): DisplayVocabItem[] {
     grouped.set(headword, {
       headword,
       count: item.count,
-      rarityTag: item.rarity_tag,
+      rarityTag,
       isTic: item.is_tic,
       translation,
       forms: [item.token],

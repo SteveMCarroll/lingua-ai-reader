@@ -8,6 +8,8 @@ export interface VocabItem {
   is_tic: boolean;
   dictionary_form?: string;
   translation_en?: string;
+  dictionary_zipf?: number;
+  dictionary_rarity_tag?: string;
 }
 
 export interface ChapterVocab {

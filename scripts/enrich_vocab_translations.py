@@ -12,11 +12,13 @@ from typing import Dict, Iterable, List, Tuple
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
+from wordfreq import zipf_frequency
+
 
 SYSTEM_PROMPT = (
     "You are a Spanish tutor. Return ONLY valid JSON object keyed by original token. "
     "For each token, return {\"dictionaryForm\": \"...\", \"translation\": \"...\"}. "
-    "dictionaryForm must be lowercase lemma (example: \"nuestras\" -> \"nuestro\"). "
+    "dictionaryForm must be canonical lowercase lemma: infinitive for verbs, masculine singular for adjectives/nouns (examples: \"nuestras\" -> \"nuestro\", \"burra\" -> \"burro\"). "
     "translation must be a short plain-English gloss."
 )
 
@@ -87,23 +89,29 @@ def batched(values: List[str], size: int) -> Iterable[List[str]]:
         yield values[i : i + size]
 
 
+def get_rarity_tag(zipf_score: float) -> str:
+    if zipf_score < 3.0:
+        return "very-rare"
+    if zipf_score < 4.0:
+        return "rare"
+    if zipf_score < 4.8:
+        return "less-common"
+    return "common"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Add translation fields to public vocab JSON files")
     parser.add_argument("--glob", default="public/vocab/*.json", help="Glob for vocab JSON files")
     parser.add_argument("--batch-size", type=int, default=40, help="Tokens per model call")
+    parser.add_argument("--recompute", action="store_true", help="Recompute dictionary form/translation for all tokens")
     args = parser.parse_args()
-
-    endpoint = get_env("AZURE_OPENAI_ENDPOINT")
-    api_key = get_env("AZURE_OPENAI_API_KEY")
-    deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-4.1-mini")
-    api_version = os.environ.get("AZURE_OPENAI_API_VERSION", "2025-01-01-preview")
 
     files = [Path(p) for p in glob(args.glob)]
     if not files:
         raise RuntimeError(f"No files matched: {args.glob}")
 
     data_by_file: Dict[Path, Dict] = {}
-    missing_tokens: set[str] = set()
+    tokens_requiring_model: set[str] = set()
 
     for path in files:
         with path.open("r", encoding="utf-8") as f:
@@ -118,21 +126,27 @@ def main() -> int:
             token = item.get("token")
             if not token:
                 continue
-            if item.get("dictionary_form") and item.get("translation_en"):
-                continue
-            missing_tokens.add(token)
+            has_cached = item.get("dictionary_form") and item.get("translation_en")
+            if args.recompute or not has_cached:
+                tokens_requiring_model.add(token)
 
-    sorted_tokens = sorted(missing_tokens)
-    print(f"Need to enrich {len(sorted_tokens)} unique tokens.", flush=True)
+    sorted_tokens = sorted(tokens_requiring_model)
+    print(f"Need model enrichment for {len(sorted_tokens)} unique tokens.", flush=True)
 
     cache: Dict[str, Tuple[str, str]] = {}
-    for index, chunk in enumerate(batched(sorted_tokens, max(1, args.batch_size)), start=1):
-        batch_result = lookup_token_batch(chunk, endpoint, api_key, deployment, api_version)
-        cache.update(batch_result)
-        print(
-            f"Batch {index}: enriched {len(chunk)} tokens ({len(cache)}/{len(sorted_tokens)} total).",
-            flush=True,
-        )
+    if sorted_tokens:
+        endpoint = get_env("AZURE_OPENAI_ENDPOINT")
+        api_key = get_env("AZURE_OPENAI_API_KEY")
+        deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-4.1-mini")
+        api_version = os.environ.get("AZURE_OPENAI_API_VERSION", "2025-01-01-preview")
+
+        for index, chunk in enumerate(batched(sorted_tokens, max(1, args.batch_size)), start=1):
+            batch_result = lookup_token_batch(chunk, endpoint, api_key, deployment, api_version)
+            cache.update(batch_result)
+            print(
+                f"Batch {index}: enriched {len(chunk)} tokens ({len(cache)}/{len(sorted_tokens)} total).",
+                flush=True,
+            )
 
     for path, data in data_by_file.items():
         def enrich_items(items: List[Dict]) -> None:
@@ -140,11 +154,17 @@ def main() -> int:
                 token = item.get("token")
                 if not token:
                     continue
-                if token not in cache:
-                    continue
-                dictionary_form, translation_en = cache[token]
+
+                if token in cache:
+                    dictionary_form, translation_en = cache[token]
+                    item["dictionary_form"] = dictionary_form
+                    item["translation_en"] = translation_en
+
+                dictionary_form = str(item.get("dictionary_form") or token).strip().lower()
+                dictionary_zipf = zipf_frequency(dictionary_form, "es")
                 item["dictionary_form"] = dictionary_form
-                item["translation_en"] = translation_en
+                item["dictionary_zipf"] = round(dictionary_zipf, 2)
+                item["dictionary_rarity_tag"] = get_rarity_tag(dictionary_zipf)
 
         enrich_items(data.get("book_vocab", {}).get("vocabulary", []))
         for chapter in data.get("chapters", []):
