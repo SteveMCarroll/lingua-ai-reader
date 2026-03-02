@@ -34,6 +34,16 @@ npm run build
 npm --prefix api run build
 ```
 
+## Pregenerate vocab translations
+
+If you regenerate `public/vocab/*.json`, enrich those files with dictionary forms + English glosses:
+
+```bash
+python scripts/enrich_vocab_translations.py
+```
+
+Requires `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` (and optional `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_API_VERSION`).
+
 ## Azure OpenAI configuration
 
 Set these environment variables for real gloss responses:

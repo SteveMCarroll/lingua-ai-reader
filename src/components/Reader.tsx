@@ -6,9 +6,11 @@ import { BookContent } from "./BookContent";
 import { ChapterNav } from "./ChapterNav";
 import { GlossPopup } from "./GlossPopup";
 import { SettingsPanel } from "./SettingsPanel";
+import { VocabPanel } from "./VocabPanel";
 import { useTextSelection } from "../hooks/useTextSelection";
 import { useGloss } from "../hooks/useGloss";
 import { useReadingPosition } from "../hooks/useReadingPosition";
+import { loadBookVocab, type BookVocabData, type VocabItem } from "../lib/vocab";
 
 const BASE_CHROME_HEIGHT = 220;
 const TRACKED_WORDS_PREFIX = "tracked-words:";
@@ -113,6 +115,13 @@ function getPageCharBudget(fontSize: number, viewportWidth: number, viewportHeig
   return Math.max(minChars, Math.floor(linesPerPage * charsPerLine * fillBoost));
 }
 
+function getPanelVocab(items: VocabItem[], maxItems: number): VocabItem[] {
+  return items
+    .filter((item) => item.modern_zipf <= 4.5)
+    .sort((a, b) => b.count - a.count || b.score - a.score)
+    .slice(0, maxItems);
+}
+
 interface Props {
   bookMeta: BookMeta;
   onBack: () => void;
@@ -173,9 +182,28 @@ export function Reader({ bookMeta, onBack }: Props) {
   const [pageIndex, setPageIndex] = useState(() => initialPosition.pageIndex);
   const [navOpen, setNavOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [vocabOpen, setVocabOpen] = useState(false);
+  const [vocabScope, setVocabScope] = useState<"book" | "chapter">("chapter");
+  const [vocabByBook, setVocabByBook] = useState<{
+    bookId: string;
+    data: BookVocabData | null;
+    error: string | null;
+  } | null>(null);
   const showPreface = false;
 
   const [trackedWords, setTrackedWords] = useState<Set<string>>(() => loadTrackedWords(bookMeta.id));
+
+  useEffect(() => {
+    let cancelled = false;
+    loadBookVocab(bookMeta.id).then((data) => {
+      if (cancelled) return;
+      setVocabByBook({ bookId: bookMeta.id, data, error: null });
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [bookMeta.id]);
 
   // Filtered chapters (skip preface by default)
   const displayChapters = useMemo(() => {
@@ -351,6 +379,23 @@ export function Reader({ bookMeta, onBack }: Props) {
     effectiveDisplayIdx >= 0 ? effectiveDisplayIdx + 1 : Math.max(1, effectiveChapterIndex + 1);
   const canGoPrev = activePageIndex > 0 || Boolean(prevChapter);
   const canGoNext = activePageIndex < maxPageIndex || Boolean(nextChapter);
+  const vocabLoading = !vocabByBook || vocabByBook.bookId !== bookMeta.id;
+  const vocabData = vocabByBook?.bookId === bookMeta.id ? vocabByBook.data : null;
+  const vocabError = vocabByBook?.bookId === bookMeta.id ? vocabByBook.error : null;
+  const bookVocab = useMemo(
+    () => getPanelVocab(vocabData?.book_vocab.vocabulary ?? [], 24),
+    [vocabData]
+  );
+  const chapterVocab = useMemo(() => {
+    const chapterItems =
+      vocabData?.chapters.find((chapter) => chapter.chapter_index === effectiveChapterIndex)?.vocabulary ?? [];
+    return getPanelVocab(chapterItems, 16);
+  }, [effectiveChapterIndex, vocabData]);
+
+  const openVocabPanel = useCallback((scope: "book" | "chapter") => {
+    setVocabScope(scope);
+    setVocabOpen(true);
+  }, []);
 
   return (
     <div className={isDark ? "dark" : ""}>
@@ -387,20 +432,36 @@ export function Reader({ bookMeta, onBack }: Props) {
             )}
           </div>
 
-          <button
-            onClick={() => setSettingsOpen(!settingsOpen)}
-            className="rounded-lg p-1.5 text-stone-600 hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-800"
-            aria-label="Settings"
-          >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-              />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => openVocabPanel("book")}
+              className="rounded-lg px-2 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800"
+              aria-label="Open book vocabulary panel"
+            >
+              Book vocab
+            </button>
+            <button
+              onClick={() => openVocabPanel("chapter")}
+              className="rounded-lg px-2 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800"
+              aria-label="Open chapter vocabulary panel"
+            >
+              Chapter vocab
+            </button>
+            <button
+              onClick={() => setSettingsOpen(!settingsOpen)}
+              className="rounded-lg p-1.5 text-stone-600 hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-800"
+              aria-label="Settings"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+          </div>
         </header>
 
         {/* Chapter navigation drawer */}
@@ -422,6 +483,17 @@ export function Reader({ bookMeta, onBack }: Props) {
           onToggleDark={handleToggleDark}
           isOpen={settingsOpen}
           onClose={() => setSettingsOpen(false)}
+        />
+        <VocabPanel
+          isOpen={vocabOpen}
+          scope={vocabScope}
+          loading={vocabLoading}
+          error={vocabError}
+          bookTitle={bookMeta.title}
+          chapterTitle={currentChapter?.title ?? `Capítulo ${effectiveChapterIndex + 1}`}
+          bookVocab={bookVocab}
+          chapterVocab={chapterVocab}
+          onClose={() => setVocabOpen(false)}
         />
 
         {/* Book content */}
