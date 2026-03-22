@@ -31,15 +31,16 @@ article {
 
 /* Chapter titles in parallel view */
 .parallel-title {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--color-stone-200, #e7e5e4);
 }
 
 .parallel-title-es {
-  flex: 1;
+  padding-right: 1rem;
   font-style: italic;
   font-weight: bold;
   text-align: left;
@@ -47,63 +48,64 @@ article {
 }
 
 .parallel-title-en {
-  flex: 1;
+  padding-left: 1rem;
   font-variant: small-caps;
   font-weight: bold;
   text-align: left;
   color: var(--color-stone-800, #292524);
 }
 
-/* Each bilingual paragraph pair */
-.parallel-row {
+/* Body: two full-height columns, each showing all their paragraphs */
+.parallel-body {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   gap: 0;
   align-items: start;
-  margin-bottom: 1rem;
 }
 
-.parallel-col {
+.parallel-col-es,
+.parallel-col-en {
   text-align: left;
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 .parallel-col-es {
-  /* Spanish — italic dialogue dashes */
-  padding-right: 1rem;
+  padding-right: 1.5rem;
 }
 
 .parallel-col-en {
-  /* English — roman type */
-  padding-left: 1rem;
+  padding-left: 1.5rem;
 }
 
-/* Gutter: thin vertical rule */
-.parallel-gutter {
+/* Vertical gutter: thin line between columns */
+.parallel-gutter-vertical {
   width: 1px;
   background: var(--color-stone-200, #e7e5e4);
   align-self: stretch;
-  min-height: 1.5rem;
+  min-height: 2rem;
 }
 
-/* Mobile: stack vertically with tab-like visual separation */
+/* Mobile: stack vertically with a horizontal rule between columns */
 @media (max-width: 639px) {
   .parallel-view {
     font-size: 0.85rem;
   }
 
   .parallel-title {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 0.25rem;
   }
 
-  .parallel-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+  .parallel-title-en {
+    padding-left: 0;
   }
 
-  .parallel-gutter {
+  .parallel-body {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .parallel-gutter-vertical {
     width: 100%;
     height: 1px;
     min-height: unset;
@@ -125,7 +127,7 @@ article {
   color: var(--color-stone-100, #f5f5f4);
 }
 
-.dark .parallel-gutter {
+.dark .parallel-gutter-vertical {
   background: var(--color-stone-700, #44403c);
 }
 

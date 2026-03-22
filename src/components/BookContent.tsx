@@ -32,48 +32,12 @@ export function BookContent({
 
   if (viewMode === "parallel" && englishParagraphs && englishParagraphs.length > 0) {
     return (
-      <div
-        className="parallel-view"
-        style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}
-      >
-        {showTitle && (
-          <div className="parallel-title">
-            <div className="parallel-title-es">{chapter.title}</div>
-            <div className="parallel-title-en">
-              {chapter.titleEn ?? "CHAPTER"}
-            </div>
-          </div>
-        )}
-        {visibleParagraphIndices.map((paragraphIndex) => {
-          const spanishPara = chapter.paragraphs[paragraphIndex] ?? "";
-          const englishPara = englishParagraphs[paragraphIndex] ?? "";
-          return (
-            <div key={paragraphIndex} className="parallel-row">
-              <div
-                className="parallel-col parallel-col-es"
-                data-paragraph={paragraphIndex}
-              >
-                <ParallelParagraph
-                  text={spanishPara}
-                  trackedWords={trackedWords}
-                  fontSize={fontSize}
-                />
-              </div>
-              <div className="parallel-gutter" />
-              <div
-                className="parallel-col parallel-col-en"
-                data-paragraph={paragraphIndex}
-              >
-                <ParallelParagraph
-                  text={englishPara}
-                  trackedWords={trackedWords}
-                  fontSize={fontSize}
-                />
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <ParallelView
+        chapter={chapter}
+        englishParagraphs={englishParagraphs}
+        fontSize={fontSize}
+        trackedWords={trackedWords}
+      />
     );
   }
 
@@ -116,34 +80,74 @@ export function BookContent({
   );
 }
 
-function ParallelParagraph({
-  text,
-  trackedWords,
+/** Parallel view: both languages shown as continuous columns, no row splitting. */
+function ParallelView({
+  chapter,
+  englishParagraphs,
   fontSize,
+  trackedWords,
 }: {
-  text: string;
-  trackedWords?: ReadonlySet<string>;
+  chapter: BookChapter;
+  englishParagraphs: string[];
   fontSize: number;
+  trackedWords?: ReadonlySet<string>;
 }) {
+  const spanishParas = chapter.paragraphs;
+  const englishParas = englishParagraphs;
+
   return (
-    <p className="mb-4 text-justify" style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}>
-      {text.split(/(\s+)/).map((segment, j) =>
-        /^\s+$/.test(segment) ? (
-          segment
-        ) : (
-          <span
-            key={j}
-            data-word=""
-            className={
-              trackedWords?.has(normalizeWord(segment))
-                ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
-                : undefined
-            }
-          >
-            {segment}
-          </span>
-        )
-      )}
-    </p>
+    <div className="parallel-view" style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}>
+      <div className="parallel-title">
+        <div className="parallel-title-es">{chapter.title}</div>
+        <div className="parallel-title-en">{chapter.titleEn ?? "CHAPTER"}</div>
+      </div>
+      <div className="parallel-body">
+        <div className="parallel-col-es">
+          {spanishParas.map((para, i) => (
+            <p key={i} className="mb-4 text-left">
+              {para.split(/(\s+)/).map((segment, j) =>
+                /^\s+$/.test(segment) ? (
+                  segment
+                ) : (
+                  <span
+                    key={j}
+                    className={
+                      trackedWords?.has(normalizeWord(segment))
+                        ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
+                        : undefined
+                    }
+                  >
+                    {segment}
+                  </span>
+                )
+              )}
+            </p>
+          ))}
+        </div>
+        <div className="parallel-gutter-vertical" />
+        <div className="parallel-col-en">
+          {englishParas.map((para, i) => (
+            <p key={i} className="mb-4 text-left">
+              {para.split(/(\s+)/).map((segment, j) =>
+                /^\s+$/.test(segment) ? (
+                  segment
+                ) : (
+                  <span
+                    key={j}
+                    className={
+                      trackedWords?.has(normalizeWord(segment))
+                        ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
+                        : undefined
+                    }
+                  >
+                    {segment}
+                  </span>
+                )
+              )}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
