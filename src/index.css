@@ -42,7 +42,7 @@ article {
   flex: 1;
   font-style: italic;
   font-weight: bold;
-  text-align: justify;
+  text-align: left;
   color: var(--color-stone-800, #292524);
 }
 
@@ -50,7 +50,7 @@ article {
   flex: 1;
   font-variant: small-caps;
   font-weight: bold;
-  text-align: justify;
+  text-align: left;
   color: var(--color-stone-800, #292524);
 }
 
@@ -64,7 +64,9 @@ article {
 }
 
 .parallel-col {
-  text-align: justify;
+  text-align: left;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .parallel-col-es {
