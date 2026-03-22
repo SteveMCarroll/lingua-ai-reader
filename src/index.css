@@ -85,35 +85,41 @@ article {
   min-height: 2rem;
 }
 
-/* Mobile: stack vertically with a horizontal rule between columns */
+/* Mobile: side-by-side with horizontal scroll */
 @media (max-width: 639px) {
   .parallel-view {
-    font-size: 0.85rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
   }
 
   .parallel-title {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-  }
-
-  .parallel-title-en {
-    padding-left: 0;
+    display: none; /* hide on mobile to save space */
   }
 
   .parallel-body {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .parallel-gutter-vertical {
-    width: 100%;
-    height: 1px;
-    min-height: unset;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: max-content;
+    min-width: 100%;
   }
 
   .parallel-col-es,
   .parallel-col-en {
-    padding: 0;
+    width: 45vw;
+    min-width: 45vw;
+    padding: 0 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .parallel-col-es {
+    border-right: 1px solid var(--color-stone-200, #e7e5e4);
+  }
+
+  .parallel-gutter-vertical {
+    display: none;
   }
 }
 
