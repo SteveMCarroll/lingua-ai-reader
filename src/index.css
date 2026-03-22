@@ -100,16 +100,16 @@ article {
 
   .parallel-body {
     display: grid !important;
-    grid-template-columns: 80vw 1px 80vw !important;
+    grid-template-columns: 320px 1px 320px !important;
     width: max-content !important;
     gap: 0 !important;
   }
 
   .parallel-col-es,
   .parallel-col-en {
-    width: 80vw !important;
-    min-width: 80vw !important;
-    max-width: 80vw !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
     padding: 0 0.5rem !important;
     font-size: 0.8rem !important;
     line-height: 1.5 !important;
