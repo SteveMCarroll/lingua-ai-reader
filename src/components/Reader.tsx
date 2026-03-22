@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type TouchEvent } fr
 import type { BookMeta, BookData, BookChapter } from "../data/books";
 import { loadBook } from "../data/books";
 import type { GlossRequest, GlossResponse } from "../lib/api";
+import { fetchChapterContent } from "../lib/api";
 import { BookContent } from "./BookContent";
 import { ChapterNav } from "./ChapterNav";
 import { GlossPopup } from "./GlossPopup";
@@ -11,6 +12,8 @@ import { useTextSelection } from "../hooks/useTextSelection";
 import { useGloss } from "../hooks/useGloss";
 import { useReadingPosition } from "../hooks/useReadingPosition";
 import { loadBookVocab, type BookVocabData, type VocabItem } from "../lib/vocab";
+
+type ViewMode = "single" | "parallel";
 
 const BASE_CHROME_HEIGHT = 220;
 const TRACKED_WORDS_PREFIX = "tracked-words:";
@@ -175,6 +178,17 @@ export function Reader({ bookMeta, onBack }: Props) {
     return saved ? saved === "true" : window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
+  // View mode (single column vs parallel side-by-side)
+  const [viewMode, setViewMode] = useState<ViewMode>(() => {
+    const saved = localStorage.getItem("settings:viewMode");
+    return (saved === "parallel" ? "parallel" : "single") as ViewMode;
+  });
+
+  // English paragraphs for parallel view
+  const [englishParagraphs, setEnglishParagraphs] = useState<string[]>([]);
+  const [englishLoading, setEnglishLoading] = useState(false);
+  const [englishError, setEnglishError] = useState<string | null>(null);
+
   // Chapter/page navigation
   const { getLastPosition, savePosition } = useReadingPosition(bookMeta.id);
   const initialPosition = useMemo(() => getLastPosition(), [getLastPosition]);
@@ -269,7 +283,31 @@ export function Reader({ bookMeta, onBack }: Props) {
 
   const { gloss, loading, error, requestGloss, clearGloss } = useGloss(rememberTrackedWords);
 
-  // Persist reading position
+  // Fetch English content for parallel view
+  useEffect(() => {
+    if (viewMode !== "parallel") return;
+    if (!bookMeta?.id || effectiveChapterIndex === undefined) return;
+
+    let cancelled = false;
+    setEnglishLoading(true);
+    setEnglishError(null);
+
+    fetchChapterContent(bookMeta.id, effectiveChapterIndex)
+      .then((data) => {
+        if (cancelled) return;
+        setEnglishParagraphs(data.english ?? []);
+        setEnglishLoading(false);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setEnglishError("Could not load English translation");
+        setEnglishLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [viewMode, bookMeta?.id, effectiveChapterIndex]);
   useEffect(() => {
     if (bookData) {
       savePosition(effectiveChapterIndex, activePageIndex);
@@ -319,6 +357,14 @@ export function Reader({ bookMeta, onBack }: Props) {
     setIsDark((d) => {
       const next = !d;
       localStorage.setItem("settings:dark", String(next));
+      return next;
+    });
+  }, []);
+
+  const handleToggleViewMode = useCallback(() => {
+    setViewMode((mode) => {
+      const next = mode === "single" ? "parallel" : "single";
+      localStorage.setItem("settings:viewMode", next);
       return next;
     });
   }, []);
@@ -421,6 +467,21 @@ export function Reader({ bookMeta, onBack }: Props) {
             </button>
           </div>
 
+          <div className="flex items-center gap-1.5">
+            {/* View mode toggle */}
+            <button
+              onClick={handleToggleViewMode}
+              className={`rounded-lg px-2.5 py-1 text-xs font-medium transition-colors ${
+                viewMode === "parallel"
+                  ? "bg-blue-500 text-white"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
+              }`}
+              title={viewMode === "parallel" ? "Switch to single column" : "Switch to parallel view"}
+            >
+              {viewMode === "parallel" ? "⇉ Side-by-side" : "☰ Single"}
+            </button>
+          </div>
+
           <div className="min-w-0 px-2 text-center">
             <h1 className="truncate text-sm font-medium text-stone-600 dark:text-stone-400">
               {bookMeta.title}
@@ -505,13 +566,41 @@ export function Reader({ bookMeta, onBack }: Props) {
               <div className="h-6 w-6 animate-spin rounded-full border-2 border-stone-300 border-t-blue-500" />
             </div>
           ) : paginatedChapter ? (
-            <BookContent
-              chapter={paginatedChapter}
-              fontSize={fontSize}
-              paragraphIndices={currentPageParagraphIndices}
-              trackedWords={trackedWords}
-              showTitle={activePageIndex === 0}
-            />
+            viewMode === "parallel" && !englishLoading && englishParagraphs.length > 0 ? (
+              <BookContent
+                chapter={paginatedChapter}
+                fontSize={fontSize}
+                paragraphIndices={currentPageParagraphIndices}
+                trackedWords={trackedWords}
+                showTitle={activePageIndex === 0}
+                viewMode="parallel"
+                englishParagraphs={englishParagraphs}
+              />
+            ) : viewMode === "parallel" && englishLoading ? (
+              <div className="flex justify-center py-12">
+                <div className="h-6 w-6 animate-spin rounded-full border-2 border-stone-300 border-t-blue-500" />
+                <span className="ml-3 text-sm text-stone-500">Loading translation…</span>
+              </div>
+            ) : viewMode === "parallel" && englishError ? (
+              <div className="py-8 text-center text-sm text-stone-500">
+                {englishError} — falling back to single column.
+                <br />
+                <button
+                  onClick={handleToggleViewMode}
+                  className="mt-2 text-blue-500 underline"
+                >
+                  Switch to single column
+                </button>
+              </div>
+            ) : (
+              <BookContent
+                chapter={paginatedChapter}
+                fontSize={fontSize}
+                paragraphIndices={currentPageParagraphIndices}
+                trackedWords={trackedWords}
+                showTitle={activePageIndex === 0}
+              />
+            )
           ) : null}
         </div>
 

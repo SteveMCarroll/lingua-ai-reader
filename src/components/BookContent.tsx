@@ -12,6 +12,10 @@ interface Props {
   paragraphIndices?: number[];
   trackedWords?: ReadonlySet<string>;
   showTitle?: boolean;
+  /** View mode: "single" (default) or "parallel" */
+  viewMode?: "single" | "parallel";
+  /** English paragraphs for parallel view */
+  englishParagraphs?: string[];
 }
 
 export function BookContent({
@@ -20,10 +24,60 @@ export function BookContent({
   paragraphIndices,
   trackedWords,
   showTitle = true,
+  viewMode = "single",
+  englishParagraphs,
 }: Props) {
   const visibleParagraphIndices =
     paragraphIndices ?? chapter.paragraphs.map((_, index) => index);
 
+  if (viewMode === "parallel" && englishParagraphs && englishParagraphs.length > 0) {
+    return (
+      <div
+        className="parallel-view"
+        style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}
+      >
+        {showTitle && (
+          <div className="parallel-title">
+            <div className="parallel-title-es">{chapter.title}</div>
+            <div className="parallel-title-en">
+              {chapter.titleEn ?? "CHAPTER"}
+            </div>
+          </div>
+        )}
+        {visibleParagraphIndices.map((paragraphIndex) => {
+          const spanishPara = chapter.paragraphs[paragraphIndex] ?? "";
+          const englishPara = englishParagraphs[paragraphIndex] ?? "";
+          return (
+            <div key={paragraphIndex} className="parallel-row">
+              <div
+                className="parallel-col parallel-col-es"
+                data-paragraph={paragraphIndex}
+              >
+                <ParallelParagraph
+                  text={spanishPara}
+                  trackedWords={trackedWords}
+                  fontSize={fontSize}
+                />
+              </div>
+              <div className="parallel-gutter" />
+              <div
+                className="parallel-col parallel-col-en"
+                data-paragraph={paragraphIndex}
+              >
+                <ParallelParagraph
+                  text={englishPara}
+                  trackedWords={trackedWords}
+                  fontSize={fontSize}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
+  // Single column view (existing)
   return (
     <article
       className="prose prose-stone dark:prose-invert mx-auto max-w-2xl px-4 py-4 sm:py-6"
@@ -33,27 +87,63 @@ export function BookContent({
       {visibleParagraphIndices.map((paragraphIndex) => {
         const para = chapter.paragraphs[paragraphIndex];
         return (
-        <p key={paragraphIndex} data-paragraph={paragraphIndex} className="mb-4 text-justify">
-          {para.split(/(\s+)/).map((segment, j) =>
-            /^\s+$/.test(segment) ? (
-              segment
-            ) : (
-              <span
-                key={j}
-                data-word=""
-                className={
-                  trackedWords?.has(normalizeWord(segment))
-                    ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
-                    : undefined
-                }
-              >
-                {segment}
-              </span>
-            )
-          )}
-        </p>
+          <p
+            key={paragraphIndex}
+            data-paragraph={paragraphIndex}
+            className="mb-4 text-justify"
+          >
+            {para.split(/(\s+)/).map((segment, j) =>
+              /^\s+$/.test(segment) ? (
+                segment
+              ) : (
+                <span
+                  key={j}
+                  data-word=""
+                  className={
+                    trackedWords?.has(normalizeWord(segment))
+                      ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
+                      : undefined
+                  }
+                >
+                  {segment}
+                </span>
+              )
+            )}
+          </p>
         );
       })}
     </article>
+  );
+}
+
+function ParallelParagraph({
+  text,
+  trackedWords,
+  fontSize,
+}: {
+  text: string;
+  trackedWords?: ReadonlySet<string>;
+  fontSize: number;
+}) {
+  return (
+    <p className="mb-4 text-justify" style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}>
+      {text.split(/(\s+)/).map((segment, j) =>
+        /^\s+$/.test(segment) ? (
+          segment
+        ) : (
+          <span
+            key={j}
+            data-word=""
+            className={
+              trackedWords?.has(normalizeWord(segment))
+                ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
+                : undefined
+            }
+          >
+            {segment}
+          </span>
+        )
+      )}
+    </p>
   );
 }

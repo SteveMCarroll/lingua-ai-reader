@@ -7,8 +7,10 @@ export interface BookMeta {
 
 export interface BookChapter {
   title: string;
+  titleEn?: string;
   isPreface?: boolean;
   paragraphs: string[];
+  englishParagraphs?: string[];
 }
 
 export interface BookData {

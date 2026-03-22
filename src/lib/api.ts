@@ -34,3 +34,28 @@ export async function fetchGloss(req: GlossRequest): Promise<GlossResponse> {
 
   return res.json();
 }
+
+export interface ChapterContent {
+  bookId: string;
+  chapterIndex: number;
+  spanish: string[];
+  english: string[];
+}
+
+export async function fetchChapterContent(
+  bookId: string,
+  chapterIndex: number
+): Promise<ChapterContent> {
+  const res = await fetch(`${API_BASE}/chapter`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ bookId, chapterIndex }),
+  });
+
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body.error || `Chapter API error: ${res.status}`);
+  }
+
+  return res.json();
+}
