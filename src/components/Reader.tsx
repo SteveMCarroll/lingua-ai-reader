@@ -233,8 +233,10 @@ export function Reader({ bookMeta, onBack }: Props) {
       ? displayChapters[0].originalIndex
       : chapterIndex;
 
-  // Eagerly load all English content via Vite glob (static bundle, no dynamic import)
-  const allEnglishContent = useMemo(() => {
+  const currentChapter: BookChapter | undefined = bookData?.chapters[effectiveChapterIndex];
+
+  // Eagerly load English via Vite glob (static bundle)
+  const englishByBookId = useMemo(() => {
     const modules = import.meta.glob("../data/content/*-en.json", { eager: true }) as Record<
       string,
       { default: { chapters: { paragraphs: string[] }[] } }
@@ -247,23 +249,39 @@ export function Reader({ bookMeta, onBack }: Props) {
     return byBookId;
   }, []);
 
-  // Derived from allEnglishContent + chapter index — no state, no cascading renders
+  // Derive English paragraphs for current chapter
   const englishParagraphs = useMemo(() => {
     if (viewMode !== "parallel") return [] as string[];
     if (!bookMeta || effectiveChapterIndex === undefined) return [] as string[];
-    const paras = allEnglishContent[bookMeta.id];
+    const paras = englishByBookId[bookMeta.id];
     if (!paras || paras[effectiveChapterIndex] === undefined) return [] as string[];
     return paras[effectiveChapterIndex].split("\n\n");
-  }, [viewMode, bookMeta, effectiveChapterIndex, allEnglishContent]);
+  }, [viewMode, bookMeta, effectiveChapterIndex, englishByBookId]);
+
+  // Compute aligned Spanish paragraphs: merge chapter paragraphs proportionally to match English count
+  const alignedSpanishParagraphs = useMemo(() => {
+    if (viewMode !== "parallel") return [] as string[];
+    if (!currentChapter || englishParagraphs.length === 0) return [] as string[];
+    const es = currentChapter.paragraphs;
+    const en = englishParagraphs.length;
+    if (es.length === en) return es;
+    const aligned: string[] = [];
+    for (let i = 0; i < en; i++) {
+      const start = Math.floor((i * es.length) / en);
+      const end = Math.floor(((i + 1) * es.length) / en);
+      const chunk = es.slice(start, end);
+      aligned.push(chunk.length > 0 ? chunk.join("\n\n") : "");
+    }
+    return aligned;
+  }, [viewMode, currentChapter, englishParagraphs]);
 
   const englishError = useMemo(() => {
     if (viewMode !== "parallel") return null;
     if (!bookMeta || effectiveChapterIndex === undefined) return null;
-    if (allEnglishContent[bookMeta.id]?.[effectiveChapterIndex] !== undefined) return null;
+    if (englishByBookId[bookMeta.id]?.[effectiveChapterIndex] !== undefined) return null;
     return `English not available for chapter ${effectiveChapterIndex + 1}`;
-  }, [viewMode, bookMeta, effectiveChapterIndex, allEnglishContent]);
+  }, [viewMode, bookMeta, effectiveChapterIndex, englishByBookId]);
 
-  const currentChapter: BookChapter | undefined = bookData?.chapters[effectiveChapterIndex];
   const pageCharBudget = useMemo(
     () => getPageCharBudget(fontSize, viewport.width, viewport.height),
     [fontSize, viewport.height, viewport.width]
@@ -573,6 +591,7 @@ export function Reader({ bookMeta, onBack }: Props) {
                 showTitle={true}
                 viewMode="parallel"
                 englishParagraphs={englishParagraphs}
+                alignedSpanishParagraphs={alignedSpanishParagraphs}
               />
             ) : viewMode === "parallel" && englishError ? (
               <div className="py-8 text-center text-sm text-stone-500">

@@ -16,6 +16,8 @@ interface Props {
   viewMode?: "single" | "parallel";
   /** English paragraphs for parallel view */
   englishParagraphs?: string[];
+  /** Aligned Spanish paragraphs (merged chunks) for parallel view */
+  alignedSpanishParagraphs?: string[];
 }
 
 export function BookContent({
@@ -26,6 +28,7 @@ export function BookContent({
   showTitle = true,
   viewMode = "single",
   englishParagraphs,
+  alignedSpanishParagraphs,
 }: Props) {
   const visibleParagraphIndices =
     paragraphIndices ?? chapter.paragraphs.map((_, index) => index);
@@ -35,6 +38,7 @@ export function BookContent({
       <ParallelView
         chapter={chapter}
         englishParagraphs={englishParagraphs}
+        alignedSpanishParagraphs={alignedSpanishParagraphs}
         fontSize={fontSize}
         trackedWords={trackedWords}
       />
@@ -84,16 +88,21 @@ export function BookContent({
 function ParallelView({
   chapter,
   englishParagraphs,
+  alignedSpanishParagraphs,
   fontSize,
   trackedWords,
 }: {
   chapter: BookChapter;
   englishParagraphs: string[];
+  alignedSpanishParagraphs?: string[];
   fontSize: number;
   trackedWords?: ReadonlySet<string>;
 }) {
-  const spanishParas = chapter.paragraphs;
-  const englishParas = englishParagraphs;
+  // Use aligned paragraphs if provided, otherwise fall back to chapter paragraphs
+  const spanishParas: string[] = (alignedSpanishParagraphs && alignedSpanishParagraphs.length > 0)
+    ? alignedSpanishParagraphs
+    : chapter.paragraphs;
+  const englishParas: string[] = englishParagraphs;
 
   return (
     <div className="parallel-view" style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}>
