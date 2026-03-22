@@ -88,38 +88,42 @@ article {
 /* Mobile: side-by-side with horizontal scroll */
 @media (max-width: 639px) {
   .parallel-view {
-    overflow-x: auto;
+    overflow-x: scroll !important;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 0.5rem;
+    width: 100% !important;
   }
 
   .parallel-title {
-    display: none; /* hide on mobile to save space */
+    display: none;
   }
 
   .parallel-body {
-    display: flex;
-    flex-direction: row;
-    gap: 0;
-    width: max-content;
-    min-width: 100%;
+    display: grid !important;
+    grid-template-columns: 45vw 1px 45vw !important;
+    width: max-content !important;
+    gap: 0 !important;
   }
 
   .parallel-col-es,
   .parallel-col-en {
-    width: 45vw;
-    min-width: 45vw;
-    padding: 0 0.75rem;
-    font-size: 0.75rem;
-    line-height: 1.5;
+    width: 45vw !important;
+    min-width: 45vw !important;
+    max-width: 45vw !important;
+    padding: 0 0.5rem !important;
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+    box-sizing: border-box !important;
   }
 
   .parallel-col-es {
-    border-right: 1px solid var(--color-stone-200, #e7e5e4);
+    border-right: none !important;
   }
 
   .parallel-gutter-vertical {
-    display: none;
+    width: 1px !important;
+    min-width: 1px !important;
+    background: var(--color-stone-200, #e7e5e4) !important;
   }
 }
 
