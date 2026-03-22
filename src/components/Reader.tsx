@@ -567,11 +567,10 @@ export function Reader({ bookMeta, onBack }: Props) {
           ) : paginatedChapter ? (
             viewMode === "parallel" && englishParagraphs.length > 0 ? (
               <BookContent
-                chapter={paginatedChapter}
+                chapter={currentChapter ?? paginatedChapter}
                 fontSize={fontSize}
-                paragraphIndices={currentPageParagraphIndices}
                 trackedWords={trackedWords}
-                showTitle={activePageIndex === 0}
+                showTitle={true}
                 viewMode="parallel"
                 englishParagraphs={englishParagraphs}
               />
