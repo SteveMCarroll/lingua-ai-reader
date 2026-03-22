@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useRef, useState, type TouchEvent } fr
 import type { BookMeta, BookData, BookChapter } from "../data/books";
 import { loadBook } from "../data/books";
 import type { GlossRequest, GlossResponse } from "../lib/api";
-import { fetchChapterContent } from "../lib/api";
 import { BookContent } from "./BookContent";
 import { ChapterNav } from "./ChapterNav";
 import { GlossPopup } from "./GlossPopup";
@@ -186,7 +185,6 @@ export function Reader({ bookMeta, onBack }: Props) {
 
   // English paragraphs for parallel view
   const [englishParagraphs, setEnglishParagraphs] = useState<string[]>([]);
-  const [englishLoading, setEnglishLoading] = useState(false);
   const [englishError, setEnglishError] = useState<string | null>(null);
 
   // Chapter/page navigation
@@ -283,30 +281,21 @@ export function Reader({ bookMeta, onBack }: Props) {
 
   const { gloss, loading, error, requestGloss, clearGloss } = useGloss(rememberTrackedWords);
 
-  // Fetch English content for parallel view
+  // Load English paragraphs for parallel view from static JSON
   useEffect(() => {
     if (viewMode !== "parallel") return;
     if (!bookMeta?.id || effectiveChapterIndex === undefined) return;
 
-    let cancelled = false;
-    setEnglishLoading(true);
-    setEnglishError(null);
-
-    fetchChapterContent(bookMeta.id, effectiveChapterIndex)
-      .then((data) => {
-        if (cancelled) return;
-        setEnglishParagraphs(data.english ?? []);
-        setEnglishLoading(false);
+    import(`../data/content/${bookMeta.id}-en.json`)
+      .then((mod) => {
+        const chapters = mod.default as { chapters: { paragraphs: string[] }[] };
+        setEnglishParagraphs(
+          chapters.chapters[effectiveChapterIndex]?.paragraphs ?? []
+        );
       })
       .catch(() => {
-        if (cancelled) return;
-        setEnglishError("Could not load English translation");
-        setEnglishLoading(false);
+        setEnglishError("English translation not available");
       });
-
-    return () => {
-      cancelled = true;
-    };
   }, [viewMode, bookMeta?.id, effectiveChapterIndex]);
   useEffect(() => {
     if (bookData) {
@@ -566,7 +555,7 @@ export function Reader({ bookMeta, onBack }: Props) {
               <div className="h-6 w-6 animate-spin rounded-full border-2 border-stone-300 border-t-blue-500" />
             </div>
           ) : paginatedChapter ? (
-            viewMode === "parallel" && !englishLoading && englishParagraphs.length > 0 ? (
+            viewMode === "parallel" && englishParagraphs.length > 0 ? (
               <BookContent
                 chapter={paginatedChapter}
                 fontSize={fontSize}
@@ -576,11 +565,6 @@ export function Reader({ bookMeta, onBack }: Props) {
                 viewMode="parallel"
                 englishParagraphs={englishParagraphs}
               />
-            ) : viewMode === "parallel" && englishLoading ? (
-              <div className="flex justify-center py-12">
-                <div className="h-6 w-6 animate-spin rounded-full border-2 border-stone-300 border-t-blue-500" />
-                <span className="ml-3 text-sm text-stone-500">Loading translation…</span>
-              </div>
             ) : viewMode === "parallel" && englishError ? (
               <div className="py-8 text-center text-sm text-stone-500">
                 {englishError} — falling back to single column.
