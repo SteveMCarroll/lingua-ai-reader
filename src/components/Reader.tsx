@@ -183,10 +183,6 @@ export function Reader({ bookMeta, onBack }: Props) {
     return (saved === "parallel" ? "parallel" : "single") as ViewMode;
   });
 
-  // English paragraphs for parallel view
-  const [englishParagraphs, setEnglishParagraphs] = useState<string[]>([]);
-  const [englishError, setEnglishError] = useState<string | null>(null);
-
   // Chapter/page navigation
   const { getLastPosition, savePosition } = useReadingPosition(bookMeta.id);
   const initialPosition = useMemo(() => getLastPosition(), [getLastPosition]);
@@ -237,6 +233,36 @@ export function Reader({ bookMeta, onBack }: Props) {
       ? displayChapters[0].originalIndex
       : chapterIndex;
 
+  // Eagerly load all English content via Vite glob (static bundle, no dynamic import)
+  const allEnglishContent = useMemo(() => {
+    const modules = import.meta.glob("../data/content/*-en.json", { eager: true }) as Record<
+      string,
+      { default: { chapters: { paragraphs: string[] }[] } }
+    >;
+    const byBookId: Record<string, string[]> = {};
+    for (const [path, mod] of Object.entries(modules)) {
+      const bookId = path.replace("../data/content/", "").replace("-en.json", "");
+      byBookId[bookId] = mod.default.chapters.map((c) => c.paragraphs.join("\n\n"));
+    }
+    return byBookId;
+  }, []);
+
+  // Derived from allEnglishContent + chapter index — no state, no cascading renders
+  const englishParagraphs = useMemo(() => {
+    if (viewMode !== "parallel") return [] as string[];
+    if (!bookMeta || effectiveChapterIndex === undefined) return [] as string[];
+    const paras = allEnglishContent[bookMeta.id];
+    if (!paras || paras[effectiveChapterIndex] === undefined) return [] as string[];
+    return paras[effectiveChapterIndex].split("\n\n");
+  }, [viewMode, bookMeta, effectiveChapterIndex, allEnglishContent]);
+
+  const englishError = useMemo(() => {
+    if (viewMode !== "parallel") return null;
+    if (!bookMeta || effectiveChapterIndex === undefined) return null;
+    if (allEnglishContent[bookMeta.id]?.[effectiveChapterIndex] !== undefined) return null;
+    return `English not available for chapter ${effectiveChapterIndex + 1}`;
+  }, [viewMode, bookMeta, effectiveChapterIndex, allEnglishContent]);
+
   const currentChapter: BookChapter | undefined = bookData?.chapters[effectiveChapterIndex];
   const pageCharBudget = useMemo(
     () => getPageCharBudget(fontSize, viewport.width, viewport.height),
@@ -281,34 +307,7 @@ export function Reader({ bookMeta, onBack }: Props) {
 
   const { gloss, loading, error, requestGloss, clearGloss } = useGloss(rememberTrackedWords);
 
-  // Load English paragraphs for parallel view from static JSON
-  // Eagerly load all English content at startup via Vite glob (avoids dynamic import issues)
-  const allEnglishContent = useMemo(() => {
-    const modules = import.meta.glob("../data/content/*-en.json", { eager: true }) as Record<
-      string,
-      { default: { chapters: { paragraphs: string[] }[] } }
-    >;
-    const byBookId: Record<string, string[]> = {};
-    for (const [path, mod] of Object.entries(modules)) {
-      const bookId = path.replace("../data/content/", "").replace("-en.json", "");
-      byBookId[bookId] = mod.default.chapters.map((c) => c.paragraphs.join("\n\n"));
-    }
-    return byBookId;
-  }, []);
-
-  useEffect(() => {
-    if (viewMode !== "parallel") return;
-    if (!bookMeta?.id || effectiveChapterIndex === undefined) return;
-
-    const paras = allEnglishContent[bookMeta.id];
-    if (paras && paras[effectiveChapterIndex] !== undefined) {
-      setEnglishParagraphs(paras[effectiveChapterIndex].split("\n\n"));
-      setEnglishError(null);
-    } else {
-      setEnglishError(`English not available for chapter ${effectiveChapterIndex + 1}`);
-    }
-  }, [viewMode, bookMeta?.id, effectiveChapterIndex, allEnglishContent]);
-  useEffect(() => {
+    useEffect(() => {
     if (bookData) {
       savePosition(effectiveChapterIndex, activePageIndex);
     }
