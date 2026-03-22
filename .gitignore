@@ -32,3 +32,4 @@ dist-ssr
 scripts/raw/*.txt
 .venv/
 api/
+__pycache__/

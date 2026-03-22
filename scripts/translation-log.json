@@ -1,102 +1,124 @@
-{
-  "generated": "2026-03-22T12:07:17.360559+00:00",
-  "model": "opencode/minimax-m2.5-free",
-  "prompt": "You are a translation engine for bilingual parallel texts.\nTranslate the Spanish chapter below into English optimized for SIDE-BY-SIDE reading.\nRULES:\n- Keep translations FLAT and LITERAL \u2014 match Spanish word order where possible\n- For idioms/archaisms: add [ANN: explanation] inline\n- For key archaic words: add [ARC: modern meaning] inline\n- Preserve paragraph structure exactly \u2014 one English paragraph per Spanish paragraph\n- Mark historical/cultural context briefly: [NOTE: ...]\n- Chapter titles: translate literally, preserve full title\n- Dialogue: keep Spanish em-dash (\u2014); use quotation marks in English\n\nOutput ONLY valid JSON matching this structure:\n{\"titleEn\": \"Chapter title in English\", \"paragraphs\": [\"English para 1\", \"English para 2\"]}\n\nTranslate now:",
-  "chapters": [
-    {
-      "chapter": 0,
-      "titleEs": "Cap\u00edtulo primero. Que trata de la condici\u00f3n y ejercicio del famoso hidalgo. don Quijote de la Mancha",
-      "paragraphCountEs": 11,
-      "elapsedSeconds": 65.8,
-      "timestamp": "2026-03-22T11:56:42.281994+00:00",
-      "model": "opencode/minimax-m2.5-free",
-      "status": "success",
-      "error": null,
-      "paragraphCountEn": 11,
-      "titleEn": "Chapter One. Which treats of the condition and exercise of the famous hidalgo Don Quixote of La Mancha"
-    },
-    {
-      "chapter": 1,
-      "titleEs": "Cap\u00edtulo II. Que trata de la primera salida que de su tierra hizo el. ingenioso don Quijote",
-      "paragraphCountEs": 29,
-      "elapsedSeconds": 57.6,
-      "timestamp": "2026-03-22T11:57:42.907489+00:00",
-      "model": "opencode/minimax-m2.5-free",
-      "status": "success",
-      "error": null,
-      "paragraphCountEn": 10,
-      "titleEn": "Chapter II. Which deals with the first departure that from his land made the ingenious Don Quixote"
-    },
-    {
-      "chapter": 2,
-      "titleEs": "Cap\u00edtulo III. Donde se cuenta la graciosa manera que tuvo don Quijote en. armarse caballero",
-      "paragraphCountEs": 22,
-      "elapsedSeconds": 91.6,
-      "timestamp": "2026-03-22T11:59:17.515361+00:00",
-      "model": "opencode/minimax-m2.5-free",
-      "status": "success",
-      "error": null,
-      "paragraphCountEn": 17,
-      "titleEn": "Chapter 3. Where is related the droll way Don Quixote had in arming himself knight"
-    },
-    {
-      "chapter": 3,
-      "titleEs": "Cap\u00edtulo IV. De lo que le sucedi\u00f3 a nuestro caballero cuando sali\u00f3 de la. venta",
-      "paragraphCountEs": 43,
-      "elapsedSeconds": 82.1,
-      "timestamp": "2026-03-22T12:00:42.565877+00:00",
-      "model": "opencode/minimax-m2.5-free",
-      "status": "success",
-      "error": null,
-      "paragraphCountEn": 43,
-      "titleEn": "Chapter IV. Of what happened to our knight when he left the inn"
-    },
-    {
-      "chapter": 4,
-      "titleEs": "Cap\u00edtulo V. Donde se prosigue la narraci\u00f3n de la desgracia de nuestro. caballero",
-      "paragraphCountEs": 25,
-      "elapsedSeconds": 61.9,
-      "timestamp": "2026-03-22T12:01:47.474205+00:00",
-      "model": "opencode/minimax-m2.5-free",
-      "status": "success",
-      "error": null,
-      "paragraphCountEn": 25,
-      "titleEn": "Chapter V. Wherein the narration of the misfortune of our knight is continued"
-    },
-    {
-      "chapter": 5,
-      "titleEs": "Cap\u00edtulo VI. Del donoso y grande escrutinio que el cura y el barbero. hicieron en la librer\u00eda de nuestro ingenioso hidalgo",
-      "paragraphCountEs": 65,
-      "elapsedSeconds": 78.2,
-      "timestamp": "2026-03-22T12:03:08.651250+00:00",
-      "model": "opencode/minimax-m2.5-free",
-      "status": "success",
-      "error": null,
-      "paragraphCountEn": 30,
-      "titleEn": "Chapter VI. Of the merry and great scrutiny that the curate and the barber made in the library of our ingenious gentleman who was still sleeping"
-    },
-    {
-      "chapter": 6,
-      "titleEs": "Cap\u00edtulo VII. De la segunda salida de nuestro buen caballero don Quijote de. la Mancha",
-      "paragraphCountEs": 31,
-      "elapsedSeconds": 125.1,
-      "timestamp": "2026-03-22T12:05:16.771177+00:00",
-      "model": "opencode/minimax-m2.5-free",
-      "status": "failed",
-      "error": "No JSON found in response: {\"titleEn\":\"Chapter VII. Of the second sally of our good knight Don Quixote of La Mancha\",\"paragraphs\":[\"Being at this, Don Quixote began to raise his voice, saying: \u2014\\\"Here",
-      "rawResponse": "{\"titleEn\":\"Chapter VII. Of the second sally of our good knight Don Quixote of La Mancha\",\"paragraphs\":[\"Being at this, Don Quixote began to raise his voice, saying: \u2014\\\"Here, here, valiant knights; here it is necessary to show the force of your valiant arms, for the courtly men carry off the best of the tournament.\\\"\",\"To attend to this noise and uproar, they did not continue with the examination of the remaining books; and so, it is believed that they went to the fire, unseen and unheard, La Ca"
-    },
-    {
-      "chapter": 7,
-      "titleEs": "Cap\u00edtulo VIII. Del buen suceso que el valeroso don Quijote tuvo en la. espantable y jam\u00e1s imaginada aventura de los molinos de viento, con otros. sucesos dignos de felice recordaci\u00f3n",
-      "paragraphCountEs": 52,
-      "elapsedSeconds": 114.6,
-      "timestamp": "2026-03-22T12:07:14.358273+00:00",
-      "model": "opencode/minimax-m2.5-free",
-      "status": "success",
-      "error": null,
-      "paragraphCountEn": 52,
-      "titleEn": "Chapter VIII. Of the good fortune that the valiant Don Quijote had in the frightful and never-before-imagined adventure of the windmills, with other events worthy of happy remembrance"
-    }
-  ]
-}
+[
+  {
+    "generated": "2026-03-22T12:07:17.360559+00:00",
+    "model": "opencode/minimax-m2.5-free",
+    "prompt": "You are a translation engine for bilingual parallel texts.\nTranslate the Spanish chapter below into English optimized for SIDE-BY-SIDE reading.\nRULES:\n- Keep translations FLAT and LITERAL \u2014 match Spanish word order where possible\n- For idioms/archaisms: add [ANN: explanation] inline\n- For key archaic words: add [ARC: modern meaning] inline\n- Preserve paragraph structure exactly \u2014 one English paragraph per Spanish paragraph\n- Mark historical/cultural context briefly: [NOTE: ...]\n- Chapter titles: translate literally, preserve full title\n- Dialogue: keep Spanish em-dash (\u2014); use quotation marks in English\n\nOutput ONLY valid JSON matching this structure:\n{\"titleEn\": \"Chapter title in English\", \"paragraphs\": [\"English para 1\", \"English para 2\"]}\n\nTranslate now:",
+    "chapters": [
+      {
+        "chapter": 0,
+        "titleEs": "Cap\u00edtulo primero. Que trata de la condici\u00f3n y ejercicio del famoso hidalgo. don Quijote de la Mancha",
+        "paragraphCountEs": 11,
+        "elapsedSeconds": 65.8,
+        "timestamp": "2026-03-22T11:56:42.281994+00:00",
+        "model": "opencode/minimax-m2.5-free",
+        "status": "success",
+        "error": null,
+        "paragraphCountEn": 11,
+        "titleEn": "Chapter One. Which treats of the condition and exercise of the famous hidalgo Don Quixote of La Mancha"
+      },
+      {
+        "chapter": 1,
+        "titleEs": "Cap\u00edtulo II. Que trata de la primera salida que de su tierra hizo el. ingenioso don Quijote",
+        "paragraphCountEs": 29,
+        "elapsedSeconds": 57.6,
+        "timestamp": "2026-03-22T11:57:42.907489+00:00",
+        "model": "opencode/minimax-m2.5-free",
+        "status": "success",
+        "error": null,
+        "paragraphCountEn": 10,
+        "titleEn": "Chapter II. Which deals with the first departure that from his land made the ingenious Don Quixote"
+      },
+      {
+        "chapter": 2,
+        "titleEs": "Cap\u00edtulo III. Donde se cuenta la graciosa manera que tuvo don Quijote en. armarse caballero",
+        "paragraphCountEs": 22,
+        "elapsedSeconds": 91.6,
+        "timestamp": "2026-03-22T11:59:17.515361+00:00",
+        "model": "opencode/minimax-m2.5-free",
+        "status": "success",
+        "error": null,
+        "paragraphCountEn": 17,
+        "titleEn": "Chapter 3. Where is related the droll way Don Quixote had in arming himself knight"
+      },
+      {
+        "chapter": 3,
+        "titleEs": "Cap\u00edtulo IV. De lo que le sucedi\u00f3 a nuestro caballero cuando sali\u00f3 de la. venta",
+        "paragraphCountEs": 43,
+        "elapsedSeconds": 82.1,
+        "timestamp": "2026-03-22T12:00:42.565877+00:00",
+        "model": "opencode/minimax-m2.5-free",
+        "status": "success",
+        "error": null,
+        "paragraphCountEn": 43,
+        "titleEn": "Chapter IV. Of what happened to our knight when he left the inn"
+      },
+      {
+        "chapter": 4,
+        "titleEs": "Cap\u00edtulo V. Donde se prosigue la narraci\u00f3n de la desgracia de nuestro. caballero",
+        "paragraphCountEs": 25,
+        "elapsedSeconds": 61.9,
+        "timestamp": "2026-03-22T12:01:47.474205+00:00",
+        "model": "opencode/minimax-m2.5-free",
+        "status": "success",
+        "error": null,
+        "paragraphCountEn": 25,
+        "titleEn": "Chapter V. Wherein the narration of the misfortune of our knight is continued"
+      },
+      {
+        "chapter": 5,
+        "titleEs": "Cap\u00edtulo VI. Del donoso y grande escrutinio que el cura y el barbero. hicieron en la librer\u00eda de nuestro ingenioso hidalgo",
+        "paragraphCountEs": 65,
+        "elapsedSeconds": 78.2,
+        "timestamp": "2026-03-22T12:03:08.651250+00:00",
+        "model": "opencode/minimax-m2.5-free",
+        "status": "success",
+        "error": null,
+        "paragraphCountEn": 30,
+        "titleEn": "Chapter VI. Of the merry and great scrutiny that the curate and the barber made in the library of our ingenious gentleman who was still sleeping"
+      },
+      {
+        "chapter": 6,
+        "titleEs": "Cap\u00edtulo VII. De la segunda salida de nuestro buen caballero don Quijote de. la Mancha",
+        "paragraphCountEs": 31,
+        "elapsedSeconds": 125.1,
+        "timestamp": "2026-03-22T12:05:16.771177+00:00",
+        "model": "opencode/minimax-m2.5-free",
+        "status": "failed",
+        "error": "No JSON found in response: {\"titleEn\":\"Chapter VII. Of the second sally of our good knight Don Quixote of La Mancha\",\"paragraphs\":[\"Being at this, Don Quixote began to raise his voice, saying: \u2014\\\"Here",
+        "rawResponse": "{\"titleEn\":\"Chapter VII. Of the second sally of our good knight Don Quixote of La Mancha\",\"paragraphs\":[\"Being at this, Don Quixote began to raise his voice, saying: \u2014\\\"Here, here, valiant knights; here it is necessary to show the force of your valiant arms, for the courtly men carry off the best of the tournament.\\\"\",\"To attend to this noise and uproar, they did not continue with the examination of the remaining books; and so, it is believed that they went to the fire, unseen and unheard, La Ca"
+      },
+      {
+        "chapter": 7,
+        "titleEs": "Cap\u00edtulo VIII. Del buen suceso que el valeroso don Quijote tuvo en la. espantable y jam\u00e1s imaginada aventura de los molinos de viento, con otros. sucesos dignos de felice recordaci\u00f3n",
+        "paragraphCountEs": 52,
+        "elapsedSeconds": 114.6,
+        "timestamp": "2026-03-22T12:07:14.358273+00:00",
+        "model": "opencode/minimax-m2.5-free",
+        "status": "success",
+        "error": null,
+        "paragraphCountEn": 52,
+        "titleEn": "Chapter VIII. Of the good fortune that the valiant Don Quijote had in the frightful and never-before-imagined adventure of the windmills, with other events worthy of happy remembrance"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-22T23:22:33.000589+00:00",
+    "chapters": [
+      {
+        "chapter": 6,
+        "status": "ok",
+        "paras": 65
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-22T23:22:55.492160+00:00",
+    "chapters": [
+      {
+        "chapter": 7,
+        "status": "ok",
+        "paras": 31
+      }
+    ]
+  }
+]

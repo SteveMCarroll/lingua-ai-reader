@@ -112,7 +112,7 @@ def translate_chapter(chapter_idx: int, chapter_data: dict) -> dict:
 
 def main():
     parser = argparse.ArgumentParser(description="Translate Don Quijote chapters")
-    parser.add_argument("--ch", "--chapter", 
+    parser.add_argument("--ch", "--chapter", dest="ch",
                         help="Chapter to translate, e.g. 2 or 1-3 (default: all 1-8)")
     args = parser.parse_args()
 
@@ -177,7 +177,9 @@ def main():
     if LOG_FILE.exists():
         try:
             with open(LOG_FILE) as f:
-                log = json.load(f)
+                raw = json.load(f)
+            # Support both old dict format and new list format
+            log = raw if isinstance(raw, list) else [raw]
         except (json.JSONDecodeError, ValueError):
             log = []
     
