@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import type { BookChapter } from "../data/books";
 
 const WORD_TRIM_REGEX = /^[.,;:!?¿¡"'«»—-]+|[.,;:!?¿¡"'«»—-]+$/g;
@@ -81,7 +80,7 @@ export function BookContent({
   );
 }
 
-/** Parallel view: both languages shown as continuous columns, each paragraph bottom-padded to align pairs. */
+/** Parallel view: one row per paragraph pair, each row is a 3-column grid. */
 function ParallelView({
   chapter,
   englishParagraphs,
@@ -96,85 +95,50 @@ function ParallelView({
   const spanishParas = chapter.paragraphs;
   const englishParas = englishParagraphs;
   const n = Math.min(spanishParas.length, englishParas.length);
-  // One ref per paragraph pair
-  const esRef = useRef<(HTMLDivElement | null)[]>([]);
-  const enRef = useRef<(HTMLDivElement | null)[]>([]);
-  if (esRef.current.length !== n) esRef.current = Array(n).fill(null);
-  if (enRef.current.length !== n) enRef.current = Array(n).fill(null);
 
-  // After mount: pad shorter paragraphs so next pair aligns vertically
-  useEffect(() => {
-    const esCumulative: number[] = [];
-    const enCumulative: number[] = [];
-    for (let i = 0; i < n; i++) {
-      const esEl = esRef.current[i];
-      const enEl = enRef.current[i];
-      const esH = esEl?.offsetHeight ?? 0;
-      const enH = enEl?.offsetHeight ?? 0;
-      esCumulative.push((i > 0 ? esCumulative[i - 1] : 0) + esH);
-      enCumulative.push((i > 0 ? enCumulative[i - 1] : 0) + enH);
-    }
-    for (let i = 0; i < n; i++) {
-      const target = Math.max(esCumulative[i], enCumulative[i]);
-      const esEl = esRef.current[i];
-      const enEl = enRef.current[i];
-      if (esEl) {
-        const esPad = target - (i > 0 ? esCumulative[i - 1] : 0);
-        const extra = esPad - esEl.offsetHeight;
-        esEl.style.marginBottom = extra > 1 ? `${extra}px` : "0px";
-      }
-      if (enEl) {
-        const enPad = target - (i > 0 ? enCumulative[i - 1] : 0);
-        const extra = enPad - enEl.offsetHeight;
-        enEl.style.marginBottom = extra > 1 ? `${extra}px` : "0px";
-      }
-    }
-  }, [n]);
-
-  const renderPara = (text: string, className: string) => (
-    <p className={className} style={{ marginBottom: 0 }}>
-      {text.split(/(\s+)/).map((segment, j) =>
-        /^\s+$/.test(segment) ? (
-          segment
-        ) : (
-          <span
-            key={j}
-            className={
-              trackedWords?.has(normalizeWord(segment))
-                ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
-                : undefined
-            }
-          >
-            {segment}
-          </span>
-        )
-      )}
-    </p>
-  );
+  const renderWord = (text: string) =>
+    text.split(/(\s+)/).map((segment, j) =>
+      /^\s+$/.test(segment) ? (
+        segment
+      ) : (
+        <span
+          key={j}
+          className={
+            trackedWords?.has(normalizeWord(segment))
+              ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
+              : undefined
+          }
+        >
+          {segment}
+        </span>
+      )
+    );
 
   return (
     <div className="parallel-view" style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}>
       <div className="parallel-title">
         <div className="parallel-title-es">{chapter.title}</div>
+        <div className="parallel-gutter-vertical" />
         <div className="parallel-title-en">{chapter.titleEn ?? "CHAPTER"}</div>
       </div>
-      <div className="parallel-body">
-        <div className="parallel-col-es">
-          {spanishParas.slice(0, n).map((para, i) => (
-            <div key={i} ref={(el) => { esRef.current[i] = el; }} style={{ overflowWrap: "break-word", hyphens: "auto" }}>
-              {renderPara(para, "mb-0")}
-            </div>
-          ))}
+      {spanishParas.slice(0, n).map((esPara, i) => (
+        <div key={i} className="parallel-row">
+          {/* Spanish column */}
+          <div className="parallel-col-es">
+            <p style={{ margin: 0, overflowWrap: "break-word", hyphens: "auto" }}>
+              {renderWord(esPara)}
+            </p>
+          </div>
+          {/* Gutter */}
+          <div className="parallel-gutter-vertical" />
+          {/* English column */}
+          <div className="parallel-col-en">
+            <p style={{ margin: 0, overflowWrap: "break-word", hyphens: "auto" }}>
+              {renderWord(englishParas[i] ?? "")}
+            </p>
+          </div>
         </div>
-        <div className="parallel-gutter-vertical" />
-        <div className="parallel-col-en">
-          {englishParas.slice(0, n).map((para, i) => (
-            <div key={i} ref={(el) => { enRef.current[i] = el; }} style={{ overflowWrap: "break-word", hyphens: "auto" }}>
-              {renderPara(para, "mb-0")}
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

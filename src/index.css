@@ -31,6 +31,11 @@ article {
   }
 }
 
+/* Parallel view: each paragraph pair is one row (3-column grid: ES | gutter | EN) */
+.parallel-view {
+  padding: 1.5rem 1rem;
+}
+
 /* Chapter titles in parallel view */
 .parallel-title {
   display: grid;
@@ -42,7 +47,7 @@ article {
 }
 
 .parallel-title-es {
-  padding-right: 1rem;
+  padding-right: 1.5rem;
   font-style: italic;
   font-weight: bold;
   text-align: left;
@@ -50,32 +55,39 @@ article {
 }
 
 .parallel-title-en {
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   font-variant: small-caps;
   font-weight: bold;
   text-align: left;
   color: var(--color-stone-800, #292524);
 }
 
-/* Body: two full-height columns, each showing all their paragraphs */
-.parallel-body {
+/* Each paragraph pair: one grid row (ES | gutter | EN), height = max of both */
+.parallel-row {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr 1px 1fr;
   gap: 0;
   align-items: start;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-stone-100, #f5f5f4);
+}
+
+.parallel-row:last-child {
+  border-bottom: none;
 }
 
 .parallel-col-es,
 .parallel-col-en {
   text-align: left;
   overflow-wrap: break-word;
-}
-
-.parallel-col-es {
+  hyphens: auto;
   padding-right: 1.5rem;
+  box-sizing: border-box;
 }
 
 .parallel-col-en {
+  padding-right: 0;
   padding-left: 1.5rem;
 }
 
@@ -84,7 +96,6 @@ article {
   width: 1px;
   background: var(--color-stone-200, #e7e5e4);
   align-self: stretch;
-  min-height: 2rem;
 }
 
 /* Mobile: side-by-side with horizontal scroll */
@@ -93,18 +104,22 @@ article {
     overflow-x: scroll !important;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 0.5rem;
-    width: 100% !important;
   }
 
   .parallel-title {
     display: none;
   }
 
-  .parallel-body {
-    display: grid !important;
-    grid-template-columns: 200px 1px 200px !important;
-    width: max-content !important;
-    gap: 0 !important;
+  /* Each row: fixed-width columns with overflow */
+  .parallel-row {
+    display: flex !important;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+    min-width: max-content;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-stone-200, #e7e5e4);
   }
 
   .parallel-col-es,
@@ -115,17 +130,14 @@ article {
     padding: 0 0.5rem !important;
     font-size: 16px !important;
     line-height: 1.5 !important;
-    box-sizing: border-box !important;
-  }
-
-  .parallel-col-es {
-    border-right: none !important;
+    overflow-wrap: break-word !important;
   }
 
   .parallel-gutter-vertical {
     width: 1px !important;
     min-width: 1px !important;
     background: var(--color-stone-200, #e7e5e4) !important;
+    align-self: stretch !important;
   }
 }
 
@@ -137,6 +149,10 @@ article {
 .dark .parallel-title-es,
 .dark .parallel-title-en {
   color: var(--color-stone-100, #f5f5f4);
+}
+
+.dark .parallel-row {
+  border-color: var(--color-stone-800, #292524);
 }
 
 .dark .parallel-gutter-vertical {
