@@ -103,6 +103,7 @@ function ParallelView({
       ) : (
         <span
           key={j}
+          data-word=""
           className={
             trackedWords?.has(normalizeWord(segment))
               ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
@@ -125,7 +126,7 @@ function ParallelView({
         <div key={i} className="parallel-row">
           {/* Spanish column */}
           <div className="parallel-col-es">
-            <p style={{ margin: 0, overflowWrap: "break-word", hyphens: "auto" }}>
+            <p data-paragraph={i} style={{ margin: 0, overflowWrap: "break-word", hyphens: "auto" }}>
               {renderWord(esPara)}
             </p>
           </div>
@@ -133,7 +134,7 @@ function ParallelView({
           <div className="parallel-gutter-vertical" />
           {/* English column */}
           <div className="parallel-col-en">
-            <p style={{ margin: 0, overflowWrap: "break-word", hyphens: "auto" }}>
+            <p data-paragraph={i} style={{ margin: 0, overflowWrap: "break-word", hyphens: "auto" }}>
               {renderWord(englishParas[i] ?? "")}
             </p>
           </div>
