@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import type { BookChapter } from "../data/books";
 
 const WORD_TRIM_REGEX = /^[.,;:!?¿¡"'«»—-]+|[.,;:!?¿¡"'«»—-]+$/g;
@@ -16,8 +17,6 @@ interface Props {
   viewMode?: "single" | "parallel";
   /** English paragraphs for parallel view */
   englishParagraphs?: string[];
-  /** Aligned Spanish paragraphs (merged chunks) for parallel view */
-  alignedSpanishParagraphs?: string[];
 }
 
 export function BookContent({
@@ -28,7 +27,6 @@ export function BookContent({
   showTitle = true,
   viewMode = "single",
   englishParagraphs,
-  alignedSpanishParagraphs,
 }: Props) {
   const visibleParagraphIndices =
     paragraphIndices ?? chapter.paragraphs.map((_, index) => index);
@@ -38,7 +36,6 @@ export function BookContent({
       <ParallelView
         chapter={chapter}
         englishParagraphs={englishParagraphs}
-        alignedSpanishParagraphs={alignedSpanishParagraphs}
         fontSize={fontSize}
         trackedWords={trackedWords}
       />
@@ -84,25 +81,76 @@ export function BookContent({
   );
 }
 
-/** Parallel view: both languages shown as continuous columns, no row splitting. */
+/** Parallel view: both languages shown as continuous columns, each paragraph bottom-padded to align pairs. */
 function ParallelView({
   chapter,
   englishParagraphs,
-  alignedSpanishParagraphs,
   fontSize,
   trackedWords,
 }: {
   chapter: BookChapter;
   englishParagraphs: string[];
-  alignedSpanishParagraphs?: string[];
   fontSize: number;
   trackedWords?: ReadonlySet<string>;
 }) {
-  // Use aligned paragraphs if provided, otherwise fall back to chapter paragraphs
-  const spanishParas: string[] = (alignedSpanishParagraphs && alignedSpanishParagraphs.length > 0)
-    ? alignedSpanishParagraphs
-    : chapter.paragraphs;
-  const englishParas: string[] = englishParagraphs;
+  const spanishParas = chapter.paragraphs;
+  const englishParas = englishParagraphs;
+  const n = Math.min(spanishParas.length, englishParas.length);
+  // One ref per paragraph pair
+  const esRef = useRef<(HTMLDivElement | null)[]>([]);
+  const enRef = useRef<(HTMLDivElement | null)[]>([]);
+  if (esRef.current.length !== n) esRef.current = Array(n).fill(null);
+  if (enRef.current.length !== n) enRef.current = Array(n).fill(null);
+
+  // After mount: pad shorter paragraphs so next pair aligns vertically
+  useEffect(() => {
+    const esCumulative: number[] = [];
+    const enCumulative: number[] = [];
+    for (let i = 0; i < n; i++) {
+      const esEl = esRef.current[i];
+      const enEl = enRef.current[i];
+      const esH = esEl?.offsetHeight ?? 0;
+      const enH = enEl?.offsetHeight ?? 0;
+      esCumulative.push((i > 0 ? esCumulative[i - 1] : 0) + esH);
+      enCumulative.push((i > 0 ? enCumulative[i - 1] : 0) + enH);
+    }
+    for (let i = 0; i < n; i++) {
+      const target = Math.max(esCumulative[i], enCumulative[i]);
+      const esEl = esRef.current[i];
+      const enEl = enRef.current[i];
+      if (esEl) {
+        const esPad = target - (i > 0 ? esCumulative[i - 1] : 0);
+        const extra = esPad - esEl.offsetHeight;
+        esEl.style.marginBottom = extra > 1 ? `${extra}px` : "0px";
+      }
+      if (enEl) {
+        const enPad = target - (i > 0 ? enCumulative[i - 1] : 0);
+        const extra = enPad - enEl.offsetHeight;
+        enEl.style.marginBottom = extra > 1 ? `${extra}px` : "0px";
+      }
+    }
+  }, [n]);
+
+  const renderPara = (text: string, className: string) => (
+    <p className={className} style={{ marginBottom: 0 }}>
+      {text.split(/(\s+)/).map((segment, j) =>
+        /^\s+$/.test(segment) ? (
+          segment
+        ) : (
+          <span
+            key={j}
+            className={
+              trackedWords?.has(normalizeWord(segment))
+                ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
+                : undefined
+            }
+          >
+            {segment}
+          </span>
+        )
+      )}
+    </p>
+  );
 
   return (
     <div className="parallel-view" style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}>
@@ -112,48 +160,18 @@ function ParallelView({
       </div>
       <div className="parallel-body">
         <div className="parallel-col-es">
-          {spanishParas.map((para, i) => (
-            <p key={i} className="mb-4 text-left">
-              {para.split(/(\s+)/).map((segment, j) =>
-                /^\s+$/.test(segment) ? (
-                  segment
-                ) : (
-                  <span
-                    key={j}
-                    className={
-                      trackedWords?.has(normalizeWord(segment))
-                        ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
-                        : undefined
-                    }
-                  >
-                    {segment}
-                  </span>
-                )
-              )}
-            </p>
+          {spanishParas.slice(0, n).map((para, i) => (
+            <div key={i} ref={(el) => { esRef.current[i] = el; }} style={{ overflowWrap: "break-word", hyphens: "auto" }}>
+              {renderPara(para, "mb-0")}
+            </div>
           ))}
         </div>
         <div className="parallel-gutter-vertical" />
         <div className="parallel-col-en">
-          {englishParas.map((para, i) => (
-            <p key={i} className="mb-4 text-left">
-              {para.split(/(\s+)/).map((segment, j) =>
-                /^\s+$/.test(segment) ? (
-                  segment
-                ) : (
-                  <span
-                    key={j}
-                    className={
-                      trackedWords?.has(normalizeWord(segment))
-                        ? "rounded bg-emerald-100 px-0.5 dark:bg-emerald-900/50"
-                        : undefined
-                    }
-                  >
-                    {segment}
-                  </span>
-                )
-              )}
-            </p>
+          {englishParas.slice(0, n).map((para, i) => (
+            <div key={i} ref={(el) => { enRef.current[i] = el; }} style={{ overflowWrap: "break-word", hyphens: "auto" }}>
+              {renderPara(para, "mb-0")}
+            </div>
           ))}
         </div>
       </div>

@@ -1,0 +1,118 @@
+{
+  "timestamp": "2026-03-22T23:52:38.972230+00:00",
+  "model": "opencode/minimax-m2.5-free",
+  "passages": [
+    "ch1_p1",
+    "ch1_p7",
+    "ch2_p2",
+    "ch2_p9",
+    "ch7_p1"
+  ],
+  "results": [
+    {
+      "id": "ch1_p1",
+      "model": "opencode/minimax-m2.5-free",
+      "spanish": "En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.",
+      "candidate": "In a village of La Mancha, whose name I do not wish to recall, there lived not long ago a hidalgo of those of lance in the harness-rack, [ARC: an old leather shield], a lean hack, and a greyhound for racing. A pot of something more beef than mutton, salted meat most nights, [ARC: duelos y quebrantos: leftovers from fattened chickens killed on Saturdays], lentils on Fridays, some squab by way of addition on Sundays, consumed three parts of his estate. The rest of it was spent on a cloth coat of velvet, velvet breeches for holidays, with slippers of the same, and on ordinary weekdays he honored himself with his finest broadcloth doublet. He had in his house a housekeeper who was past forty, and a niece who had not yet reached twenty, and a farm and town hand, who could saddle the hack as well as take up the pruning hook. Our hidalgo was bordering on fifty years of age; he was of a robust constitution, lean of flesh, lean of face, an early riser, and a friend of hunting. They say that he had the surname Quejada, or Quesada, for in this there is some difference among the authors who have written of this matter; although, by plausible conjectures, it is understood that his name was Quejana. But this matters little to our story; it suffices that in the narration thereof not a point of the truth be departed from.",
+      "semantic_accuracy": 6,
+      "english_fluency": 7,
+      "style_preservation": 6,
+      "sxs_suitability": 5,
+      "overall": 6,
+      "reasoning": "The translation is readable but contains significant issues: 'lance in the harness-rack' misrenders the Spanish phrase (should indicate the hidalgo type), '[ARC:]' annotations break SXS flow, and paragraph boundaries don't align with the source. Food items show slight shifts (beef vs lamb, 'most nights' vs 'almost every night'). The archaic register is partially maintained but inconsistently applied.",
+      "issues": [
+        "Mistranslation: 'de los de lanza en astillero' rendered as 'of those of lance in the harness-rack' instead of conveying the meaning of a certain type of hidalgo",
+        "SXS unsuitability: [ARC:] annotations are editorial addenda, not translation, and would disrupt side-by-side reading",
+        "Paragraph alignment: No clear paragraph breaks matching the Spanish source structure",
+        "Minor semantic shift: 'more beef than mutton' instead of 'more lamb than beef' (más carnero que vaca)",
+        "Awkward phrasing: 'a greyhound for racing' is clunky; 'not long ago a hidalgo' is archaic but inconsistent with modern flow elsewhere"
+      ]
+    },
+    {
+      "id": "ch1_p7",
+      "model": "opencode/minimax-m2.5-free",
+      "spanish": "Fue luego a ver su rocín, y, aunque tenía más cuartos que un real y más tachas que el caballo de Gonela, que tantum pellis et ossa fuit, le pareció que no podía tener mejor rocín en el mundo.",
+      "candidate": "He then went to see his hack, and, although it had more flaws than a real and more blemishes than the horse of Gonela, that tantum pellis et ossa fuit [NOTE: Latin: \"only skin and bones\"], it seemed to him that neither Alexander's Bucephalus nor the Cid's Babieca could equal it. Four days he spent in imagining what name he would give it; because, as he told himself, it was not right that a horse of such a famous knight, and one so good in itself, should be without a known name; and thus he tried to fit it with a name that would declare who it had been, before it became a knight-errant, and what it then was; for it was very reasonable that, its master changing his estate, it should also change its name, and acquire a famous and sounding one, as was fitting for the new order and the new exercise that he now professed. And so, after many names that he formed, erased and removed, added, undid and remade in his memory and imagination, at last he came to call it Rocinante: a name, to his thinking, lofty, sonorous, and significant of what it had been when it was a hack, before what it now was, which was before and first of all the hacks in the world.",
+      "semantic_accuracy": 6,
+      "english_fluency": 8,
+      "style_preservation": 5,
+      "sxs_suitability": 5,
+      "overall": 6,
+      "reasoning": "Major additions harm accuracy: the Bucephalus/Babieca names and 'imperial' are invented, not present in the Spanish source. These represent content the author never wrote. The style preservation score is particularly low because the translation too often chooses fluid idiomatic English over the more formal, deliberately awkward original style—making side-by-side comparison unreliable.",
+      "issues": [
+        "FACTUAL ADDITION: 'neither Alexander's Bucephalus nor the Cid's Babieca' — these horse names (Bucephalus, Babieca) and the explicit Alexander/Cid comparison are not in the Spanish source, which only says he couldn't have a better hack in the world",
+        "OMISSION: 'imperial' (part of 'imperial Babieca') is lost; if Babieca was added, the epithet should match",
+        "STYLE: Translation too often opts for natural English flow over the original's deliberately formal, slightly awkward 17th-century prose; 'Four days he spent in imagining' becomes smooth modern English, losing the archaic texture",
+        "SXS TRACKING: Free paraphrasing ('that was the best horse in the world') obscures the Spanish structure; SXS readers cannot easily map text to source"
+      ]
+    },
+    {
+      "id": "ch2_p2",
+      "error": "Command '['/home/steve/.opencode/bin/opencode', 'run', '--model', 'opencode/minimax-m2.5-free', 'You are an expert evaluator of translation quality for bilingual parallel texts.\\n\\nSOURCE (Spanish): —"
+    },
+    {
+      "id": "ch2_p9",
+      "model": "opencode/minimax-m2.5-free",
+      "spanish": "Estaban acaso a la puerta dos mujeres mozas, destas que llaman del partido, las cuales iban a Sevilla con unos mulateros que en el mesquino mesón estaban.",
+      "candidate": "By chance there were at the door two young women, of those called of the district [NOTE: prostitutes], who were going to Seville with some muleteers who happened to be spending the night at that inn; and, since everything our adventurer thought, saw, or imagined seemed to him to be done and to happen in the manner of what he had read, as soon as he saw the inn, it was represented to him as a castle with its four towers and spires of shining silver, lacking nothing of its drawbridge and deep moat, with all those appurtenances that such castles are painted with. He approached the inn, which to him seemed a castle, and at a short distance from it he reined in Rocinante, waiting for some dwarf to place himself among the battlements to give a signal with some trumpet that a knight was arriving at the castle. But, when he saw they were taking long and that Rocinante was hurrying to reach the stable, he approached the door of the inn, and saw the two disheveled young women who were there, which to him seemed two beautiful maidens or two graceful ladies who were enjoying themselves in front of the castle gate. At this moment it happened by chance that a pig castrator [ARC: gelder] who was gathering from some stubble fields a herd of pigs —which, without forgiveness, are so called— sounded a horn, at whose signal they gather, and immediately what Don Quixote desired was represented to him, which was that some dwarf was making a signal of his arrival; and so, with strange contentment, he arrived at the inn and at the ladies, who, when they saw a man of such sort coming, armed and with lance and shield, full of fear, were going to enter the inn; but Don Quixote, inferring from their flight their fear, raising the paper helmet and revealing his dry and dusty face, with gentle bearing and quiet voice, said to them:",
+      "semantic_accuracy": 9,
+      "english_fluency": 10,
+      "style_preservation": 9,
+      "sxs_suitability": 9,
+      "overall": 9,
+      "reasoning": "The translation accurately conveys the meaning of the Spanish source. Key elements are preserved: 'dos mujeres mozas' → 'two young women', 'del partido' is correctly glossed as [NOTE: prostitutes], 'mulateros' → 'muleteers', 'mesón' → 'inn'. The extended passage correctly depicts Don Quixote's chivalric misinterpretation of reality (inn as castle, women as ladies, horn as dwarf's trumpet). English is natural and formal, matching Cervantes' elevated 17th-century prose style. Archaic elements like 'gracious' and 'your graces' preserve the original tone. SXS alignment is maintained—the opening sentence matches source, and subsequent content flows from the same narrative moment.",
+      "issues": [
+        "Minor variation: 'arrieros' (mule drivers) in Spanish source becomes 'muleteers' in English—both valid translations of the same concept, slight difference in terminology but same meaning",
+        "Enhanced elements like 'a short distance' add specificity not explicitly in Spanish but consistent with the narrative"
+      ]
+    },
+    {
+      "id": "ch7_p1",
+      "model": "opencode/minimax-m2.5-free",
+      "spanish": "Aquí, aquí, valientes caballeros; aquí se han de mostrar vuestras valerosas fuerzas, pues los caballeros de la corte llevan los mantenimientos.",
+      "candidate": "Here, here, valiant knights; here is where it is necessary to show the force of your valiant arms, for the court knights are carrying off the best of the tournament.",
+      "semantic_accuracy": 6,
+      "english_fluency": 7,
+      "style_preservation": 6,
+      "sxs_suitability": 5,
+      "overall": 6,
+      "reasoning": "Translation captures some chivalric register but contains significant semantic drift. The phrase 'los mantenimientos' (provisions/supplies) is mistranslated as 'carrying off the best of the tournament,' adding content not in source and shifting meaning. Word order also diverges considerably from Spanish, reducing SXS alignment.",
+      "issues": [
+        "'mantenimientos' (provisions) incorrectly rendered as 'the best of the tournament' - significant content addition",
+        "SXS alignment compromised: English diverges from Spanish word order (e.g., 'here is where it is necessary to show' vs 'aquí se han de mostrar')"
+      ]
+    }
+  ],
+  "summary": {
+    "semantic_accuracy": {
+      "mean": 6.75,
+      "min": 6,
+      "max": 9,
+      "count": 4
+    },
+    "english_fluency": {
+      "mean": 8.0,
+      "min": 7,
+      "max": 10,
+      "count": 4
+    },
+    "style_preservation": {
+      "mean": 6.5,
+      "min": 5,
+      "max": 9,
+      "count": 4
+    },
+    "sxs_suitability": {
+      "mean": 6.0,
+      "min": 5,
+      "max": 9,
+      "count": 4
+    },
+    "overall": {
+      "mean": 6.75,
+      "min": 6,
+      "max": 9,
+      "count": 4
+    }
+  }
+}

@@ -258,23 +258,6 @@ export function Reader({ bookMeta, onBack }: Props) {
     return paras[effectiveChapterIndex].split("\n\n");
   }, [viewMode, bookMeta, effectiveChapterIndex, englishByBookId]);
 
-  // Compute aligned Spanish paragraphs: merge chapter paragraphs proportionally to match English count
-  const alignedSpanishParagraphs = useMemo(() => {
-    if (viewMode !== "parallel") return [] as string[];
-    if (!currentChapter || englishParagraphs.length === 0) return [] as string[];
-    const es = currentChapter.paragraphs;
-    const en = englishParagraphs.length;
-    if (es.length === en) return es;
-    const aligned: string[] = [];
-    for (let i = 0; i < en; i++) {
-      const start = Math.floor((i * es.length) / en);
-      const end = Math.floor(((i + 1) * es.length) / en);
-      const chunk = es.slice(start, end);
-      aligned.push(chunk.length > 0 ? chunk.join("\n\n") : "");
-    }
-    return aligned;
-  }, [viewMode, currentChapter, englishParagraphs]);
-
   const englishError = useMemo(() => {
     if (viewMode !== "parallel") return null;
     if (!bookMeta || effectiveChapterIndex === undefined) return null;
@@ -591,7 +574,6 @@ export function Reader({ bookMeta, onBack }: Props) {
                 showTitle={true}
                 viewMode="parallel"
                 englishParagraphs={englishParagraphs}
-                alignedSpanishParagraphs={alignedSpanishParagraphs}
               />
             ) : viewMode === "parallel" && englishError ? (
               <div className="py-8 text-center text-sm text-stone-500">
