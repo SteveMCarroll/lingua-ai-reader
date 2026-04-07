@@ -42,6 +42,13 @@ export const books: BookMeta[] = [
     description:
       "The greatest novel in the Spanish language. Follow the adventures of the ingenious knight and his faithful squire.",
   },
+  {
+    id: "conquista-nueva-espana",
+    title: "Verdadera historia de los sucesos de la conquista de la Nueva-España",
+    author: "Bernal Díaz del Castillo",
+    description:
+      "El relato testimonial de un soldado que acompañó a Hernán Cortés. Crónica directa y apasionante de la conquista de México.",
+  },
 ];
 
 const bookCache = new Map<string, BookData>();
