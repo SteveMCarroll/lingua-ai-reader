@@ -26,16 +26,20 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
     const beforeText = paragraphText.slice(0, offset);
     const afterText = paragraphText.slice(offset);
 
+    // Sentence boundaries: Western (. ! ? with space) + Japanese (。！？)
     const sentenceStart = Math.max(
       beforeText.lastIndexOf(". ") + 2,
       beforeText.lastIndexOf("! ") + 2,
       beforeText.lastIndexOf("? ") + 2,
       beforeText.lastIndexOf("¿"),
       beforeText.lastIndexOf("¡"),
+      beforeText.lastIndexOf("。"),
+      beforeText.lastIndexOf("！"),
+      beforeText.lastIndexOf("？"),
       0
     );
 
-    let sentenceEnd = afterText.search(/[.!?]\s|[.!?]$/);
+    let sentenceEnd = afterText.search(/[.!?]\s|[.!?]$|[。！？]/);
     if (sentenceEnd === -1) sentenceEnd = afterText.length;
     else sentenceEnd += 1;
 
@@ -105,7 +109,8 @@ export function useTextSelection(containerRef: React.RefObject<HTMLElement | nul
       }
 
       const rawWord = target.textContent || "";
-      const word = rawWord.replace(/^[.,;:!?¿¡"'«»—-]+|[.,;:!?¿¡"'«»—-]+$/g, "");
+      // Trim surrounding punctuation (Western + Japanese)
+      const word = rawWord.replace(/^[.,;:!?¿¡"'«»—、。]+|[.,;:!?¿¡"'«»—、。]+$/g, "");
       if (!word) return;
 
       // Get sentence context from paragraph

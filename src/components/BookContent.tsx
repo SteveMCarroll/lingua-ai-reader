@@ -1,9 +1,40 @@
 import type { BookChapter } from "../data/books";
+import TinySegmenter from "tiny-segmenter";
 
 const WORD_TRIM_REGEX = /^[.,;:!?¿¡"'«»—-]+|[.,;:!?¿¡"'«»—-]+$/g;
 
 function normalizeWord(value: string): string {
   return value.replace(WORD_TRIM_REGEX, "").toLowerCase();
+}
+
+// Singleton segmenter instance (lazy-init)
+let _segmenter: InstanceType<typeof TinySegmenter> | null = null;
+function getSegmenter(): InstanceType<typeof TinySegmenter> {
+  if (!_segmenter) _segmenter = new TinySegmenter();
+  return _segmenter;
+}
+
+/**
+ * Split a paragraph into word segments suitable for [data-word] spans.
+ * - Space-delimited languages (Spanish, English): split on whitespace
+ * - Japanese: use TinySegmenter for morphological tokenization
+ */
+function splitIntoWordSegments(paragraph: string, language?: string): string[] {
+  if (language === "ja") {
+    return getSegmenter().segment(paragraph);
+  }
+  // Default: split on whitespace, preserving spaces as segments
+  return paragraph.split(/(\s+)/);
+}
+
+/** Check if a segment is whitespace (should not be wrapped in a data-word span) */
+function isWhitespaceSegment(segment: string, language?: string): boolean {
+  if (language === "ja") {
+    // In Japanese, punctuation marks and brackets are their own segments
+    // but they're not "whitespace" — they just shouldn't be trimmed
+    return /^\s+$/.test(segment);
+  }
+  return /^\s+$/.test(segment);
 }
 
 interface Props {
@@ -16,6 +47,8 @@ interface Props {
   viewMode?: "single" | "parallel";
   /** English paragraphs for parallel view */
   englishParagraphs?: string[];
+  /** Language code for tokenization (e.g. "ja", "es") */
+  language?: string;
 }
 
 export function BookContent({
@@ -26,6 +59,7 @@ export function BookContent({
   showTitle = true,
   viewMode = "single",
   englishParagraphs,
+  language,
 }: Props) {
   const visibleParagraphIndices =
     paragraphIndices ?? chapter.paragraphs.map((_, index) => index);
@@ -37,6 +71,7 @@ export function BookContent({
         englishParagraphs={englishParagraphs}
         fontSize={fontSize}
         trackedWords={trackedWords}
+        language={language}
       />
     );
   }
@@ -56,8 +91,8 @@ export function BookContent({
             data-paragraph={paragraphIndex}
             className="mb-4 text-justify"
           >
-            {para.split(/(\s+)/).map((segment, j) =>
-              /^\s+$/.test(segment) ? (
+            {splitIntoWordSegments(para, language).map((segment, j) =>
+              isWhitespaceSegment(segment, language) ? (
                 segment
               ) : (
                 <span
@@ -86,19 +121,21 @@ function ParallelView({
   englishParagraphs,
   fontSize,
   trackedWords,
+  language,
 }: {
   chapter: BookChapter;
   englishParagraphs: string[];
   fontSize: number;
   trackedWords?: ReadonlySet<string>;
+  language?: string;
 }) {
-  const spanishParas = chapter.paragraphs;
+  const originalParas = chapter.paragraphs;
   const englishParas = englishParagraphs;
-  const n = Math.min(spanishParas.length, englishParas.length);
+  const n = Math.min(originalParas.length, englishParas.length);
 
-  const renderWord = (text: string) =>
-    text.split(/(\s+)/).map((segment, j) =>
-      /^\s+$/.test(segment) ? (
+  const renderWord = (text: string, lang?: string) =>
+    splitIntoWordSegments(text, lang).map((segment, j) =>
+      isWhitespaceSegment(segment, lang) ? (
         segment
       ) : (
         <span
@@ -122,12 +159,12 @@ function ParallelView({
         <div className="parallel-gutter-vertical" />
         <div className="parallel-title-en">{chapter.titleEn ?? "CHAPTER"}</div>
       </div>
-      {spanishParas.slice(0, n).map((esPara, i) => (
+      {originalParas.slice(0, n).map((origPara, i) => (
         <div key={i} className="parallel-row">
-          {/* Spanish column */}
+          {/* Original language column */}
           <div className="parallel-col-es">
             <p data-paragraph={i} style={{ margin: 0, overflowWrap: "break-word", hyphens: "auto" }}>
-              {renderWord(esPara)}
+              {renderWord(origPara, language)}
             </p>
           </div>
           {/* Gutter */}

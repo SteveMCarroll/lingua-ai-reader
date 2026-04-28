@@ -16,7 +16,7 @@ type ViewMode = "single" | "parallel";
 
 const BASE_CHROME_HEIGHT = 220;
 const TRACKED_WORDS_PREFIX = "tracked-words:";
-const WORD_TRIM_REGEX = /^[.,;:!?¿¡"'«»—-]+|[.,;:!?¿¡"'«»—-]+$/g;
+const WORD_TRIM_REGEX = /^[.,;:!?¿¡"'«»—、。]+|[.,;:!?¿¡"'«»—、。]+$/g;
 
 function normalizeWord(value: string): string {
   return value.replace(WORD_TRIM_REGEX, "").toLowerCase();
@@ -574,6 +574,7 @@ export function Reader({ bookMeta, onBack }: Props) {
                 showTitle={true}
                 viewMode="parallel"
                 englishParagraphs={englishParagraphs}
+                language={bookMeta.language}
               />
             ) : viewMode === "parallel" && englishError ? (
               <div className="py-8 text-center text-sm text-stone-500">
@@ -593,6 +594,7 @@ export function Reader({ bookMeta, onBack }: Props) {
                 paragraphIndices={currentPageParagraphIndices}
                 trackedWords={trackedWords}
                 showTitle={activePageIndex === 0}
+                language={bookMeta.language}
               />
             )
           ) : null}

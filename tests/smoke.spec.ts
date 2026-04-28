@@ -97,8 +97,8 @@ test.describe("Lingua AI Reader", () => {
     await page.locator("text=Marianela").click();
     await expect(page.locator("text=Escoge un libro")).not.toBeVisible({ timeout: 5000 });
 
-    // Click back — find the back/left arrow button in the header
-    const backBtn = page.getByRole("button", { name: /volver|back|←/i });
+    // Click back — the "← Books" button in the header
+    const backBtn = page.getByRole("button", { name: /Books/i });
     if (await backBtn.isVisible()) {
       await backBtn.click();
       await expect(page.locator("text=Escoge un libro")).toBeVisible({ timeout: 5000 });

@@ -3,6 +3,7 @@ export interface BookMeta {
   title: string;
   author: string;
   description: string;
+  language?: string; // "ja", "es", etc. — affects word tokenization
 }
 
 export interface BookChapter {
@@ -48,6 +49,7 @@ export const books: BookMeta[] = [
     author: "原民喜",
     description:
       "A powerful autobiographical account of the Hiroshima atomic bombing. Written in literary Japanese with rich vocabulary — a challenging but rewarding read for advanced learners.",
+    language: "ja",
   },
   {
     id: "conquista-nueva-espana",
