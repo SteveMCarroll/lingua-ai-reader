@@ -38,10 +38,15 @@ const vocabCache = new Map<string, Promise<BookVocabData | null>>();
 export function loadBookVocab(bookId: string): Promise<BookVocabData | null> {
   if (vocabCache.has(bookId)) return vocabCache.get(bookId)!;
 
-  const request = fetch(`/vocab/${bookId}.json`, { cache: "force-cache" })
+  const request = fetch(`/vocab/${bookId}.json`, { cache: "no-cache" })
     .then(async (res) => {
       if (!res.ok) return null;
-      return (await res.json()) as BookVocabData;
+      const data = await res.json();
+      // Defensive: vocab files must be objects with book_vocab, not bare arrays
+      if (!data || typeof data !== "object" || Array.isArray(data) || !data.book_vocab) {
+        return null;
+      }
+      return data as BookVocabData;
     })
     .catch(() => null);
 
