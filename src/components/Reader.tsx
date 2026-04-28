@@ -329,6 +329,7 @@ export function Reader({ bookMeta, onBack }: Props) {
         bookTitle: bookMeta.title,
         author: bookMeta.author,
         bookId: bookMeta.id,
+        language: bookMeta.language,
       });
     }
   }, [selection, bookMeta, requestGloss]);

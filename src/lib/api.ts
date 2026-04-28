@@ -5,6 +5,7 @@ export interface GlossRequest {
   sentence: string;
   bookTitle: string;
   author: string;
+  language?: string;
 }
 
 export interface GlossResponse {
