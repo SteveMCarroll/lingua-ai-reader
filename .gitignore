@@ -33,3 +33,4 @@ scripts/raw/*.txt
 .venv/
 api/
 __pycache__/
+test-results/
