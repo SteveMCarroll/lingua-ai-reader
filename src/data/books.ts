@@ -43,6 +43,13 @@ export const books: BookMeta[] = [
       "The greatest novel in the Spanish language. Follow the adventures of the ingenious knight and his faithful squire.",
   },
   {
+    id: "natsu-no-hana",
+    title: "夏の花",
+    author: "原民喜",
+    description:
+      "A powerful autobiographical account of the Hiroshima atomic bombing. Written in literary Japanese with rich vocabulary — a challenging but rewarding read for advanced learners.",
+  },
+  {
     id: "conquista-nueva-espana",
     title: "Verdadera historia de los sucesos de la conquista de la Nueva-España",
     author: "Bernal Díaz del Castillo",
