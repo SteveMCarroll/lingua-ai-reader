@@ -1,1 +1,13 @@
-[]
+{
+  "book_id": "natsu-no-hana",
+  "title": "夏の花",
+  "author": "原民喜",
+  "book_vocab": {
+    "total_tokens": 0,
+    "num_chapters": 12,
+    "recommended_top": 0,
+    "min_count": 1,
+    "vocabulary": []
+  },
+  "chapters": []
+}
